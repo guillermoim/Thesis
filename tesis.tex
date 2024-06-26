@@ -1,0 +1,235 @@
+\documentclass[12pt, a4paper,twoside]{tesi_upf}
+
+
+%CODIFICATION
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{url} 
+
+%IMPORTED PACKAGES BY GUILLERMO
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+\usepackage{mathtools}
+\usepackage[noend]{algpseudocode}
+\usepackage{todonotes}
+\usepackage{amsthm}
+\usepackage{adjustbox}
+\usepackage{todonotes}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xspace}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{natbib}  
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,positioning}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing}
+
+%LENGUAGE
+\usepackage[english,catalan]{babel}
+
+%ONLY TO OBTAIN MARK BANK INDEX INDICATION A4
+\usepackage[cam,a4,center,frame]{crop}
+
+%INCLUDE GRAPHICS AND THE LOGO OF THE UPF
+\usepackage{graphicx}
+
+%FONTS TIMES OR GARAMOND, 
+%\usepackage{times}
+\usepackage{ebgaramond}
+
+%WITHOUT HEADINGS: NO MODIFICATION
+\pagestyle{plain}
+
+%FOR THE INDEX OF SUBJECTS
+\usepackage{makeidx}
+\makeindex
+
+%BIBLIOGRAPHY STYLE
+\bibliographystyle{apalike}
+
+
+%SELECT LANGUAGE
+\selectlanguage{english}
+
+%THE TABLE OF CONTENTS IS TITLE CONTENTS
+\addto\captionscatalan
+  {\renewcommand{\contentsname}{\Large \sffamily Sumari}}
+
+
+%COMMANDS CREATED BY GUILLERMO
+% macros:
+\newcommand{\tS}{\text{t}}   % for terminal states
+\newcommand{\tSi}{\tau}   % for terminal states in the subtasks
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cX}{\mathcal{X}}
+
+
+\newcommand{\EE}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\EEc}[2]{\mathbb{E}\left[#1\;\middle\lvert\;#2\right]}
+\newcommand{\EEcp}[3]{\mathbb{E}_{#3}\left[#1\;\middle\lvert\;#2\right]}
+\newcommand{\KL}[2]{\mathrm{KL}\left(#1 \lVert #2\right)}
+\newcommand{\pa}[1]{\left(#1\right)}
+
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\onenorm}[1]{\norm{#1}_1}
+\newcommand{\infnorm}[1]{\norm{#1}_\infty}
+
+\newcommand{\diag}{\text{diag}}
+\newcommand{\real}{\mathbb{R}}
+
+\newcommand{\w}{\mathbf{w}}
+
+\definecolor{mygreen}{HTML}{569e34}
+\newcommand{\checklist}[1]{{\color{mygreen}#1}}
+
+\newcommand{\boldpsi}{\boldsymbol{\mathbf{\psi}}}
+
+\DeclareMathOperator*{\argmin}{argmin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+% \newenvironment{proof}[1][Proof]{\begin{trivlist}
+% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+%ADD YOUR DATA
+\title{Compositionality for Hierarchical Reinforcement Learning}
+\subtitle{}
+\author{Guillermo Infante Molina}
+\thyear{2024}
+\department{de Tecnologies de la Informaci\'o i les Comunicacions}
+\supervisor{Anders Jonsson, Vicen\c{c} G\'omez}
+
+
+\begin{document}
+
+
+\frontmatter
+
+\maketitle
+
+\cleardoublepage
+
+
+%%%%%% Dedication
+
+\noindent Write here your dedication
+
+\cleardoublepage
+
+%%%%%% End dedication
+
+
+%%%%%% Thanks
+\noindent {\Large \sffamily Thanks} thanks to....
+
+\cleardoublepage
+
+%%%%%% End of thanks
+
+%ABSTRACT IN TWO LEGUAGES.
+\selectlanguage{english}
+\section*{\Large \sffamily Abstract}
+This is the abstract of the thesis in English.  Please, use less
+than 150 words.
+
+\cleardoublepage
+%END OF ABSTRACT
+
+%PREFACE. 
+{\bf Preface}
+
+\cleardoublepage
+%END OF PREFACE
+
+
+%TABLE OF CONTENTS: REQUIRED
+\tableofcontents
+
+%lIST OF FIGURES; ONLY IF THERE ARE FIGURES
+\listoffigures
+%TO APPER THE LIST OF FIGURES IN THE TABLE OF CONTENTS 
+\addcontentsline{toc}{chapter}{List of figures}
+
+%LIST OF TABLES; ONLY IF THERE ARE TABLES
+\listoftables
+%TO APPEAR THE LIST OF TABLES IN THE TABLE OF CONTENTS
+\addcontentsline{toc}{chapter}{List of tables}
+
+%START THE TEXT
+\mainmatter
+\chapter*{Introduction}
+
+
+
+
+
+\chapter{Introduction}
+\input{chapters/introduction}
+
+\chapter{background}
+\input{chapters/background}
+
+% \chapter{Globally Optimal Hierarchical Reinforcement Learning for Linearly-solvable Markov Decision Processes}
+% \input{chapters/chapter1}
+% \chapter{Hierarchical Average-reward Linearly-solvable Markov Decision Pocesses}
+% \input{chapters/chapter2}
+% \chapter{Compositionality with Successor Features via Policy Basis}
+% \input{chapters/chapter3}
+% \chapter{Conclusion}
+% \input{chapters/conclusion}
+
+% \bibliographystyle{natbibt}
+% \bibliography{bibliography}
+
+
+
+\backmatter 
+\printindex
+
+
+\end{document}
+
+
+%NUMBER OF THE EXTERNAL PAGE EXCEPT IN THE FIRST PAGE OF EACH CAPITAL
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyfoot[RO]{\thepage}
+\fancyfoot[LE]{\thepage}
+
+
+%MULTIPLE INDEX
+%In the preamble
+\usepackage{multind}
+\makeindex{authors}
+%Introduction to form entries
+\index{authors}{Einstein}
+%Situation of the Index
+\printindex{authors}{Author index}
+%The \ usepakage {makeidx} \ makeindex \ printindex commands must be removed
+%You need to exacute from the command line makeindex authors
