@@ -1,0 +1,66 @@
+    \begin{adjustbox}{width=\columnwidth}
+    \begin{tikzpicture}
+    \newcommand\xoffset{5.5}
+    \draw[step=0.8,line width=0.5pt,shift={(0.2,0.2)}] (0.8,0.8) grid (4.8,4.8);
+
+    \draw[line width=0.5pt, fill=yellow, opacity=0.5] (1,1) rectangle (1.8, 1.8);
+    \draw[line width=0.5pt, fill=red, opacity=0.5] (1,4.2) rectangle (1.8, 5);
+    \draw[line width=0.5pt, fill=blue, opacity=0.5] (4.2,1) rectangle (5, 1.8);
+    \draw[line width=0.5pt, fill=green, opacity=0.5] (4.2,4.2) rectangle (5, 5);
+    
+    \draw[line width=2pt] (1,1) rectangle (5,5);
+    \draw[line width=2pt] (1.8,1) -- (1.8,2.6);
+    \draw[line width=2pt] (4.2,1) -- (4.2,2.6);
+    \draw[line width=2pt] (2.6, 3.4) -- (2.6,5);
+
+    \node at (1.35,1.4) {\LARGE $\text{\person}$};
+    \node at (3,2.2) { $\text{\taxi}$};
+
+    \draw[step=0.8,line width=0.5pt,shift={(\xoffset+0.2,0.2)}] (0.8,0.8) grid (4.8,4.8);
+    
+    %bottom left 
+    \draw[line width=2pt, shift={(\xoffset,0)}] (0.965,0.17) -- (1.835,0.17);
+    \draw[line width=2pt,shift={(\xoffset,0)}] (1.8,0.17) -- (1.8,2.6); % OK
+
+    % bottom right
+    \draw[line width=2pt, shift={(\xoffset,0)}] (5.8,0.965) -- (5.8,1.835);
+    \draw[line width=2pt, shift={(\xoffset,0)}] (4.965,1.83) -- (5.835,1.83);
+
+    % top right
+    \draw[line width=2pt, shift={(\xoffset,0)}] (5.035,5.8) -- (4.2,5.8);
+    \draw[line width=2pt, shift={(\xoffset,0)}] (4.2,5.835) -- (4.2,4.965);
+
+    % top LEFT
+    \draw[line width=2pt, shift={(\xoffset,0)}] (0.17,5.035) -- (0.17,4.165);
+    \draw[line width=2pt, shift={(\xoffset,0)}] (0.17,4.2) -- (1.035,4.2);
+
+    
+    % \draw[line width=2pt, shift={(5.8,0)}] (1.8,1) -- (5.8,1);
+    
+    
+    % \draw[line width=2pt, shift={(\xoffset,0)}] (1,4.2) -- (1,0.17);
+
+
+    % \draw[line width=2pt,shift={(5.8,0)}] (1,1) rectangle (5,5);
+    \draw[line width=2pt, shift={(\xoffset,0)}] (1,4.2) -- (1,0.17); % EAST WALL OK
+    \draw[line width=2pt,shift={(\xoffset,0)}] (1.8,1) -- (5.8,1); % SOUTH WALL OK
+    \draw[line width=2pt,shift={(\xoffset,0)}] (5,1.8) -- (5,5.8); % WEST WALL OK
+    \draw[line width=2pt,shift={(\xoffset,0)}] (4.2,5) -- (0.17,5); % NORTH WALL OK
+
+    % Interior obstacles
+    \draw[line width=2pt,shift={(\xoffset,0)}] (4.2,1) -- (4.2,2.6);
+    \draw[line width=2pt,shift={(\xoffset,0)}] (2.6, 3.4) -- (2.6,5);
+    
+
+    \node[shift={(\xoffset,0)}] at (1.35, 0.5) {\small $E_1$};
+    \node[shift={(\xoffset,0)}] at (5.3, 1.3) {\small $E_2$};
+    \node[shift={(\xoffset,0)}] at (4.5, 5.3) {\small $E_3$};
+    \node[shift={(\xoffset,0)}] at (0.7, 4.5) {\small $E_4$};
+
+    
+
+    
+    \node at (3,0.5) {\Large a)};
+    \node at (8.75,0.5) {\Large b)};
+    \end{tikzpicture}
+    \end{adjustbox}

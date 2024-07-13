@@ -1,0 +1,15 @@
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning,automata,arrows}
+\usepackage{pifont}
+\usepackage{fontawesome,wasysym,marvosym}
+
+\newcommand{\coffee}[0]{{\color{black}\Coffeecup}\xspace}
+\newcommand{\taxi}[0]{{\color{purple}\faTaxi}\xspace}
+\newcommand{\person}[0]{{\color{black}\Gentsroom}\xspace}
+
+\newcommand{\mail}[0]{\Letter}
+
+\newcommand{\agent}{\resizebox{4mm}{!}{\begin{tikzpicture}\node[draw, thick, shape border rotate=90, isosceles triangle, isosceles triangle apex angle=60, fill=violet!70!white, fill opacity=1.0, node distance=1cm,minimum height=1.5em] at (0,0) {};\end{tikzpicture}}\xspace}
+
+\newcommand{\miniagent}{\resizebox{2mm}{!}{\begin{tikzpicture}\node[draw, thick, shape border rotate=90, isosceles triangle, isosceles triangle apex angle=60, fill=violet!70!white, fill opacity=1.0, node distance=1cm,minimum height=1.5em] at (0,0) {};\end{tikzpicture}}\xspace}

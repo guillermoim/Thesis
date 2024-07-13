@@ -1,0 +1,227 @@
+\section{Proof Theorem~\ref{theo:almdps}}
+\label{proof:theo_almdps}
+\subsection{Preliminaries}
+We introduce the notation:
+\begin{itemize}
+    \item $\mathds{1}$ denotes an all-ones vector of length $\lvert\cS\rvert$.
+    \item $\indicator{p}$ is the indicator function that takes $1$ when predicate $p$ is true and $0$ otherwise.
+\end{itemize}
+
+We assumme an underlying continuing LMDP $\cL=\langle\cS,\cP,\cR\rangle$ where $\cS$ represents the state space, $\cP$ the passive dynamics and $\cR$ the reward function. Similarly to [Section B.1] in~\cite{Wan2021}, we also assume there exists a set-valued process $\{X_t\}$ where $X_t$ is a non-empty subset defined as ${X_t = \{ (s) : s\;\text{component of $v$ was updated at timestep $t$} \}}$.
+
+We recall that the TD updates in the asynchronous case are 
+\begin{align}
+\widehat{v}_{t+1}(s) &\gets \widehat{v}_t(s) + \alpha_t(s) \delta_t(s) \indicator{s\in X_t},\label{eq:updatev}\\
+\widehat{\rho}_{t+1} &\gets \widehat{\rho}_t + \lambda \sum_s \alpha_t(s) \delta_t(s) \indicator{s\in X_t}.\label{eq:updaterho}
+\end{align}
+The indicator $\indicator{s\in X_t}$ specifies whether the value of state $s$ updates at timestep $t$. The TD error for state $s$ is
+\begin{align*}
+\delta_t(s) %&= r_t(s) - \widehat{\rho}_t - \frac 1 \eta \log \frac {\widehat{\pi}_t(s_{t+1}|s_t)} {\cP(s_{t+1}|s_t)} + \widehat{v}_t(s_{t+1}) - \widehat{v}_t(s_t)\\
+ &= r_t(s) - \widehat{\rho}_t + \frac 1 \eta \log \sum_{s'\in\cS} \cP(s'|s) e^{\eta \widehat{v}_t(s')} - \widehat{v}_t(s).
+\end{align*}
+
+We introduce a series of necessary assumptions for convergence. We adapt Assumptions B.1-B.5 in~\cite{Wan2021} to the case of LMDPs. Assumptions~\ref{ass:communicating} and~\ref{ass:uniqueness} are standard in average-reward settings, while Assumption~\ref{ass:stepsize1} is the standard Robbins-Monro conditions for step sizes. Assumptions~\ref{ass:stepsize2} and~\ref{ass:stepsize3} are introduced in the convergence argument of RVI Q-learning by~\citet{Borkar1998} and specify some requirements for the learning rates when asynchronous updates are performed. For more details we refer the reader to Section B.1 of~\cite{Wan2021}.
+% \begin{assumption}
+%  (Communicating assumption) The LMDP $\cL$ has a single communicating class, that is, each state in $\cL$ is accessible from every other state under some policy.
+%  \label{ass:communicating}
+% \end{assumption}
+
+% NOT NEEDED since we have unichain
+
+\begin{assumption}
+ (Value function uniqueness) There exists a unique solution to $v$ in equation~\eqref{eq:boe_almdp} up to a constant shift.
+  \label{ass:uniqueness}
+\end{assumption}
+\begin{assumption} (Stepsize assumption)
+    \begin{equation*}
+        \alpha_t > 0,\;\sum_{t=0}^{\infty} \alpha_t = \infty,\;\sum_{t=0}^{\infty} \alpha_t^2 < \infty.
+    \end{equation*}
+      \label{ass:stepsize1}
+\end{assumption}
+\begin{assumption}
+    (Asynchronous Stepsize 1) Let $[\cdot]$ denote the integer part of $(\cdot)$, for $x\in(0, 1)$
+    \begin{equation*}
+        \sup_i \frac{\alpha_{[xi]}}{\alpha_i} < \infty
+    \end{equation*}
+    and
+    \begin{equation*}
+        \frac{\sum_{j=0}^{[yi]}\alpha_j}{\sum_{j=0}^i\alpha_j}\rightarrow 1
+    \end{equation*}
+    \label{ass:stepsize2}
+    uniformly in $y \in[x, 1]$.
+\end{assumption}
+
+\begin{assumption}
+    (Asynchronous Stepsize 2) There exists $\Delta>0$ such that
+    \begin{equation*}
+        {\lim\inf}_{t\rightarrow\infty} \frac{\nu(t, s)}{t+1}\geq \Delta
+    \end{equation*}
+    almost surely, for all $s\in\cS$. Here $\nu(t, s)$ represents the visitation count for state $s$ up to timestep $t$. Furthermore, for all $x > 0$, let
+    \begin{equation*}
+        N(t, x) = \min \Big\{m > t: \sum_{i=t+1}^m \alpha_i \geq x \Big\}
+    \end{equation*}
+    \label{ass:stepsize3}
+    the limit 
+    \begin{equation*}
+       \lim_{t\rightarrow\infty} \frac{\sum_{i=\nu(t, s)}^{\nu(N(t, x), s)} \alpha_i}{\sum_{i=\nu(t, s')}^{\nu(N(t, x), s')} \alpha_i}
+    \end{equation*}
+    exists for all $s, s'\in\cS$.
+\end{assumption}
+
+Under the communication assumption, the system
+\begin{align}
+    v(s) &= \cR(s) - \rho + \frac{1}{\eta} \log \sum {\cP(s'\lvert s) e^{\eta v(s')}},\;\;\forall s\in\cS, \\
+    \rho - \hat\rho_0 &= \lambda \Big(\sum_s v(s) - \sum_s\hat v_0(s)\Big),
+\end{align}
+has a unique solution for $v$ which we denote as $v_\infty$, where $\rho$ is the optimal gain.
+
+At each timestep the increment to $\hat\rho_t$ is $\lambda$ times the increment to $\hat v_t$, and thus, to $\sum_s \hat v_t(s)$. The cumulative increment at $t$ can be expressed as
+\begin{align}
+     \hat\rho_t - \hat\rho_0 &= \lambda \sum_{i=0}^{t-1}\sum_s \alpha_i(s)\delta_i(s) \indicator{s\in X_t}\nonumber\\
+                   &= \lambda \Big(\sum_s\hat v_t(s) - \sum_s\hat v_0 (s)\Big)\nonumber \\
+    \implies \hat\rho_t &= \lambda \sum_s \hat v_t(s) - \lambda\sum_s \hat v_0 (s) + \hat\rho_0 \\
+    &= \lambda\sum_s \hat v_t(s) - c, \label{eq:cum_rho}\\
+    \text{where}\;c &= \lambda \sum_s \hat v_0(s) - \hat\rho_0.
+\end{align}
+
+If we replace~\ref{eq:cum_rho} in~\ref{eq:updatev}, we obtain
+\begin{equation}
+    \widehat{v}_{t+1}(s) \gets \widehat{v}_t(s) + \alpha_t(s) \widetilde\delta_t(s)  \mathbb{I}\{s\in X_t\},~~\forall{s\in\cS},
+    \label{eq:td_asynchronous_full}
+\end{equation}
+where
+\begin{equation}
+    \widetilde\delta_t(s) = r_t(s) + c - \lambda\sum_s \hat v_t(s) - \frac 1 \eta \log \sum_{s'\in\cS} \cP(s'|s) e^{\eta \widehat{v}_t(s')} - \widehat{v}_t(s).
+\end{equation}
+
+This can be interpreted as the TD error of an alternative LMDP $\widetilde\cL=\langle\cS,\cP,\widetilde\cR\rangle$ in which the reward is defined as $\widetilde\cR(s) = \cR(s) + c$ and the gain estimate equals $\lambda \sum_{s\in\cS} \widehat{v}_t(s)$.
+%$\lambda \sum_{s'\in\cS} \widehat{v}_t(s)$.
+The gain of $\widetilde\cL$ satisfies 
+\begin{equation}
+    \widetilde\rho = \rho + c.
+    \label{eq:alternative_reward}
+\end{equation}
+
+The former expression, combined with~\eqref{eq:cum_rho} gives
+\begin{equation}
+    \widetilde\rho = \lambda \sum_s v_\infty.
+    \label{eq:extended_rho}
+\end{equation}
+It is easy to verify that $v_\infty$ is not only the solution for the original LMDP $\cL$, but also for the alternative LMDP $\widetilde\cL$,
+\begin{align*}
+     v_\infty(s) &= \cR(s) - \rho + \frac{1}{\eta} \log \sum_{s'} {\cP(s'\lvert s) e^{\eta v_\infty(s')}}\;\;\forall s\in\cS\\
+     &= \cR(s) - \widetilde\rho + c + \frac{1}{\eta} \log \sum_{s'} {\cP(s'\lvert s) e^{\eta v_\infty(s')}}\;\;\forall s\in\cS\;(\text{by}~\eqref{eq:alternative_reward})  \\
+      &= \widetilde\cR(s) - \widetilde\rho + \frac{1}{\eta} \log \sum_{s'} {\cP(s'\lvert s) e^{\eta v_\infty(s')}}\;\;\forall s\in\cS.
+\end{align*}
+
+Now consider $\hat\rho_t$. If we can prove that $\hat v_t\rightarrow v_\infty$ then by~\eqref{eq:cum_rho} we have $\hat\rho_t\rightarrow\lambda\sum v_\infty - c$. By~\eqref{eq:extended_rho}, we know that $\lambda\sum v_\infty = \widetilde\rho$, then we have $\hat\rho_t\rightarrow\widetilde\rho-c$. Using~\eqref{eq:alternative_reward}, we get 
+\begin{equation*}
+    \hat\rho_t\rightarrow\rho\;\text{almost surely as}\;t\rightarrow\infty.
+\end{equation*}
+
+The idea is to prove the convergence of differential soft TD-learning for the alternative LMDP $\widetilde\cL$, which is the same solution as for the original LMDP $\cL$.
+
+We adapt Theorem B.2 in~\cite{Wan2021}.
+
+\begin{theorem} (Convergence of differential TD learning)
+    For any $v_0\in\real^{\lvert\cS\rvert}$, let $r_t$, $X_t$, $\alpha_t$ be properly defined and consider the update rule
+    \begin{equation}
+        \widehat{v}_{t+1}(s) \gets \widehat{v}_t(s) + \alpha_t(s) \big( r_t(s) - \lambda\sum_s \hat v_t(s) - \frac 1 \eta \log \sum_{s'\in\cS} \cP(s'|s) e^{\eta \widehat{v}_t(s')} - \widehat{v}_t(s)\big)  \mathbb{I}\{s\in X_t\},
+        \label{eq:td_update_theo}
+    \end{equation}
+    
+    \begin{enumerate}
+        \item Assumptions~\ref{ass:unichain} and~\ref{ass:uniqueness}-\ref{ass:stepsize3} hold.
+        \item $f:\real^{\lvert\cS\rvert}\rightarrow\real$ is Lipschitz and there exists some $u>0$ such that $\forall c\in\real$ and $x\in\real^{\lvert\cS\rvert}$, $f(\mathds{1})=u$, $f(x + c\mathds{1})=f(x)+cu$ and $f(cx) = c f(x)$
+    \end{enumerate}
+    then $\hat v_t$ converges almost surely to $v_\infty$.
+    \label{theo:our_theorem}
+\end{theorem}
+
+We observe that~\eqref{eq:td_update_theo} is in the same form of equationB.24 in~\cite{Wan2021} and equation7.1 in~\cite{Borkar2009}. Thus the results in Section 7.4 in~\cite{Borkar2009} and Theorem 3.2~\cite{Borkar1998} apply to show convergence of~\eqref{eq:td_update_theo}. Due to Assumptions~\ref{ass:stepsize2} and ~\ref{ass:stepsize3}, to show convergence of \eqref{eq:td_asynchronous_full} suffices to show convergence of the following synchronous update
+\begin{equation}
+    \widehat{v}_{t+1} \gets \widehat{v}_t + \alpha_t \pa{ T(\widehat{v}_t) - f(\widehat{v}_t) \mathds{1} - \widehat{v}_t + M_{t+1}}.
+    \label{eq:synchronous}
+\end{equation}
+
+Here, $\hat v_t\in\real^{\lvert\cS\rvert}$ is interpreted as a vector, and the operator $T$ is a mapping $T:\real^d\rightarrow\real^d$ defined for each state $s$ as
+\begin{equation*}
+    T(v)(s) = \cR(s) + \frac 1 \eta \log \sum_{s'\in\cS} \cP(s'|s) e^{ \eta v(s') }.
+\end{equation*}
+We also define the following operators, 
+\begin{align*}
+    T^1(v) &= T(v) - \rho\mathds{1} \\
+    T^2(v) &= T(v) - f(v)\mathds{1} =  T^1(v) + (\rho - f(v))\mathds{1}.
+\end{align*}
+
+The function $f$ is given by $f(v) = \lambda\sum_s v(s)$, which satisfies condition 2 of Theorem~\ref{theo:our_theorem}. The error term $M_{t+1}=r_t-\cR$ is only needed in case the reward vector $r_t$ is sampled from a distribution with mean $\cR$; if reward is deterministic, $M_{t+1}$ can be omitted. If the reward is sampled from a distribution, it should be easy to show that $M_{t+1}$ has zero mean and bounded variance.
+
+The operator $T$ is a non-expansion in the max-norm:
+\begin{align*}
+T(x)(s) - T(y)(s) &= \frac 1 \eta \log \sum_{s'} \cP(s'|s) e^{\eta x(s')} - \frac 1 \eta \log \sum_{s'} \cP(s'|s) e^{\eta y(s')}\\
+ &= \frac 1 \eta \log \frac {\sum_{s'} \cP(s'|s) e^{\eta x(s')}} {\sum_{s'} \cP(s'|s) e^{\eta y(s')}}\\
+ &\leq \frac 1 \eta \log \frac {\sum_{s'} \cP(s'|s) e^{\eta \pa{ y(s') + \infnorm{x-y} }}} {\sum_{s'} \cP(s'|s) e^{\eta y(s')}}\\
+ &= \frac 1 \eta \log e^{\eta \infnorm{x-y} } \frac {\sum_{s'} \cP(s'|s) e^{\eta y(s')}} {\sum_{s'} \cP(s'|s) e^{\eta y(s')}}\\
+ &= \infnorm{x - y}.
+\end{align*}
+Hence we have
+\[
+\infnorm{T(x)-T(y)} = \max_s |T(x)(s) - T(y)(s)| \leq \infnorm{x - y}.
+\]
+
+We also show the following property of $T$:
+\begin{align*}
+T(x + c\mathds{1})(s) &= \cR(s) + \frac 1 \eta \log \sum_{s'} \cP(s'|s) e^{\eta \pa{ x(s') + c }}\\
+ &= \cR(s) + \frac 1 \eta \log e^{\eta c} \sum_{s'} \cP(s'|s) e^{\eta x(s')}\\
+ &= \cR(s) + \frac 1 \eta \sum_{s'} \cP(s'|s) e^{\eta x(s')} + c\\
+ &= T(x)(s) + c.
+\end{align*}
+Hence it follows that $T(x + c\mathds{1}) = T(x) + c\mathds{1}$.
+
+We consider the following ordinary differential equations (ODEs),
+\begin{align}
+    \dot{y}_t &= T^1(y_t) - y_t \label{eq:ode1} \\
+    \dot{x}_t &= T^2(x_t) - x_t \label{eq:ode2}.
+\end{align}
+Such equations are well-defined since both RHS's are Lipschitz thanks to the properties of $f$ and $T$.
+
+\noindent We complete the proof as a succession of lemmas.
+
+\begin{lemma}
+    Let $\bar{y}$ be equilibrium point of the ODE defined in~\eqref{eq:ode1}. Then $\infnorm{y_t - \bar{y}}$ is non-increasing and $y_t\rightarrow y_\infty$ for some equilibrium point of \eqref{eq:ode2}.
+\end{lemma}
+
+\begin{proof}
+    See Lemma 3.1 in~\cite{Abounadi2001}.
+\end{proof} 
+
+\begin{lemma}
+    Equation~\eqref{eq:ode2} has a unique equilibrium at $v_\infty$.
+\end{lemma}
+
+\begin{proof}
+    See Lemma 3.2 in~\cite{Abounadi2001}.
+\end{proof}
+
+\begin{lemma}
+    Let $x_0=y_0$, then $x_t = y_t + z_t\mathds{1}$ satisfies the ODE $\dot{z}_t = -u z_t + (\rho - f(y_t))$.
+\end{lemma}
+\begin{proof}
+    See Lemma 3.3 in~\cite{Abounadi2001}.
+\end{proof} 
+
+\begin{lemma}
+    $v_\infty$ is the globally asymptotically stable equilibrium for~\eqref{eq:ode2}
+\end{lemma}
+\begin{proof}
+    See Lemma B.4 in~\cite{Wan2021}.
+\end{proof}  
+
+\begin{lemma}
+    Equation~\eqref{eq:synchronous} converges almost surely $\hat v_t$ to $v_\infty$ as $t\rightarrow\infty$.
+\end{lemma} 
+\begin{proof}
+    See Lemma B.5 in~\cite{Wan2021} and Lemma 3.8 in~\cite{Abounadi2001}.
+\end{proof}
+
+Therefore, stability and convergence of equation~\eqref{eq:td_update_theo} is proved.
