@@ -14,7 +14,6 @@
 \usepackage{xcolor}         % colors
 \usepackage{mathtools}
 \usepackage[noend]{algpseudocode}
-\usepackage{todonotes}
 \usepackage{amsthm}
 \usepackage{adjustbox}
 \usepackage{todonotes}
@@ -27,9 +26,24 @@
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{amsmath}
-\usepackage{natbib}  
-
+\usepackage{natbib}
 \usepackage{tikz}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+% \usepackage{mathspec} 
+\usepackage{adjustbox}
+\usepackage{dsfont}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage{setspace}
+\usepackage{comment}
+
+
+\usepackage[hyperfootnotes=false]{hyperref}
+\hypersetup{
+  citecolor=blue,}
+
+
 \usetikzlibrary{arrows,automata,positioning}
 \usetikzlibrary{shapes.multipart}
 \usetikzlibrary{decorations.markings}
@@ -55,9 +69,11 @@
 \usepackage{makeidx}
 \makeindex
 
-%BIBLIOGRAPHY STYLE
-\bibliographystyle{apalike}
 
+\usepackage{enumitem}
+\setlist[itemize]{topsep=-0.5pt}
+
+\usepackage{rotating}
 
 %SELECT LANGUAGE
 \selectlanguage{english}
@@ -68,6 +84,9 @@
 
 
 %COMMANDS CREATED BY GUILLERMO
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+
 % macros:
 \newcommand{\tS}{\text{t}}   % for terminal states
 \newcommand{\tSi}{\tau}   % for terminal states in the subtasks
@@ -76,9 +95,13 @@
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cD}{\mathcal{D}}
 \newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cH}{\mathcal{H}}
 \newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
 \newcommand{\cL}{\mathcal{L}}
 \newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\cR}{\mathcal{R}}
 \newcommand{\cS}{\mathcal{S}}
@@ -86,6 +109,11 @@
 \newcommand{\cU}{\mathcal{U}}
 \newcommand{\cV}{\mathcal{V}}
 \newcommand{\cX}{\mathcal{X}}
+
+\newcommand{\kernel}{\mathbb{P}}
+
+\newcommand{\indicator}[1]{\mathds{I}\{#1\}}
+
 
 
 \newcommand{\EE}[1]{\mathbb{E}\left[#1\right]}
@@ -110,11 +138,19 @@
 
 \DeclareMathOperator*{\argmin}{argmin}
 
-\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
 % \newenvironment{proof}[1][Proof]{\begin{trivlist}
 % \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\input{macros/mdrawing}
+
 
 %ADD YOUR DATA
 \title{Compositionality for Hierarchical Reinforcement Learning}
@@ -180,36 +216,37 @@ than 150 words.
 %TO APPEAR THE LIST OF TABLES IN THE TABLE OF CONTENTS
 \addcontentsline{toc}{chapter}{List of tables}
 
+% LENGTH OF SPACES BETWEEN PARAGRAPHS
+\setlength{\parskip}{0.5\baselineskip}
+\setlength{\parindent}{0pt}
+
 %START THE TEXT
 \mainmatter
-\chapter*{Introduction}
-
-
-
-
 
 \chapter{Introduction}
 \input{chapters/introduction}
 
-\chapter{background}
+\chapter{Background}
 \input{chapters/background}
 
-% \chapter{Globally Optimal Hierarchical Reinforcement Learning for Linearly-solvable Markov Decision Processes}
-% \input{chapters/chapter1}
-% \chapter{Hierarchical Average-reward Linearly-solvable Markov Decision Pocesses}
-% \input{chapters/chapter2}
-% \chapter{Compositionality with Successor Features via Policy Basis}
-% \input{chapters/chapter3}
+\chapter{Globally Optimal Hierarchical Reinforcement Learning for Linearly-solvable Markov Decision Processes}
+\input{chapters/chapter1}
+\chapter{Hierarchical Average-reward Linearly-solvable Markov Decision Pocesses}
+\input{chapters/chapter2}
+\chapter{Compositionality with Successor Features via Policy Basis}
+\input{chapters/chapter3}
 % \chapter{Conclusion}
 % \input{chapters/conclusion}
 
-% \bibliographystyle{natbibt}
-% \bibliography{bibliography}
+\bibliographystyle{plainnat}
+\bibliography{bibliography}
 
-
+\appendix
+\input{chapters/appendix.tex}
 
 \backmatter 
 \printindex
+
 
 
 \end{document}

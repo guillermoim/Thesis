@@ -1,116 +1,272 @@
-\chapter{Bakground}
 
+This chapter introduces all the notation and background necessary to understand the subsequent chapters.
 
-
+Notation:
+\begin{itemize}
+  \item Given a finite set $\cX$, let $\Delta(\cX)=\{p\in\real^\cX:\sum_x p(x)=1, p(x)\geq 0\;(\forall x)\}$ denote the probability simplex on $\cX$. 
+  \item Given a probability distribution $p\in\Delta(\cX)$, let $\cB(p)=\{x\in\cX:p(x) > 0\}\subseteq\cX$ denote the support of $p$.
+  \item Given a set $\cX$, let$\lvert\cX\rvert$ denote the cardinality of set $\cX$.
+\end{itemize}
 \section{Reinforcement Learning and Markov Decision Processes}
 
-Sequential Decision Probles have often ha
+% Sequential decision problems are inherent to human nature, e.g.~cooking a certain recipe, driving a car or solving a mathematical problem. Meeting these tasks usually entails coming up with a sequence of timed actions that lead to the desired goal. In this sense, Reinforcement Learning (RL) is used as a learning paradigm to model such problems, where the objective can be expressed numerically and the outcome is some kind of decision rule (\textit{policy}) that ultimately solves a given task. 
 
-Reinforcement Learning is a learning paradigm, though often is also defined as a learning problem itself \citep{Todorov2006}, that commonly assumes an underlying Markov Decision Process (MDP). An MDP is a tuple ${\cM = \langle\cS,\cA,\cR,\mathbb{P},\mathbb{P}_0\rangle}$. Here
-\begin{itemize}
-    \item $\cS$ is the set of states.
-    \item $\cA$ is the set of actions.
-    \item $\cR:\cS\times\cA\times\cS\rightarrow\real$ is a reward function. In this defintion, the reward function maps transitions $(s, a, s')\in\cS\times\cA\times\cS$ to scalars, however this 
-    \item $\mathbb{P}:\cS\times\cA\rightarrow\Delta(\cA)$ is the transition probabality function.
-    \item $\mathbb{P_0}:\Delta(S)$ is the initial state distribution.
+% RL problems commonly assume an underlying Markov Decision Process (MDP) that represents the interaction between an \textit{agent} and an \textit{environment}. An MDP is defined as a tuple ${\cM = \langle\cS,\cA,\cR,\mathbb{P},\mathbb{P}_0\rangle}$. Here,
+% \begin{itemize}
+%     \item $\cS$ is the set of states.
+%     \item $\cA$ is the set of actions.
+%     \item $\cR:\cS\times\cA\times\cS\rightarrow\real$ is a reward function. In this defintion, the reward function maps transitions $(s, a, s')\in\cS\times\cA\times\cS$ to scalars, however this 
+%     \item $\mathbb{P}:\cS\times\cA\rightarrow\Delta(\cA)$ is the transition probabality function.
+%     \item $\mathbb{P_0}:\Delta(S)$ is the initial state distribution.
+% \end{itemize}
+% The learning process in RL is typically illustrated with Figure~\ref{fig:rl_loop}. This shows how an agent interacts sequentially with an environment: it observes a state $S_t$, selects action $A_t$ according to policy $\pi_t$ and the environment returns a scalar reward $\cR_{t+1}$ and a new state $S_{t+1}$. Capital letters refer to random variables and lowercase to ralizations of these random variables. The interaction until timestep $t$ is recorded in a history:
+% \begin{equation*}
+%     h_t = (s_0, a_0, r_1, s_1, a_1,\dots, a_{t-1}, s_t)
+% \end{equation*}
+
+
+% \begin{figure}[t!h]
+%     \centering
+%     \includegraphics[width=0.65\textwidth]{figures/RL_loop.png}
+%     \caption{Caption}
+%     \label{fig:rl_loop}
+% \end{figure}
+
+\subsection{Policies}
+% Policies specify decision rules within the context of RL and determines which action the agent should use next. Policies are divided in several categories,
+% \begin{itemize}
+%     \item Stationary, if the policy $\pi$ remain the same for any time $t$, or non-stationary, when the policy $\pi_t$ depends on the time $t$.
+%     \item Deterministic, if the policy $\pi:\cS\rightarrow\cA$ determines a single action, or randomized, if instead the policy $\pi:\cS\rightarrow\Delta(\cA)$ is a distributions over actions.
+%     \item A polciy can be defined over the set of histories $\pi:\cH\rightarrow\cA$ or can be Makovian, if $\pi:\cS\rightarrow\cA$ depends solely on the current state.
+% \end{itemize}
+% On what follows, we will assume policies to be stationary, Markovian and randomized unless otherwise specified.
+
+\subsection{Optimality criteria}
+
+% RL algorithms try to find an optimal policy that maximizes some sort of numerical objective. Throughout this work, the following optimality criteria will be used~\citep{Puterman1994},
+
+% \begin{itemize}
+%     \item In the \textbf{average reward} setting, an optimal policy is one that maximizes the reward rate per step, also called or gain or just optimal average reward, defined as,
+%     \begin{equation}
+%         \rho^\pi = \lim_{N\rightarrow\infty}{\frac 1 N}\EEc{\sum_{i=t}^N\cR(S_{i}, A_i, S_{i+1})}{S_t=s, A_i\sim\pi(S_t), S_{t+1}}
+%     \end{equation}
+%     \item For the \textbf{discounted} case, the definition of an MDP 
+%      \begin{equation}
+%         \EEc{\sum_{i=t}^\infty \gamma^{i-t} \cR(S_{i}, A_i, S_{i+1})}{\pi}
+%     \end{equation}
+%     \item \textbf{Total reward}: 
+%     \begin{equation}
+%         \EEc{\sum_{i=t}^T \cR(S_{i}, A_i, S_{i+1})}{\pi}
+%     \end{equation}
+% \end{itemize}
+
+
+\subsection{Value Functions}
+
+\subsection{Dynamic Programming}
+
+\subsection{Function Approximation}
+
+\section{Linearly-solvable Markov decision processes}
+
+Linearly-solvable Markov decision processes are a restricted class of the more general MDPs where the Bellman optimality equations are linear. This makes the computation of optimal value functions more efficient. In continuous state space domains or contexts of optimal control as probablistic inference, they frequently appear under the names of path-integral or Kullback-Leibler control~\citep{Kappen2012}. 
+
+However, this formulation is arguably restricted and only applicable to domains with deterministic dynamics. Nonetheless, the intuition of entropy-regularization~\citep{Neu2017}, that lies at the core of LMDPs, is fundamental in RL as it is one of the building blocks of current state-of-the-art deep reinforcement learning algorithms such as or Trust Region Policy Optimization~\citep{Schulman2015}, soft actor-critic (SAC)~\citep{Haarnoja2018} or Manchausen RL~\citep{Vieillard2020}.
+
+\subsection{First-exit linearly-solvable Markov decision processes}
+
+A first-exit linearly-solvable Markov decision process, or just LMDP~\citep{Todorov2006,Kappen2005}, is defined as a tuple $\cL=\langle\cS,\cT,\kernel,\cR,\cJ\rangle$, where: \begin{itemize}
+  \item $\cS$ is a set of non-terminal states.
+  \item $\cT$ is a set of terminal states.
+  \item $\kernel:\cS\rightarrow\Delta(\cS^+)$ is an uncontrolled transition function, also known as passive dynamics or passive controls.
+  \item $\cR:\cS\rightarrow\real$ is a reward function for non-terminal states.
+  \item $\cJ:\cT\rightarrow\real$ is a reward function for terminal states.
 \end{itemize}
-The RL learning loop is typically illustrated with Figure~\ref{fig:rl_loop}. It shows an agent that interacts with an environment in a sequential fashion: it observes a state $S_t$, selects action $A_t$ according to policy $\pi_t$ and the environment returns a scalar reward $\cR_{t+1}$ and a new state $S_{t+1}$.
 
+\noindent Let $\cS^+=\cS\cup\cT$ denote the full set of states and $B=\max_{s\in\cS}|\cB(\kernel(\cdot|s))|$ an upper bound on the support of $\kernel$. 
 
-\begin{figure}
-    \centering
-\includegraphics[width=0.65\textwidth]{figures/RL_loop.png}
-    \caption{Caption}
-    \label{fig:rl_loop}
-\end{figure}
+Similarly to the stardard RL learning loop, the agent interacts with the environment in a sequential manner. Nontheless, since there are no explict actions, the learning agent now follows a policy $\pi:\cS\rightarrow\Delta(\cS^+)$. Such a policy chooses, for each non-terminal state $s\in\cS$, a probability distribution over next states in the support of $\kernel(\cdot|s)$, i.e.~$\pi(\cdot|s)\in\Delta(\cB(\kernel(\cdot|s))$. There is also no explicit mention to the initial state distribution, which is asummed to be uniform over the set of non-terminal states (~i.e. $\kernel_0 = \text{unif}(\cS)$). 
 
-\section{Linearly-solvable Reinforcement Learning}
-
-
-\section{Background}
-
-%In this section we present the necessary background for our work and introduce notation used throughout.
-
-Given a finite set $\cX$, let $\Delta(\cX)=\{p\in\real^\cX:\sum_x p(x)=1,\linebreak p(x)\geq 0\;(\forall x)\}$ denote the probability simplex on $\cX$. Given a probability distribution $p\in\Delta(\cX)$, let $\cB(p)=\{x\in\cX:p(x) > 0\}\subseteq\cX$ denote the support of $p$.
-
-
-\subsection{Linearly-Solvable Markov Decision Processes}
-
-A linearly-solvable Markov decision process, or LMDP~\citep{Todorov2006}, can be defined as a tuple $\cL=\langle\cS,\cT,\cP,\cR,\cJ\rangle$, where $\cS$ is a set of non-terminal states, $\cT$ is a set of terminal states, $\cP:\cS\rightarrow\Delta(\cS^+)$ is an uncontrolled transition function, $\cR:\cS\rightarrow\real$ is a reward function for non-terminal states, and $\cJ:\cT\rightarrow\real$ is a reward function for terminal states. We use $\cS^+=\cS\cup\cT$ to denote the full set of states, and $S^+=|\cS^+|$ (resp.~$S=|\cS|$) to denote the number of (non-terminal) states. 
-We also use $B=\max_{s\in\cS}|\cB(\cP(\cdot|s))|$ to denote an upper bound on the support of $P$.
-
-The learning agent follows a policy $\pi:\cS\rightarrow\Delta(\cS^+)$ that, for each non-terminal state $s\in\cS$, chooses a probability distribution over next states in the support of $\cP(\cdot|s)$, i.e.~$\pi(\cdot|s)\in\Delta(\cB(\cP(\cdot|s))$. In each round $t$, the learning agent observes a state $s_t\in\cS^+$. If $s_t$ is non-terminal, the agent transitions to a new state $s_{t+1}\sim\pi(\cdot|s_t)$ and receives an immediate reward
+At each timestep $t$, the learning agent observes a state $s_t\in\cS^+$. If $s_t$ is non-terminal, the agent transitions to a new state $s_{t+1}\sim\pi(\cdot|s_t)$ and receives an immediate, regularized reward
 \[
-\cR(s_t,\pi) = \cR(s_t) - \lambda\cdot\mathrm{KL}(\pi(\cdot|s_t)\Vert\, \cP(\cdot|s_t)),
-\]
-where $\cR(s_t)$ is the reward associated with state $s_t$, $\mathrm{KL}(\pi(\cdot|s_t)\Vert\, \cP(\cdot|s_t))$ is the Kullback-Leibler divergence between $\pi(\cdot|s_t)$ and $\cP(\cdot|s_t)$, and $\lambda$ is a temperature parameter. Hence the agent can set the probability distribution $\pi(\cdot|s_t)$ freely, but gets penalized for deviating from the uncontrolled distribution $\cP(\cdot|s_t)$. On the other hand, if $s_t$ is terminal, the agent receives reward $\cJ(s_t)$ and then the current episode ends. The aim of the agent is to compute a policy $\pi$ that maximizes the expected future reward (i.e.~value), defined in each non-terminal state $s\in\cS$ as
-\[
-v^\pi(s) = \EEc{\sum_{t=1}^{T-1} \cR(S_t,\pi) + \cJ(S_T)}{S_1 = s}.
-\]
-Here, $T$ is a random variable representing the time at which the current episode ends, and $S_t$ is a random variable representing the state at time $t$. The expectation is over the stochastic choice of next state $S_{t+1}\sim\pi(\cdot|S_t)$ at each time~$t$, and the time $T$ it takes for the episode to end. We assume that the reward of all non-terminal states is negative, i.e.~$\cR(s)<0$ for each $s\in\cS$. As a consequence, $\cR(s,\pi)<0$ holds for any policy $\pi$, and the value $v^\pi(s)$ has a well-defined upper bound. %As an alternative to the assumption $\cR(s)<0$, we could instead assume that each policy terminates with probability 1 within a fixed time horizon $H$.
+\cR(s_t, s_{t+1},\pi) = \cR(s_t) - \frac 1 \eta \log \frac {\pi(s_{t+1}|s_t)} {\kernel(s_{t+1}|s_t)},
+\] 
+where $\cR(s_t)$ is the reward associated with state $s_t$, and $\eta$ is a temperature parameter. 
+%  $\mathrm{KL}(\pi(\cdot|s_t)\Vert\, \kernel(\cdot|s_t))$ is the Kullback-Leibler divergence between $\pi(\cdot|s_t)$ and $\kernel(\cdot|s_t)$ defined as 
+% \begin{equation*}
+%   \mathrm{KL}(\pi(\cdot|s)\Vert\, \kernel(\cdot|s)) = \sum_{s'} \pi(s'\lvert s) \log \frac{\pi(s'\lvert s)}{\kernel(s'\lvert s)}
+% \end{equation*}
 
-We are interested in computing the optimal value function $v^*:\cS\rightarrow\real$, i.e.~the maximum expected future reward among all policies. For simplicity, in what follows we omit the asterisks and refer to the optimal value function simply as the value function. We extend the value function to each terminal state $\tS\in\cT$ by defining $v(\tS)\equiv\cJ(t)$. The value function $v$ satisfies the Bellman equations
+Hence the agent can set the probability $\pi(s_{t+1}|s_t)$ freely, but gets penalized by the entropy-regularization term for deviating from the passive controls $\kernel(s_{t+1}|s_t)$, and this penalty is modulated by the temperature parameter $\eta$. On the other hand, if $s_t$ is terminal, the agent receives reward $\cJ(s_t)$ and then the current episode ends. The aim of the agent is to compute a policy $\pi$ that maximizes the expected future \textbf{total reward}. Thus, for each non-terminal state $s\in\cS$, the value function is defined as
+\[
+v^\pi_\eta(s) = \EEc{\sum_{i=t}^{T-1} \cR(S_i, S_{i+1},\pi) + \cJ(S_T)}{S_t = s, \pi}.
+\]
+
+Here, $T$ is a random variable representing the time at which the current episode ends, and $S_t$ is a random variable representing the state at time $t$. The expectation is over the stochastic choice of next state $S_{t+1}\sim\pi(\cdot|S_t)$ at each time~$t$, and the time $T$ it takes for the episode to end. It is assumed that the reward of all non-terminal states is negative, i.e.~$\cR(s)<0$ for each $s\in\cS$. As a consequence, $\cR(s,\pi)<0$ holds for any policy $\pi$, and the value $v^\pi_\eta(s)$ has a well-defined upper bound. Note that the value function is computed with respect to a concrete value of the temperature parameter $\eta$.  
+%As an alternative to the assumption $\cR(s)<0$, we could instead assume that each policy terminates with probability 1 within a fixed time horizon $H$.
+
+
+Finding the optimal policy implies computing the optimal value function ${v^*_\eta:\cS\rightarrow\real}$, i.e.~the maximum expected future total reward among all policies. The value function is extended to each terminal state $\tau\in\cT$ by defining $v^*_\eta(\tau)\equiv\eta\cJ(\tau)$. The value function $v^*_\eta$ satisfies the Bellman equations
 \begin{align*}
-& \frac 1 \lambda v(s) = \frac 1 \lambda \max_\pi \left[ \cR(s,\pi) + \mathbb{E}_{s'\sim\pi(\cdot|s)} v(s') \right] \\
- &= \frac{1}{\lambda} \cR(s) + \max_\pi \mathbb{E}_{s'\sim\pi(\cdot|s)} \left[ \frac 1 \lambda v(s') - \log \frac {\pi(s'|s)} {\cP(s'|s)} \right] \;\; \forall s.
+  \eta v^*_\eta(s) &= \eta \max_\pi \left[ \cR(s,\pi) + \mathbb{E}_{s'\sim\pi(\cdot|s)} v^*_\eta(s') \right] \\
+  &= \eta \cR(s) + \max_\pi \mathbb{E}_{s'\sim\pi(\cdot|s)} \left[ \eta v^*_\eta(s') - \log \frac {\pi(s'|s)} {\kernel(s'|s)} \right] \;\; \forall s.
 \end{align*}
-We introduce the notation $z(s)=e^{v(s)/\lambda}$ for each $s\in\cS^+$, and often abuse notation by referring to $z(s)$ as the (optimal) value of $s$. The maximization in the Bellman equations can be resolved analytically, yielding the following Bellman equations that are linear in $z$:
-\begin{equation}\label{eq:z}
-z(s) = e^{\cR(s)/\lambda} \sum_{s'}\cP(s'|s)z(s').
+In expectation, the regularization term in reduces to the Kullback-Liebler divergence between $\pi$ and $\kernel$,
+\begin{equation*}
+  \mathbb{E}_{s'\sim\pi(\cdot|s)} \log \frac {\pi(s'|s)} {\kernel(s'|s)} = \sum_{s'}\kernel(s'\lvert s)\log\frac{\pi(s'\lvert s)}{\kernel(s'\lvert s)} = \mathrm{KL}\big(\pi(\cdot|s)\Vert\, \kernel(\cdot|s)\big).
+\end{equation*}
+
+The maximization in the Bellman equations can be resolved analytically~\citep{Todorov2006}, and the expression above can be rewritten as
+\begin{align*}
+  v^*_\eta(s)      &=  \frac 1 \eta \log{\sum_{s'\in\cS}\kernel(s'\lvert s)e^{\eta(\cR(s) + v^*_\eta(s'))})} \;\;\forall s\in\cS, \\
+                   &=  \cR(s) + \frac 1 \eta \log{\sum_{s'\in\cS}\kernel(s'\lvert s)e^{\eta v^*_\eta(s')}} \;\;\forall s\in\cS, \\
+  \eta v^*_\eta(s) &=  \eta \cR(s) + \log{\sum_{s'\in\cS}\kernel(s'\lvert s)e^{\eta v^*_\eta(s')}} \;\;\forall s\in\cS.
+\end{align*}
+Now, consider the notation $z(s)=e^{\eta v^*_\eta(s)}$ for each $s\in\cS^+$. This notation is often abused by referring to $z(s)$ as the (optimal) value of $s$. After exponentiating, the previous system yields the following Bellman optimality equations that are linear in $z$:
+\begin{equation}\label{eq:boe_z_lmdp}
+z(s) = e^{\eta\cR(s)} \sum_{s'}\kernel(s'|s)z(s').
 \end{equation}
-We can express the Bellman equation in matrix form by defining an $S\times S$ diagonal reward matrix $R=\diag(e^{\cR(\cdot)/\lambda})$ and an $S\times S^+$ stochastic transition matrix $P$ whose entries $(s,s')$ equal $\cP(s'|s)$. We also define a vector $\bf z$ that stores the values $z(s)$ for each non-terminal state $s\in\cS$, and a vector $\bf z^+$ extended to all states in $\cS^+$. We can now write the Bellman equations in matrix form:
-\begin{equation}\label{eq:matrixz}
+\subsubsection{Solving a first-exit LMDP}
+The Bellman equation can be expressed in matrix form by defining an $\lvert\cS\rvert\times\lvert\cS\rvert$ diagonal reward matrix $R=\diag(e^{\eta\cR(\cdot)})$ and an $\lvert\cS\rvert\times \lvert\cS^+\rvert$ stochastic transition matrix $P$ whose entries $(s,s')$ equal $\kernel(s'|s)$. Define a vector $\bf z$ that stores the values $z(s)$ for each non-terminal state $s\in\cS$, and a vector $\bf z^+$ extended to all states in $\cS^+$. Now the Bellman equations are written in matrix form:
+\begin{equation}\label{eq:eigen_lmdp}
 {\bf z} = R P {\bf z^+}.
 \end{equation}
 Given $z$, the optimal policy $\pi$ is given by the following expression for each pair of states $(s,s')$:
-\begin{equation}\label{eq:pi}
-\pi(s'|s) = \frac {\cP(s'|s)z(s')} {\sum_{s''} \cP(s''|s)z(s'')}.
+\begin{equation}
+\label{eq:lmdp_optimal_policy}
+\pi(s'|s) =  \frac {\kernel(s'|s) e^{\eta v(s')} } {\sum_{s''} \kernel(s''|s) e^{\eta v(s'')} } = \frac {\kernel(s'|s)z(s')} {\sum_{s''} \kernel(s''|s)z(s'')}.
 \end{equation}
 
 The solution for $z$ corresponds to the largest eigenvector of $RP$.
-If the dynamics $\cP$ and $\cR$ are known, we can iterate~\eqref{eq:matrixz}~\citep{Todorov2006}.
-Alternatively, we can incrementally learn an estimate $\hat{z}$ using stochastic updates based on state transitions sampled from the uncontrolled dynamics $(s_t,r_t,s_{t+1})$
+If the dynamics $\kernel$ and $\cR$ are known, one can iterate~\eqref{eq:eigen_lmdp}~\citep{Todorov2006}.
+
+Alternatively, an estimate $\widehat{z}$ can be learned incrementally using stochastic updates based on state transitions sampled from the uncontrolled dynamics $(s_t,r_t,s_{t+1})$
 % use an online algorithm called Z-learning to compute an estimate  \citep{TodorovNIPS2007}. After observing each transition , the update rule of Z-learning is given by
 \[
-\hat{z}(s_t) \leftarrow (1-\alpha_t)\hat{z}(s_t) + \alpha_t e^{r_t/\lambda}\hat{z}(s_{t+1}),
+\widehat{z}(s_t) \leftarrow (1-\alpha_t)\widehat{z}(s_t) + \alpha_t e^{\eta r_t}\widehat{z}(s_{t+1}),
 \]
 where $\alpha_t$ is a learning rate. 
-The above update rule is called Z-learning~\citep{Todorov2006} and suffers from slow convergence in very large state spaces and when the optimal policy differs substantially from the uncontrolled dynamics $\cP$.
+The above update rule is called \emph{Z-learning}~\citep{Todorov2006} and suffers from slow convergence in very large state spaces and when the optimal policy differs substantially from the uncontrolled dynamics $\kernel$.
 %assumes that we sample next states using the uncontrolled transition function $\cP$, which is typically no better than a random walk. 
-A better choice is importance sampling, which uses samples from the estimated policy $\hat{\pi}$ derived from the estimated values $\hat{z}$ and \eqref{eq:pi} and updates $\hat{z}$ according to the following update
+A better choice is importance sampling, which uses samples from the estimated policy $\widehat{\pi}$ derived from the estimated values $\widehat{z}$ and \eqref{eq:lmdp_optimal_policy} and updates $\widehat{z}$ according to the following update
 %to obtain samples that are corrected using the following update~\citet{TodorovPNAS2009}:
 %to sample In this case,  suggested a corrected update rule based on importance sampling:
 \begin{align}\label{eqn:zlearning-imp}
-\hat{z}(s_t) \leftarrow (1-\alpha_t)& \hat{z}(s_t) + \alpha_t e^{r_t/\lambda}\hat{z}(s_{t+1})\frac {\cP(s_{t+1}|s_t)} {\hat{\pi}(s_{t+1}|s_t)}.
+\widehat{z}(s_t) \leftarrow (1-\alpha_t)& \widehat{z}(s_t) + \alpha_t e^{\eta r_t}\widehat{z}(s_{t+1})\frac {\kernel(s_{t+1}|s_t)} {\widehat{\pi}(s_{t+1}|s_t)}.
 \end{align}
-However, this requires local knowledge of $\cP(\cdot|s_t)$ to correct for the different sampling distribution.
+However, this requires local knowledge of $\kernel(\cdot|s_t)$ to correct for the different sampling distribution.
 %, i.e.~the set of possible next states and their associated uncontrolled probabilities.
-Though this seems like a strong assumption, in practice $\cP$ usually has a simple form, e.g.~a random walk.
-Further, as shown in \citet{Jonsson2016}, the corrected update rule in \eqref{eqn:zlearning-imp} can also be used to perform off-policy updates in case transitions are sampled using a policy different from $\hat{\pi}$,
+Though this seems like a strong assumption, in practice $\kernel$ usually has a simple form, e.g.~uniform distribution.
+Further, as shown in \citep{Jonsson2016}, the corrected update rule in \eqref{eqn:zlearning-imp} can also be used to perform off-policy updates in case transitions are sampled using a policy different from $\widehat{\pi}$.
 %leading to simultaneous learning of different tasks.
-%Note that the expression for the policy $\hat{\pi}$ in \eqref{eq:pi} and the corrected update rule in \eqref{eqn:zlearning-imp} require local knowledge of $\cP(\cdot|s_t)$, i.e.~the set of possible next states and their associated uncontrolled probabilities. Though this seems like a strong assumption, in practice $\cP$ usually has a simple form, e.g.~uniform. \citet{conf/icaps/Jonsson16} showed that the corrected update rule in \eqref{eqn:zlearning-imp} can also be used to perform off-policy updates in case transitions are sampled using a policy different from $\hat{\pi}$.
+%Note that the expression for the policy $\widehat{\pi}$ in \eqref{eq:pi} and the corrected update rule in \eqref{eqn:zlearning-imp} require local knowledge of $\cP(\cdot|s_t)$, i.e.~the set of possible next states and their associated uncontrolled probabilities. Though this seems like a strong assumption, in practice $\cP$ usually has a simple form, e.g.~uniform. \citet{conf/icaps/Jonsson16} showed that the corrected update rule in \eqref{eqn:zlearning-imp} can also be used to perform off-policy updates in case transitions are sampled using a policy different from $\widehat{\pi}$.
 
-\subsection{Compositionality}
+\subsubsection{Compositionality}
+\label{section:compositionality}
+\citet{Todorov2009a} introduces the concept of compositionality for LMDPs. Consider a set of LMDPs $\{\cL_1,\ldots,\cL_n\}$, where each LMDP $\cL_i=\langle\cS,\cT,\kernel,\cR,\cJ_i\rangle$ has the same components $\cS,\cT,\kernel,\cR$ and only differ in the reward $\cJ_i(\tau)$ of each terminal state $\tau\in\cT$, as well as its exponentiated value $z_i(\tau)=e^{\eta \cJ_i(\tau)}$.
 
-\citet{Todorov2009a} introduced the concept of compositionality for LMDPs. Consider a set of LMDPs $\{\cL_1,\ldots,\cL_n\}$, where each LMDP $\cL_i=\langle\cS,\cT,\cP,\cR,\cJ_i\rangle$ has the same components $\cS,\cT,\cP,\cR$ and only differ in the reward $\cJ_i(\tS)$ of each terminal state $\tS\in\cT$, as well as its exponentiated value $z_i(\tS)=e^{\cJ_i(\tS)/\lambda}$.
-
-Now consider a new LMDP $\cL=\langle\cS,\cT,\cP,\cR,\cJ\rangle$ with the same components as the $n$ LMDPs above, except for $\cJ$. Assume that there exist weights $w_1,\ldots,w_n$ such that the exponentiated value of each terminal state $\tS\in\cT$ can be written as
+Now consider a new LMDP $\cL=\langle\cS,\cT,\kernel,\cR,\cJ\rangle$ with the same components as the $n$ LMDPs above, except for $\cJ$. Assume that there exist weights $w_1,\ldots,w_n$ such that the exponentiated value of each terminal state $\tau\in\cT$ can be written as
 \[
-e^{\cJ(\tS)/\lambda} = z(\tS) = w_1z_1(\tS) + \ldots + w_nz_n(\tS) = \sum_{k=1}^n w_kz_k(\tS).
+e^{\eta \cJ(\tau)} = z(\tau) = w_1z_1(\tau) + \ldots + w_nz_n(\tau) = \sum_{k=1}^n w_kz_k(\tau).
 \]
 Since the Bellman optimality equation of each non-terminal state $s\in\cS$ is linear in $z$, the optimal value of $s$ satisfies the same equation:
 \[
 z(s) = \sum_{k=1}^n w_kz_k(s).
 \]
-Consequently, if we previously compute the optimal values $z_1,\ldots,z_n$ of the $n$ LMDPs and know the weights $w_1,\ldots,w_n$, we immediately obtain the optimal values of the new LMDP $\cL$ without learning.
+Consequently, if previously compute the optimal values $z_1,\ldots,z_n$ of the $n$ LMDPs are previously computed and the weights $w_1,\ldots,w_n$ are known, one immediately obtains the optimal values of the new LMDP $\cL$ without learning.
 
 
+\subsection{Average-reward linearly-solvable Markov decision processes}
+
+LMDPs can be extended to the average-reward setting. An average-reward Linearly-solvable Markov decision process (ALMDP) is a tuple
+$\cL = \langle\cS,\kernel,\cR\rangle$, where $\cS$ is a set of states, $\kernel:\cS\rightarrow\Delta(\cS)$ is the passive dynamics, and $\cR$ is the reward function. Unlike first-exit LMDPs, there are no terminal states, since ALMDPs represent infinite-horizon (continuing) tasks and, therefore, there is no reward function for terminal states.  
+
+The following assumptions are made about ALMDPs. These are common assumptions in the average-reward RL setting to avoid ill-defined value functions.
+
+\begin{assumption}
+  The ALMDP $\cL$ is communicating~\citep{Puterman1994}: for each pair of states $s,s'\in\cS$, there exists a policy $\pi$ that has non-zero probability of reaching $s'$ from $s$.
+  \label{ass:communicating}
+\end{assumption}
+
+\begin{assumption}
+  The ALMDP $\cL$ is unichain~\citep{Puterman1994}: the transition probability distribution induced by all stationary policies admit a single recurrent class.
+  \label{ass:unichain}
+\end{assumption}
+%\todo{I think this assumption is enough: no need to introduce the notation for stationary distributions over the state space since we do not use it at any point. This assumption as is is enough to make the gain not to be conditioned by the initial state.}
+%{\color{red} \begin{assumption}
+%  For all states $s\in\cS$ the reward $\cR(s)$ is bounded in $\left(-\infty, 0\right]$.
+%  \label{ass:rewards}
+%\end{assumption}}
+
+In the average-reward setting, the value function is defined as the expected \textbf{average reward} when following a policy $\pi:\cS\rightarrow\Delta(\cS)$ starting from a state $s\in\cS$. This is expressed as
+\begin{equation}
+  v_\eta^\pi(s) = \underset{T\rightarrow\infty}\lim \EEc{\frac{1}{T} \sum_{i=t}^T \cR(S_i, S_{i+1}, \pi)}{S_t = s, \pi},
+  \label{eq:value_function_almdp}
+\end{equation}
+where $\cR(s_t, s_{t+1}, \pi)$ is defined as for first-exit LMDPs.
+Again, the goal is to obtain the optimal value function $v^*_\eta$. Under Assumption~\ref{ass:unichain}, the Bellman optimality equations can be written as
+\begin{equation}
+  v^*_\eta(s) = \frac 1 \eta \log{\sum_{s'\in\cS}\kernel(s'\lvert s)e^{\eta(\cR(s) - \rho + v^*_\eta(s'))}} \;\;\forall s\in\cS,
+  \label{eq:boe_almdp}
+\end{equation}
+where $\rho$ is the optimal one-step average reward (i.e.~gain), which is state-independent for unichain\todo{Add derivation of the independece of the gain?} ALMDPs~\citep{Todorov2006}. Exponentiating yields
+\begin{equation}
+  z(s) = e^{\eta(\cR(s) - \rho)} \sum_{s'\in\cS}\kernel(s'\lvert s)z(s') \;\;\forall s\in\cS.
+  \label{eq:boe_z_almdp}
+\end{equation}
+For the optimal value function $z$, the optimal policy is given by the same expression as in~\eqref{eq:lmdp_optimal_policy}.
+
+\subsubsection{Solving an ALMDP}
+
+Let $\Gamma=e^{\eta\rho}$ denote the exponentiated gain. Similar to the first-exit case, Equation~\eqref{eq:boe_z_almdp} can be expressed in matrix form as
+\begin{equation}\label{eq:rel_opt}
+  \Gamma {\bf z} = R P {\bf z},
+\end{equation}
+where the matrices $P\in \real^{\lvert\cS\rvert\times\lvert\cS\rvert}$ and $R\in \real^{\lvert\cS\rvert\times\lvert\cS\rvert}$ are appropiately defined as in~\eqref{eq:eigen_lmdp}. The exponentiated gain $\Gamma$ can be shown to correspond to the largest eigenvalue of $RP$~\citep{Todorov2009}.
+An ALMDP can be solved using {\em relative value iteration} by selecting a reference state $s^*\in\cS$, initializing $\widehat{\bf z}_0={\bf 1}$ and iteratively applying
+\begin{equation*}
+  \widehat{\bf z}_{k+\frac 1 2} \gets R P \widehat{\bf z}_k, \quad \quad \widehat{\bf z}_{k+1} \gets \widehat{\bf z}_{k+\frac 1 2} / \widehat z_{k+\frac 1 2}(s^*).
+\end{equation*}
+The reference state $s^*$ satisfies $z(s^*)=1$, which makes the optimal value $z$ unique (else any constant shift preserves optimality). After convergence, the exponentiated gain equals $\Gamma=\widehat z_{k+\frac 1 2}(s^*)$. Under Assumption~\ref{ass:communicating}, relative value iteration converges to the unique optimal value $z$~\citep{Todorov2009}.
+
+Analogously to first-exit LMDPs, when $\kernel$ and $\cR$ are not known, the agent can learn estimates $\widehat z$ and $\widehat\Gamma$ of the optimal value function and the exponentiated gain in an online manner, using samples $(s_t, r_t, s_{t+1})$ generated when following the estimated policy $\widehat\pi$. The update rules for the so-called differential Z-learning algorithm are given by
+\begin{align}
+  \widehat{z}_{t+1}(s_t)  \gets \widehat{z}_{t}(s_{t}) & + \alpha_t \Bigg(\frac{e^{\eta r_t}}{\widehat\Gamma_t}\dfrac{\kernel(s_{t+1}\lvert s_t)}{\widehat\pi_t(s_{t+1}\lvert s_t)}  - \widehat z_t(s_t)\Bigg),\label{eq:update_z_e}  \\   %\delta^z_t \\
+  \widehat\Gamma_{t+1}    \gets \widehat\Gamma_t       & + \beta_t \Bigg(\frac{e^{\eta r_t}}{\widehat z_t(s_t)}\dfrac{\kernel(s_{t+1}\lvert s_t)}{\widehat\pi_t(s_{t+1}\lvert s_t)}  - \widehat \Gamma_t\Bigg).\label{eq:update_gamma}
+\end{align}
+The learning rates $\alpha_t$ and $\beta_t$ can be chosen independently.
+
+Unlike the first-exit case, the compositionality property does not hold in the average-reward case.
+
+\subsection{Function approximation in LMDPs}
+
+So far, all the results introduced for (A)LMDPs restrict to the tabular case where the full state space can be enumerated and stored in memory. However, in cases where the state space is considerably large, tabular methods are unfeasible and the value function is approximated.
+
+In this line,~\cite{Todorov2010} prescibes two families of methods for adapting LMDPs in the average-reward setting for function approximation. The first one lies in the family of policy gradients while the second ones can be considered critic-only approaches. Here a valid parameterization of the policy $\pi(s'\lvert s, \w)$ is considered.
+
+The Bellman equation~\eqref{eq:boe_almdp} can be rewritten as follows
+\begin{equation}
+\label{eq:boe_for_pg}
+\rho + v^*(s) =\cR(s) +\log{\sum_{s'\in\cS}\kernel(s'\lvert s)e^{v^*(s')}} \;\;\forall s\in\cS,
+\end{equation}
+for the sake of simplicity it is assumed that $\eta=1$. 
+
+The first flavor of methods builds on the policy gradient theorem for ALMDPs~\citep[cf.~Theorem 1]{Todorov2010} that states that the gradient of the gain in ALMDPs is
+\begin{equation}
+  \nabla_\w \rho = \sum_{s}\mu(s, \w) \sum_{s'} \nabla_\w \pi(s'\lvert s, \w)\Big( \log \frac{\pi(s'\lvert s, \w)}{\kernel(s'\lvert s)} + \widetilde v(s', \mathbf{r})\Big),
+\end{equation}
+where $\mu(x, \w)$ the stationary distribution induced by $\pi$ and $\widetilde v(s,\mathbf{r})$ is an approximation to the (optimal) value function with parameterization $\mathbf r$.
+
+For the second type of methods one could use \textit{approximate} value iteration or \textit{approximate} policy iteration to iteratively improve the weight vector $\w$, even though this results in a bias estimator. An even more direct approach is to use Gauss-Newton method to fit the weight vector $\w$ by directly optimizing~\eqref{eq:boe_for_pg}.
+
+Despite the correctness of the theoretical results, which guarantee that function approximation can be used along with LMDPs, they are of little practical use. Even in the linear function approximation (LFA) case, obtaining a correct parameterization for $\widetilde v(s,\mathbf{r})$ requires of an intricate process. Additionally, the representation of the policy still depends on the size of the whole state space. This makes the approach intractable for real-world problems as it dos not scale for extremely large state spaces.
 
 
 \section{Hierarchical Reinforcement Learning}
 \subsection{Optimality of HRL algorithms}
 \cite{Dietterich2000} identifies two types of optimality for hierarchical methods in reinforcement learning, namely \textit{hierarchical optimality} and \textit{recursive optimality}. Hierarchical optimality implies optimality with regard a constrained space of policies, given by the hierarchy structure. Hierarchies of Abtract Machines (HAMs,~\cite{Parr1997}) and the Options Framework~\citep{Sutton1999} lie in this category) 
-
+\subsection{The options framework}
+\label{section:options}
 
 \section{Non-Markovian Reinforcement Learning and Task Specification}
 
