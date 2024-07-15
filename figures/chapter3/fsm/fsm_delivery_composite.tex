@@ -1,0 +1,18 @@
+\begin{tikzpicture}[scale=0.54]
+
+    % Outer box
+    \draw[step=0.5cm,lightgray] (0,0) grid (8, 6);
+    \draw[ultra thick] (0,0) rectangle (8,6);
+
+    % agent
+    \node at (0.3, 2.8) {\miniagent};
+    % \draw[ultra thick, ->, >=stealth, draw=blue!70!white] (2.5,1.9) -- (2.5,2.5) -- (1.5,2.5) -- (1.5,3.5) -- (2.5,3.5) -- (2.5,5.5) -- (1.5,5.5) -- (1.5,6.5) -- (2.5,6.5) -- (2.5,7.5) -- (3.5,7.5) -- (3.5,6.8);
+    % \draw[ultra thick, ->, >=stealth, draw=blue!70!white] (3.8,6.5) -- (4.3,6.5) -- (4.3,4.8);
+    \draw[fill=blue] (7.5,5.5) --  (7.5,6) -- (8,6) -- (8,5.5) -- cycle;
+    % Outer box
+    \draw[fill=red]  (7.5,0) --  (7.5,0.5) -- (8,0.5) -- (8,0) -- cycle;
+
+    % \node[color=white] at (7.5,5.5) {$\text{G}_1$};
+    % \node[color=white] at (7.5,0.5) {$\text{G}_2$};
+
+\end{tikzpicture}
