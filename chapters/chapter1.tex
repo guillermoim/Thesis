@@ -4,7 +4,7 @@ In section~\ref{section:compositionality}, compostionality was shown to be one o
 
 In this work, instead of solving the subtasks each time the value estimates change, the compositionality property of LMDPs is exploited to express the solution to an arbitrary subtask as a linear combination of a set of base LMDPs. The result is a form of value function decomposition which allows expressing an estimate of the optimal value of an arbitrary state as a combination of multiple value functions with smaller domains.
 
-In this chapter, two algorithms are proposed, the first is a two-step eigenvector when both the passive dynamics and the reward functions are known. When these are unknown to the learning agent, an online algorithm can be used to simultaneously learn the value function of the subtasks and the value for the boundary states. Emprical results accompany these theoretical formulations.
+In this chapter, two algorithms are proposed, the first is a two-step eigenvector when both the passive dynamics and the reward functions are known. When these are unknown to the learning agent, an online algorithm can be used to simultaneously learn the value function of the subtasks and the value for the boundary states. Empirical results on two classic control problems accompany the theoretical formulation of the learning algorithm.
 \section{Contributions}
 \begin{itemize}
 %\item We define a novel scheme based on compositionality for solving subtasks, defining local reward functions that constitute a convenient basis for composite reward functions.
@@ -46,7 +46,7 @@ The concept of equivalent subtasks is strongly related to factored (L)MDPs, whic
 
 \section{Hierarchical LMDPs}
 
-This section describes the novel approach to hierarchical LMDPs. First, there is a description of the particular form of hierarchical decomposition that is considered, and then the algorithms for solving a decomposed LMDP are introduced.
+This section describes the novel approach to hierarchical LMDPs. First, there is a description of the particular form of hierarchical decomposition that is considered, and then the algorithms for solving a decomposed LMDP are presented.
 
 \subsection{Hierarchical Decomposition}
 
@@ -124,17 +124,16 @@ The 4-room example is limited in the sense that changing the configuration and s
 Concretely, if there is a subset of variables $\cU\subset\cV$ such that the transitions among $\cU$ are independent of the variables in $\cV\setminus\cU$, then it is natural to partition the states based on their assignment to the variables in $\cV\setminus\cU$. Consequently, there is a single equivalent subtask whose set of states is $\times_{v\in\cU}D(v)$, i.e.~all partial states on the variables in $\cU$.
 
 
-
 \begin{figure}[!t]
     \begin{center}
         \input{figures/chapter1/tikz/taxi.tex}
     \end{center}
-    \caption{a) }
-\label{fig:domain_taxi}
+    \caption{a) A 5x5 grid of the Taxi LMDP, where there are 4 colored pickup/dropoff locations (which are one step away from the corresponding gridcell); b) the only existing subtask with exit states $E_1,E_2,E_3,E_4$, where it can be observed that exit states are one step away of the grid corners.} 
+    \label{fig:domain_taxi}
 \end{figure}
     
 
-\paragraph{Example 2:} The Taxi domain~\citep{Dietterich2000} is described by three variables: the location of the taxi ($v_1$), and the location and destination of the passenger ($v_2$ and $v_3$). Since the location of the taxi is independent of the other two, it is natural to partition the states according to the location and destination of the passenger. Each partition consists of the possible locations of the taxi, defining a unique equivalent subtask whose terminal states are the locations at which the taxi can pick up or drop off passengers. Since there are 16 valid combinations of passenger location and destination, there are 16 such equivalent subtasks.
+\paragraph{Example 2:} The Taxi domain~\citep{Dietterich2000} (see Figure~\ref{fig:domain_taxi}) is described by three variables: the location of the taxi ($v_1$), and the location and destination of the passenger ($v_2$ and $v_3$). Since the location of the taxi is independent of the other two, it is natural to partition the states according to the location and destination of the passenger. Each partition consists of the possible locations of the taxi, defining a unique equivalent subtask whose terminal states are the locations at which the taxi can pick up or drop off passengers. Since there are 16 valid combinations of passenger location and destination, there are 16 such equivalent subtasks.
 \citep{Dietterich2000} calls this condition {\em max node irrelevance}, where ``max node'' refers to a given subtask.
 
 \subsection{Eigenvector Approach}
@@ -264,13 +263,13 @@ This section contains the evaluation of the learning algorithm in the two classi
 % \footnote{texttt{https://github.com/guillermoim/HRL\_LMDP}}
 %, the Rooms domain and the Taxi domain.
 The objective of this evaluation is to analyze empirically the different update alternatives ($V_1$, $V_2$, and $V_3$), and
-to compare against a flat approach which exploits the benefits of LMDPs without the hierarchy (Z-IS), and the hierarchical approach based on options ($Q_o$)~\citep{Sutton1999} that was introduced in section~\ref{section:options}. The main goal is to empirically demonstrate that the approach here presented is more sample efficient than the other algorithms. Each algorithm is run with four different random seeds to analyze the (normalized) average MAE (mean absolute error) against the optimal value function (computed separately) and its standard deviation over the number of samples. Since the value functions are different for Q-learning and LMDP methods, the self-normalized MAE (Figures \ref{fig:hlmdps_errors_nrooms} and \ref{fig:hlmdps_errors_taxi}) for different configurations and domains is reported instead. Further, for a fair comparison between approaches, only the exit set is used for calculating the MAE.
+to compare against a flat approach which exploits the benefits of LMDPs without the hierarchy (Z-IS), and the hierarchical approach based on options ($Q_o$)~\citep{Sutton1999} that was introduced in section~\ref{section:options}. The main goal is to empirically demonstrate that the approach here presented is more sample efficient than the other algorithms. Each algorithm is run with four different random seeds to analyze the (normalized) average MAE (mean absolute error) against the optimal value function (computed separately) and its standard deviation over the number of samples. Since the value functions are different for Q-learning and LMDP methods, the self-normalized MAE (Figures \ref{fig:hlmdps_errors_nrooms} and \ref{fig:hlmdps_errors_taxi}, top row) for different configurations and domains is reported instead. Further, for a fair comparison between approaches, only the exit set is used for calculating the MAE.
 
 %In this section, we empirically test the model-free algorithm in several experiments. In the first set of experiments, we extend the example from Figure~\ref{fig:ex} to $X\times Y$ rooms. In the second set of experiments, we use the Taxi domain~\textit{dietterich2000hierarchical}.
 
 In all experiments, the learning rates for each abstraction level is $\alpha_\ell(t) = c_\ell / (c_\ell + n)$ where $n$ represents the episode each sample $t$ belongs to. The constant $c_\ell$ is empirically optimized for each domain. For LMDPs, a temperature $\eta=1$ is used, which provides good results. $Q_o$ solves an equivalent MDP with {\em deterministic} actions, which should actually give it an advantage. For fairness, $Q_o$ obtains the same per-step negative reward, exploits the same equivalence classes, learns the same subtasks (i.e.~reach a terminal state), and has knowledge of which options are available in each state.
 
-In addition, the MAE for the subtasks learning is also reported. The intention for this is two-fold: first, to show that the value functions for the subtasks also converge to their optimal value, and second, that the faster learning of the subtasks boost the speed of the learning at the higher level.
+In addition, the MAE for the subtasks learning (Figures \ref{fig:hlmdps_errors_nrooms} and \ref{fig:hlmdps_errors_taxi}, bottom row) is also reported. The intention for this is two-fold: first, to show that the value functions for the subtasks also converge to their optimal value, and second, that the faster learning of the subtasks boosts learning at the higher level.
 
 \subsection{N-room domain.}
 Here performance for different room sizes and number of rooms (Figure \ref{fig:hlmdps_errors_nrooms}) is presented. In all configurations the proposed hierarchical approach outperfoms Z-IS and $Q_o$. Concretely, $Q_o$ suffers from non-stationarity: initial option executions will incur more negative reward than later executions, which causes high-level Q-learning updates to be {\em incorrect}, and it takes the learner significant time to recover from this.
@@ -294,6 +293,8 @@ The difference between variants $V_1$, $V_2$ and $V_3$ is more pronounced in the
 Again, variant $V_3$ has the best performance, in this case by a larger 
 margin than before.
 
+In all cases, the the convergence of the subtasks coincides almost exactly with the convergence of the higher level. This suggests that, once the agent has learned the value function for the subtasks, learning the value in the reduced number of exit states is an easy process thanks to compositionality. Surprisingly, the variant $V_3$ seems to converge before the subtasks do. This might be an effect of the choice of the metric used at the higher level, since only the error at the exit states is reported. It might be the case that, since exit states are pairwise contiguous, the algorithm does not need the value function for the whole subtask to be accurate, only at the required exit states. This phenomenom shoudl disapear if the MAE is taken over the whole state space instead.
+
 % Vicenc:
 %Figure~\ref{fig:hlmdps_errors_nrooms} (left) shows results for $3\times 3$ rooms of size $5\times 5$ and Figure~\ref{fig:hlmdps_errors_nrooms} (center) shows results for $5\times 5$ rooms of size $3\times 3$. Both scenarios have $225$ interior states.
 %The difference between variants $V_1$, $V_2$ and $V_3$ is more pronounced in the second case, when the number of subtasks increases (more rooms) and the partition for each subtask is smaller (smaller rooms). Figure~\ref{fig:hlmdps_errors_nrooms} (right) shows results for a larger number of rooms of size $5\times 5$. The variant $V_3$ has the best performance, in this case by a larger margin than before.
@@ -309,7 +310,7 @@ margin than before.
 
 \subsection{Taxi Domain.}
 %Since LMDPs have no explicit actions, we adapted the Taxi domain as follows.
-To allow comparison between all the methods, we adapted the Taxi domain as follows: when the taxi is at the correct pickup location, it can transition to a state with the passenger in the taxi.
+To allow comparison between all the methods, the Taxi (see Figure~\ref{fig:domain_taxi}) is adapted as domain as follows: when the taxi is at the correct pickup location, it can transition to a state with the passenger in the taxi.
 In a wrong pickup location, it can instead transition to a terminal state with large negative reward (simulating an unsuccessful pick-up).
 When the passenger is in the taxi, it can be dropped off at any pickup location, successfully completing the task whenever dropped at the correct destination.
 
@@ -334,15 +335,18 @@ When the passenger is in the taxi, it can be dropped off at any pickup location,
 %\vspace{-0.1em}
 Figure~\ref{fig:hlmdps_errors_taxi} shows results in two instances of size $5 \times 5$ ($408$ states) and $10 \times 10$ ($1608$ states). %, respectively.
 Again, the proposed hierarchical approach outperforms Z-IS and $Q_o$.
-In this case, the difference between $V_1$, $V_2$ and $V_3$ is less pronounced, even when the grid size increases. One possible explanation is the small number of exit states in this problem.
+In this case, the difference between $V_1$, $V_2$ and $V_3$ is less pronounced, even when the grid size increases, even though $V_3$ shows slightly better convergence. One possible explanation is the small number of exit states in this problem.
+
+Again, the subtasks of the higher level converge in the same order of magnitud as the subtasks.
+
 
 %Figures \ref{fig:hlmdps_errors_nrooms} and \ref{fig:hlmdps_errors_taxi} show the Mean Absolute Error (MAE) measured on $\widehat v(s)$ against the optimal value function $v^*(s)$ previously computed using the power iteration method. Clearly, our approach outperforms the flat version of Z-learning. Regarding the gridworld domain (figure \ref{fig:hlmdps_errors_nrooms}) it is observed that the three variants of our algorithm perform similarly for the case of the $3\times3$ grid. However, when the number of rooms is increased ($5\times5$ and $8\times8$ ) and thus, the hierarchical structure can be better exploited, each of the more sophisticated approaches improves the previous one. As for the Taxi domain (figure \ref{fig:hlmdps_errors_taxi}) the three versions converge much faster than flat learning, but yield similar results. In this case, the structure of the partitions (most of them have a single exit state) is the reason that further assumptions do not necessarily improve the performance as the three variants comprise the same effects.
 
 \section{Discussion and Conclusion}
 
-In this paper we have introduced a novel approach to hierarchical reinforcement learning that focuses on the class of linearly-solvable Markov decision processes.
-Using subtask compositionality, we can decompose the value function and derive algorithms that converge to the optimal value function.
-To the best of our knowledge, our approach is the first to exploit both the concurrent compositionality enabled by LMDPs together with hierarchies and intra-task learning to obtain globally optimal policies efficiently.
+In summary, this chapter introduces a novel approach to hierarchical reinforcement learning that focuses on the class of linearly-solvable Markov decision processes.
+Using subtask compositionality, the value function can be effectively decomposed and new hierarchical algorithms can be derived so that they converge to the optimal value function.
+To the best of this author's knowledge, this approach is the first to exploit both the concurrent compositionality enabled by LMDPs together with hierarchies and intra-task learning to obtain globally optimal policies efficiently.
 
 The proposed hierarchical decomposition leads to a new form of zero-shot learning that allows to incorporate subtasks that belong to an existing equivalent class without additional learning effort.
 For example, adding new rooms in our example.

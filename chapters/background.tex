@@ -231,8 +231,8 @@ The reference state $s^*$ satisfies $z(s^*)=1$, which makes the optimal value $z
 
 Analogously to first-exit LMDPs, when $\kernel$ and $\cR$ are not known, the agent can learn estimates $\widehat z$ and $\widehat\Gamma$ of the optimal value function and the exponentiated gain in an online manner, using samples $(s_t, r_t, s_{t+1})$ generated when following the estimated policy $\widehat\pi$. The update rules for the so-called differential Z-learning algorithm are given by
 \begin{align}
-  \widehat{z}_{t+1}(s_t)  \gets \widehat{z}_{t}(s_{t}) & + \alpha_t \Bigg(\frac{e^{\eta r_t}}{\widehat\Gamma_t}\dfrac{\kernel(s_{t+1}\lvert s_t)}{\widehat\pi_t(s_{t+1}\lvert s_t)}  - \widehat z_t(s_t)\Bigg),\label{eq:update_z_e}  \\   %\delta^z_t \\
-  \widehat\Gamma_{t+1}    \gets \widehat\Gamma_t       & + \beta_t \Bigg(\frac{e^{\eta r_t}}{\widehat z_t(s_t)}\dfrac{\kernel(s_{t+1}\lvert s_t)}{\widehat\pi_t(s_{t+1}\lvert s_t)}  - \widehat \Gamma_t\Bigg).\label{eq:update_gamma}
+  \widehat{z}_{t+1}(s_t)  \gets \widehat{z}_{t}(s_{t}) & + \alpha_t \Bigg(\frac{e^{\eta r_t}}{\widehat\Gamma_t}\dfrac{\kernel(s_{t+1}\lvert s_t)}{\widehat\pi_t(s_{t+1}\lvert s_t)}  - \widehat z_t(s_t)\Bigg),\label{eq:diff_update_z}  \\   %\delta^z_t \\
+  \widehat\Gamma_{t+1}    \gets \widehat\Gamma_t       & + \beta_t \Bigg(\frac{e^{\eta r_t}}{\widehat z_t(s_t)}\dfrac{\kernel(s_{t+1}\lvert s_t)}{\widehat\pi_t(s_{t+1}\lvert s_t)}  - \widehat \Gamma_t\Bigg).\label{eq:diff_update_gamma}
 \end{align}
 The learning rates $\alpha_t$ and $\beta_t$ can be chosen independently.
 
@@ -255,11 +255,11 @@ The first flavor of methods builds on the policy gradient theorem for ALMDPs~\ci
 \begin{equation}
   \nabla_\w \rho = \sum_{s}\mu(s, \w) \sum_{s'} \nabla_\w \pi(s'\lvert s, \w)\Big( \log \frac{\pi(s'\lvert s, \w)}{\kernel(s'\lvert s)} + \widetilde v(s', \mathbf{r})\Big),
 \end{equation}
-where $\mu(x, \w)$ the stationary distribution induced by $\pi$ and $\widetilde v(s,\mathbf{r})$ is an approximation to the (optimal) value function with parameterization $\mathbf r$.
+where $\mu(x, \w)$ is the stationary distribution induced by $\pi$ and $\widetilde v(s,\mathbf{r})$ an approximation to the (optimal) value function with parameterization $\mathbf r$.
 
 For the second type of methods one could use \textit{approximate} value iteration or \textit{approximate} policy iteration to iteratively improve the weight vector $\w$, even though this results in a bias estimator. An even more direct approach is to use Gauss-Newton method to fit the weight vector $\w$ by directly optimizing~\eqref{eq:boe_for_pg}.
 
-Despite the correctness of the theoretical results, which guarantee that function approximation can be used along with LMDPs, they are of little practical use. Even in the linear function approximation (LFA) case, obtaining a correct parameterization for $\widetilde v(s,\mathbf{r})$ requires of an intricate process. Additionally, the representation of the policy still depends on the size of the whole state space. This makes the approach intractable for real-world problems as it dos not scale for extremely large state spaces.
+Despite the correctness of the theoretical results, which guarantee that function approximation can be used along with LMDPs, they are of little practical use. Even in the linear function approximation (LFA) case, obtaining a correct parameterization for $\widetilde v(s,\mathbf{r})$ requires of an intricate process in the policy gradient approach. Additionally, the representation of the policy still depends on the size of the whole state space. This makes the approach intractable for real-world problems as it dos not scale for extremely large state spaces.
 
 
 \section{Hierarchical Reinforcement Learning}
