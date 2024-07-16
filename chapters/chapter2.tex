@@ -299,9 +299,12 @@ Here, $\alpha_\ell$ is the learning rate. Each of the learned components (i.e., 
 
 \begin{algorithm}[!htpb]
   \caption{Online algorithm.}
+  \setstretch{1.12}
   \begin{algorithmic}[1]
     \State{{\bf Input:} $\cL,\cS_1,\ldots,\cS_L,\cE,s_0,\epsilon,\eta$}
     \State $t \gets 0$, $\widehat{\Gamma} \gets 1$
+    \State af
+
     \While {{\it not terminate}}
     \State Observe $(s_{t}, r_{t}, s_{t+1})\sim\widehat\pi_t$
     \State Update $\widehat z_j^1(\cdot;\widehat\rho),\ldots,\widehat z_j^n(\cdot;\widehat\rho)$ using Equation~\eqref{eq:main_v_td_update}
@@ -311,21 +314,23 @@ Here, $\alpha_\ell$ is the learning rate. Each of the learned components (i.e., 
     \State Update $\widehat z_\cE(s_t)$ using Equation~\eqref{eq:halmdps_update_exit}
     \EndIf
     \EndWhile
+    \State \Return value functions of all base LMDPs, ${\widehat z_\cE}$
+
   \end{algorithmic}
   \label{alg:halmdps_online}
 \end{algorithm}
 
 \section{Experiments}
 
-First, some examples of runs of Algorithm~\ref{alg:halmdps_eigenvector} are reported. These are meant to show that the hierarchical eigenvector method converges to the optimal value up to an arbitrary precision.
+First, some examples of runs of Algorithm~\ref{alg:halmdps_eigenvector} are reported. These are very simple experiments meant to show that the hierarchical eigenvector method converges to the optimal (exponentiated) gain up to an arbitrary precision.
 
-Then, Algorithm~\ref{alg:halmdps_online} is compared against differential soft TD-learning in the flat representation of the ALMDP. Similarly to the first-exit case, the metric used for the experiments Mean Absolute Error (MAE) between the estimated value function $\widehat z$ and the true optimal value function $z$, taken exclusively at the exit states. For each algorithm, the results are averaged over five seeds. Along with the the average, the standard deviation is also reported. The learning rates have been optimized independently for each of the instances, and are given by the expression $\alpha_\ell \leftarrow k \alpha_\ell$, where $k$ is decay factor. The hyperparameters $n$ and $k$ are optimized per domain instance.
+Then, Algorithm~\ref{alg:halmdps_online} is compared against differential soft TD-learning in the flat representation of the ALMDP. Similarly to the first-exit case, the metric used for the experiments Mean Absolute Error (MAE) between the estimated value function $\widehat z$ and the true optimal value function $z$, taken exclusively at the exit states. For each algorithm, the results are averaged over five seeds. Along with the the average, the standard deviation is also reported. Here, the learning rates decay every $n$ samples, and are given by the expression $\alpha_\ell \leftarrow k \alpha_\ell$, where $k$ is the decay factor. The hyperparameters $n$ and $k$ are optimized per problem instance.
 
-Note that, while the updates rules for differential Z-learning (equations~\eqref{eq:diff_update_z} and~\eqref{eq:diff_update_gamma}) are in the exp-domain, the here derived soft TD-learning version (equations~\eqref{eq:main_v_td_update} and~\eqref{eq:main_rho_td_update}) is in the log-domain. This has some advantages; the log-domain version uses a single TD-error which eases the computation, the log-domain has been observed to be slightly more stable in practice and to converge relatively faster. Similarly, the hierarchical approach can keep an estimate of the value function $\widehat v_\cE$ in the log-domain, and the update rule~\eqref{eq:halmdps_update_exit} can be expressed as 
+Note that, while the updates rules for differential Z-learning (equations~\eqref{eq:diff_update_z} and~\eqref{eq:diff_update_gamma}) are in the exp-domain, the here derived soft TD-learning version (equations~\eqref{eq:main_v_td_update} and~\eqref{eq:main_rho_td_update}) is in the log-domain. This has some advantages such as using a single TD-error for both the value function and the gain update. Similarly, the hierarchical approach can keep an estimate of the value function $\widehat v_\cE$ in the log-domain, and the update rule~\eqref{eq:halmdps_update_exit} can be expressed as 
 \begin{equation*}
     \widehat v_\cE(s)\gets (1-\alpha_\ell) \widehat v_\cE(s) + \alpha_\ell\frac{1}{\eta} \log\Big(\sum_{k=1}^n \widehat z_\cE(\tau^k) \widehat z_i^k(s;\rho)\Big).
 \end{equation*}
-Simultaneously, the gain estimate is updated with~\eqref{eq:main_rho_td_update}. Recal that, at any moment, these estimates can be expressed in the exp-domain with $\widehat z_\cE(s)=e^{\eta\hat v(s)}$ and $\widehat\Gamma=e^{\eta\hat\rho}$.
+Simultaneously, the gain estimate is updated with~\eqref{eq:main_rho_td_update}. Recall that, at any moment, these estimates can be expressed in the exp-domain with $\widehat z_\cE(s)=e^{\eta\hat v(s)}$ and $\widehat\Gamma=e^{\eta\hat\rho}$. This version of the hierarchical algorithm is observed to be more estable.
 
 
 \begin{figure}[!ht]
@@ -336,7 +341,7 @@ Simultaneously, the gain estimate is updated with~\eqref{eq:main_rho_td_update}.
   \label{fig:eigenvectos}
  \end{figure}
 
- Threfore, the results for the 
+Therefore, basides the learning error for the higher level, the learning error for the subtasks and the gain are also disclosed for the log and exp domains. These results should be able to explain, at least partly, the better stability of the log-domain. In contrast to the first-exit case, now there is a three-way dependency during learning between the (optimal) gain, value function of the subtasks and values of the exit states, which makes the hierarchical learning more challenging.  
 
 The two episodic benchmark tasks~\citep{Infante2022} have been adapted by transforming them into infinite-horizon tasks as it is exaplined in the coming subsections.
 
