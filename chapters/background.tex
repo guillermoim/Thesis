@@ -1,4 +1,3 @@
-
 This chapter introduces all the notation and background necessary to understand the subsequent chapters.
 
 Notation:
@@ -7,7 +6,7 @@ Notation:
   \item Given a probability distribution $p\in\Delta(\cX)$, let $\cB(p)=\{x\in\cX:p(x) > 0\}\subseteq\cX$ denote the support of $p$.
   \item Given a set $\cX$, let$\lvert\cX\rvert$ denote the cardinality of set $\cX$.
 \end{itemize}
-\section{Reinforcement Learning and Markov Decision Processes}
+\section{Markov decision Process and reinforcement learning}
 
 % Sequential decision problems are inherent to human nature, e.g.~cooking a certain recipe, driving a car or solving a mathematical problem. Meeting these tasks usually entails coming up with a sequence of timed actions that lead to the desired goal. In this sense, Reinforcement Learning (RL) is used as a learning paradigm to model such problems, where the objective can be expressed numerically and the outcome is some kind of decision rule (\textit{policy}) that ultimately solves a given task. 
 
@@ -61,11 +60,53 @@ Notation:
 % \end{itemize}
 
 
-\subsection{Value Functions}
+\subsection{Value functions}
 
-\subsection{Dynamic Programming}
+\subsection{Dynamic programming}
 
-\subsection{Function Approximation}
+\subsection{Function approximation}
+
+
+\guillermo{
+\section{Successor features} DEVELOP THIS FURTHER .. 
+
+\label{section:successor_features}
+
+Successor features (SFs)~\citep{Dayan1993, Barreto2017} is a widely used RL representation framework that assumes the reward function is linearly expressible with respect to a feature vector,
+\begin{equation}
+  \cR^\w(s, a, s') = \w^\intercal\boldsymbol\phi(s, a , s').
+  \label{eq:reward_sf}
+\end{equation}
+
+Here, $\boldsymbol\phi:\cS\times\cA\times\cS\rightarrow\real^{d}$ maps transitions to feature vectors and $\w\in\real^d$ is a weight vector. Every weight vector~$\w$ induces a different reward function and, thus, a task. The SF vector of a state-action pair $(s,a)\in\cS\times\cA$ under a policy $\pi$ is the expected discounted sum of future feature vectors: 
+\begin{equation}
+  \boldpsi^\pi(s, a) = \EEcp{\sum_{i=t}^\infty \gamma^{i-t} \boldsymbol\phi_i}{S_t = s, A_t = a}{\pi},
+  \label{eq:sf}
+\end{equation}
+where $\boldsymbol\phi_i = \boldsymbol\phi(S_{i}, A_{i}, S_{i+1})$. The action value function for a state-action pair $(s, a)$ under policy $\pi$ can be efficiently represented using the SF vector. Due to the linearity of the reward function, the weight vector can be decoupled from the Bellman recursion. Following the definition of Equations~\eqref{eq:qfunction}~ and \eqref{eq:reward_sf}, the action value function in the SF framework can be rewritten as
+\begin{align}
+  Q^\pi_\w(s, a) &= \EEcp{\sum_{i=t} ^\infty \gamma^{i-t} \w^\intercal\boldsymbol\phi_i}{S_t = s, A_t = a}{\pi} \nonumber \\
+                 & = \w^\intercal\EEcp{\sum_{i=t} ^\infty \gamma^{i-t} \boldsymbol\phi_i}{S_t = s, A_t = a}{\pi} \nonumber \\
+                 &=  \w^\intercal \boldpsi^\pi(s, a) .
+\label{eq:qfunction_sf}
+\end{align}
+
+The SF representation leads to \textit{generalized policy evaluation} (GPE) over multiple tasks~\citep{Barreto2020a}, and similarly, to \textit{generalized policy improvement} (GPI) to obtain new better policies~\citep{Barreto2017}.
+
+A family of MDPs is defined as the set of MDPs that share all the components, except the reward function. This set is formally defined as 
+\begin{equation*}
+    \cM^{\boldsymbol{\phi}}\equiv\{\langle\cS,\cE,\cA,\cR_\w,\mathbb{P}_0, \mathbb{P},\gamma\rangle \lvert \cR_\w = \w^\intercal \boldsymbol{\phi}, \forall\w\in\real^d\}.
+\end{equation*}
+
+Transfer learning on families of MDPs is possible thanks to GPI. Given a set of policies $\Pi$, learned on the same family~$\cM^{\boldsymbol{\phi}}$, for which their respective SF representations have been computed, and a new task $\w'\in\real^d$, a GPI policy $\pi_{\text{GPI}}$ for any $s\in\cS$ is derived as 
+\begin{equation}
+    \pi_{\text{GPI}}(s) \in \argmax_{a\in\cA} \max_{\pi\in\Pi} Q^\pi_{\w'}(s, a).
+    \label{eq:gpi}
+\end{equation}
+
+However, there is no guarantee of optimality for $\w'$.
+A fundamental question to solve the so-called \textit{optimal policy transfer learning problem} is which policies should be included in the set of policies $\Pi$ so an optimal policy for any weight vector $\w\in\real^d$ can be obtained with GPI. 
+}
 
 \section{Linearly-solvable Markov decision processes}
 
@@ -269,5 +310,18 @@ Hierarchical Reinforcement learning embodies the idea of divide-and-conquer in s
 \subsection{The options framework}
 \label{section:options}
 
-\section{Non-Markovian Reinforcement Learning and Task Specification}
+\section{Non-Markovian task specification}
+\label{section:non_markovian}
+ {\color{blue}
+ 
+ \begin{itemize}
+ \item Difficulty about expressing some tasks in Marokovian terms 
+ \item Finite State Autamatons and Reward Machines 
+ \item Reward Machines and their relationship with logics
+ \item Comment on algorithms given in the 
+  
+\end{itemize}
+ 
+ }
+
 

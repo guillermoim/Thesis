@@ -1,6 +1,5 @@
-\section{Proof Theorem~\ref{theo:almdps}}
 \label{proof:theo_almdps}
-\subsection{Preliminaries}
+\section{Preliminaries}
 We introduce the notation:
 \begin{itemize}
     \item $\mathds{1}$ denotes an all-ones vector of length $\lvert\cS\rvert$.
@@ -19,7 +18,7 @@ The indicator $\indicator{s\in X_t}$ specifies whether the value of state $s$ up
 \delta_t(s) %&= r_t(s) - \widehat{\rho}_t - \frac 1 \eta \log \frac {\widehat{\pi}_t(s_{t+1}|s_t)} {\cP(s_{t+1}|s_t)} + \widehat{v}_t(s_{t+1}) - \widehat{v}_t(s_t)\\
  &= r_t(s) - \widehat{\rho}_t + \frac 1 \eta \log \sum_{s'\in\cS} \cP(s'|s) e^{\eta \widehat{v}_t(s')} - \widehat{v}_t(s).
 \end{align*}
-
+\section{Assumptions}
 We introduce a series of necessary assumptions for convergence. We adapt Assumptions B.1-B.5 in~\cite{Wan2021} to the case of LMDPs. Assumptions~\ref{ass:communicating} and~\ref{ass:uniqueness} are standard in average-reward settings, while Assumption~\ref{ass:stepsize1} is the standard Robbins-Monro conditions for step sizes. Assumptions~\ref{ass:stepsize2} and~\ref{ass:stepsize3} are introduced in the convergence argument of RVI Q-learning by~\citet{Borkar1998} and specify some requirements for the learning rates when asynchronous updates are performed. For more details we refer the reader to Section B.1 of~\cite{Wan2021}.
 % \begin{assumption}
 %  (Communicating assumption) The LMDP $\cL$ has a single communicating class, that is, each state in $\cL$ is accessible from every other state under some policy.
@@ -67,7 +66,7 @@ We introduce a series of necessary assumptions for convergence. We adapt Assumpt
     \end{equation*}
     exists for all $s, s'\in\cS$.
 \end{assumption}
-
+\section{The proof}
 Under the communication assumption, the system
 \begin{align}
     v(s) &= \cR(s) - \rho + \frac{1}{\eta} \log \sum {\cP(s'\lvert s) e^{\eta v(s')}},\;\;\forall s\in\cS, \\

@@ -37,7 +37,7 @@
 \usepackage{thm-restate}
 \usepackage{setspace}
 \usepackage{comment}
-
+\usepackage[toc,page]{appendix}
 
 \usepackage[hyperfootnotes=false]{hyperref}
 \hypersetup{
@@ -88,6 +88,9 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 
 % macros:
+
+\newcommand{\guillermo}[1]{{\color{blue}#1}}
+
 \newcommand{\tS}{\text{t}}   % for terminal states
 \newcommand{\tSi}{\tau}   % for terminal states in the subtasks
 \newcommand{\cA}{\mathcal{A}}
@@ -241,13 +244,16 @@ than 150 words.
 \bibliographystyle{plainnat}
 \bibliography{bibliography}
 
-\appendix
+**\appendix
+\chapter{Proof Theorem~\ref{theo:almdps}}
 \input{chapters/appendix.tex}
 
 \backmatter 
 \printindex
+% \begin{appendices}
+% \input{chapters/appendix.tex}
 
-
+% \end{appendices}
 
 \end{document}
 
