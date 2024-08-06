@@ -1,0 +1,349 @@
+\begin{thebibliography}{55}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abounadi et~al.(2001)Abounadi, Bertsekas, and Borkar]{Abounadi2001}
+Jinane Abounadi, Dimitrib Bertsekas, and Vivek~S Borkar.
+\newblock Learning algorithms for markov decision processes with average cost.
+\newblock \emph{SIAM Journal on Control and Optimization}, 40\penalty0 (3):\penalty0 681--698, 2001.
+
+\bibitem[Alegre et~al.(2022)Alegre, Bazzan, and Silva]{Alegre2022}
+Lucas~Nunes Alegre, Ana Bazzan, and Bruno C.~Da Silva.
+\newblock Optimistic {Linear} {Support} and {Successor} {Features} as a {Basis} for {Optimal} {Policy} {Transfer}.
+\newblock pages 394--413. PMLR, June 2022.
+\newblock URL \url{https://proceedings.mlr.press/v162/alegre22a.html}.
+
+\bibitem[Araki et~al.(2021)Araki, Li, Vodrahalli, Decastro, Fry, and Rus]{Araki2021}
+Brandon Araki, Xiao Li, Kiran Vodrahalli, Jonathan Decastro, Micah Fry, and Daniela Rus.
+\newblock The {Logical} {Options} {Framework}.
+\newblock pages 307--317. PMLR, July 2021.
+\newblock URL \url{https://proceedings.mlr.press/v139/araki21a.html}.
+
+\bibitem[Barreto et~al.(2017)Barreto, Dabney, Munos, Hunt, Schaul, Silver, and van Hasselt]{Barreto2017}
+Andr{\'{e}} Barreto, Will Dabney, R{\'{e}}mi Munos, Jonathan~J. Hunt, Tom Schaul, David Silver, and Hado van Hasselt.
+\newblock Successor features for transfer in reinforcement learning.
+\newblock In Isabelle Guyon, Ulrike von Luxburg, Samy Bengio, Hanna~M. Wallach, Rob Fergus, S.~V.~N. Vishwanathan, and Roman Garnett, editors, \emph{Advances in Neural Information Processing Systems 30: Annual Conference on Neural Information Processing Systems 2017, December 4-9, 2017, Long Beach, CA, {USA}}, pages 4055--4065, 2017.
+\newblock URL \url{https://proceedings.neurips.cc/paper/2017/hash/350db081a661525235354dd3e19b8c05-Abstract.html}.
+
+\bibitem[Barreto et~al.(2019)Barreto, Borsa, Hou, Comanici, Ayg{\"{u}}n, Hamel, Toyama, Hunt, Mourad, Silver, and Precup]{Barreto2019}
+Andr{\'{e}} Barreto, Diana Borsa, Shaobo Hou, Gheorghe Comanici, Eser Ayg{\"{u}}n, Philippe Hamel, Daniel Toyama, Jonathan~J. Hunt, Shibl Mourad, David Silver, and Doina Precup.
+\newblock The option keyboard: Combining skills in reinforcement learning.
+\newblock In Hanna~M. Wallach, Hugo Larochelle, Alina Beygelzimer, Florence d'Alch{\'{e}}{-}Buc, Emily~B. Fox, and Roman Garnett, editors, \emph{Advances in Neural Information Processing Systems 32: Annual Conference on Neural Information Processing Systems 2019, NeurIPS 2019, December 8-14, 2019, Vancouver, BC, Canada}, pages 13031--13041, 2019.
+\newblock URL \url{https://proceedings.neurips.cc/paper/2019/hash/251c5ffd6b62cc21c446c963c76cf214-Abstract.html}.
+
+\bibitem[Barreto et~al.(2020)Barreto, Hou, Borsa, Silver, and Precup]{Barreto2020a}
+Andr{\'{e}} Barreto, Shaobo Hou, Diana Borsa, David Silver, and Doina Precup.
+\newblock Fast reinforcement learning with generalized policy updates.
+\newblock \emph{Proc. Natl. Acad. Sci. {USA}}, 117\penalty0 (48):\penalty0 30079--30087, 2020.
+\newblock \doi{10.1073/pnas.1907370117}.
+
+\bibitem[Barto and Mahadevan(2003)]{Barto2003}
+Andrew~G. Barto and Sridhar Mahadevan.
+\newblock Recent {Advances} in {Hierarchical} {Reinforcement} {Learning}.
+\newblock \emph{Discrete Event Dynamic Systems}, 13\penalty0 (4):\penalty0 341--379, October 2003.
+\newblock ISSN 1573-7594.
+\newblock \doi{10.1023/A:1025696116075}.
+\newblock URL \url{https://doi.org/10.1023/A:1025696116075}.
+
+\bibitem[Boutilier et~al.(1995)Boutilier, Dearden, Goldszmidt, et~al.]{Boutilier1995}
+Craig Boutilier, Richard Dearden, Mois{\'e}s Goldszmidt, et~al.
+\newblock Exploiting structure in policy construction.
+\newblock In \emph{IJCAI}, volume~14, pages 1104--1113, 1995.
+
+\bibitem[Camacho et~al.(2019)Camacho, Toro~Icarte, Klassen, Valenzano, and McIlraith]{Camacho2019}
+Alberto Camacho, Rodrigo Toro~Icarte, Toryn~Q. Klassen, Richard Valenzano, and Sheila~A. McIlraith.
+\newblock Ltl and beyond: Formal languages for reward function specification in reinforcement learning.
+\newblock In \emph{International Joint Conference on Artificial Intelligence, {IJCAI-19}}, pages 6065--6073, 7 2019.
+\newblock \doi{10.24963/ijcai.2019/840}.
+\newblock URL \url{https://doi.org/10.24963/ijcai.2019/840}.
+
+\bibitem[da~Silva et~al.(2009)da~Silva, Durand, and Popovi{\'c}]{Silva2009}
+Marco da~Silva, Fr{\'e}do Durand, and Jovan Popovi{\'c}.
+\newblock Linear {Bellman} combination for control of character animation.
+\newblock In \emph{{ACM} {SIGGRAPH} 2009 papers}, {SIGGRAPH} '09, pages 1--10, New York, NY, USA, July 2009. Association for Computing Machinery.
+\newblock ISBN 9781605587264.
+\newblock \doi{10.1145/1576246.1531388}.
+\newblock URL \url{https://dl.acm.org/doi/10.1145/1576246.1531388}.
+
+\bibitem[Dayan(1993)]{Dayan1993}
+Peter Dayan.
+\newblock Improving generalization for temporal difference learning: The successor representation.
+\newblock \emph{Neural Comput.}, 5\penalty0 (4):\penalty0 613--624, 1993.
+\newblock \doi{10.1162/neco.1993.5.4.613}.
+
+\bibitem[Dayan and Hinton(1992)]{Dayan1992}
+Peter Dayan and Geoffrey~E Hinton.
+\newblock Feudal {Reinforcement} {Learning}.
+\newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~5. Morgan-Kaufmann, 1992.
+\newblock URL \url{https://proceedings.neurips.cc/paper/1992/hash/d14220ee66aeec73c49038385428ec4c-Abstract.html}.
+
+\bibitem[Dietterich(2000)]{Dietterich2000}
+T.~G. Dietterich.
+\newblock Hierarchical {Reinforcement} {Learning} with the {MAXQ} {Value} {Function} {Decomposition}.
+\newblock \emph{Journal of Artificial Intelligence Research}, 13:\penalty0 227--303, November 2000.
+\newblock ISSN 1076-9757.
+\newblock \doi{10.1613/jair.639}.
+\newblock URL \url{https://www.jair.org/index.php/jair/article/view/10266}.
+
+\bibitem[Fruit and Lazaric(2017)]{Fruit2017}
+Ronan Fruit and Alessandro Lazaric.
+\newblock Exploration-exploitation in mdps with options.
+\newblock In Aarti Singh and Xiaojin~(Jerry) Zhu, editors, \emph{Proceedings of the 20th International Conference on Artificial Intelligence and Statistics, {AISTATS} 2017, 20-22 April 2017, Fort Lauderdale, FL, {USA}}, volume~54 of \emph{Proceedings of Machine Learning Research}, pages 576--584. {PMLR}, 2017.
+\newblock URL \url{http://proceedings.mlr.press/v54/fruit17a.html}.
+
+\bibitem[Fruit et~al.(2017)Fruit, Pirotta, Lazaric, and Brunskill]{Fruit2017b}
+Ronan Fruit, Matteo Pirotta, Alessandro Lazaric, and Emma Brunskill.
+\newblock Regret {Minimization} in {MDPs} with {Options} without {Prior} {Knowledge}.
+\newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~30. Curran Associates, Inc., 2017.
+\newblock URL \url{https://papers.nips.cc/paper_files/paper/2017/hash/90599c8fdd2f6e7a03ad173e2f535751-Abstract.html}.
+
+\bibitem[Ghavamzadeh and Mahadevan(2007)]{Ghavamzadeh2007}
+Mohammad Ghavamzadeh and Sridhar Mahadevan.
+\newblock Hierarchical average reward reinforcement learning.
+\newblock \emph{Journal of Machine Learning Research}, 8\penalty0 (87):\penalty0 2629--2669, 2007.
+\newblock URL \url{http://jmlr.org/papers/v8/ghavamzadeh07a.html}.
+
+\bibitem[Haarnoja et~al.(2018{\natexlab{a}})Haarnoja, Pong, Zhou, Dalal, Abbeel, and Levine]{Haarnoja2018a}
+Tuomas Haarnoja, Vitchyr Pong, Aurick Zhou, Murtaza Dalal, Pieter Abbeel, and Sergey Levine.
+\newblock Composable {Deep} {Reinforcement} {Learning} for {Robotic} {Manipulation}.
+\newblock In \emph{2018 {IEEE} {International} {Conference} on {Robotics} and {Automation} ({ICRA})}, pages 6244--6251, May 2018{\natexlab{a}}.
+\newblock \doi{10.1109/ICRA.2018.8460756}.
+\newblock URL \url{https://ieeexplore.ieee.org/abstract/document/8460756?casa_token=PZaKv88YacAAAAAA:T8mgFXl1wrM3ARqilO8zfGQ1v-6a8NN14DNZQZgfmPb8KO2LvFZ5Zw0PFEjb2YbL11gnZHsR}.
+\newblock ISSN: 2577-087X.
+
+\bibitem[Haarnoja et~al.(2018{\natexlab{b}})Haarnoja, Zhou, Abbeel, and Levine]{Haarnoja2018}
+Tuomas Haarnoja, Aurick Zhou, Pieter Abbeel, and Sergey Levine.
+\newblock Soft {Actor}-{Critic}: {Off}-{Policy} {Maximum} {Entropy} {Deep} {Reinforcement} {Learning} with a {Stochastic} {Actor}.
+\newblock pages 1861--1870. PMLR, July 2018{\natexlab{b}}.
+\newblock URL \url{https://proceedings.mlr.press/v80/haarnoja18b.html}.
+
+\bibitem[Hunt et~al.(2019)Hunt, Barreto, Lillicrap, and Heess]{Hunt2019}
+Jonathan Hunt, Andre Barreto, Timothy Lillicrap, and Nicolas Heess.
+\newblock Composing {Entropic} {Policies} using {Divergence} {Correction}.
+\newblock pages 2911--2920. PMLR, May 2019.
+\newblock URL \url{https://proceedings.mlr.press/v97/hunt19a.html}.
+
+\bibitem[Icarte et~al.(2022)Icarte, Klassen, Valenzano, and McIlraith]{Icarte2022}
+Rodrigo~Toro Icarte, Toryn~Q. Klassen, Richard Valenzano, and Sheila~A. McIlraith.
+\newblock Reward {Machines}: {Exploiting} {Reward} {Function} {Structure} in {Reinforcement} {Learning}.
+\newblock \emph{Journal of Artificial Intelligence Research}, 73:\penalty0 173--208, January 2022.
+\newblock ISSN 1076-9757.
+\newblock \doi{10.1613/jair.1.12440}.
+\newblock URL \url{https://www.jair.org/index.php/jair/article/view/12440}.
+
+\bibitem[Infante et~al.(2022)Infante, Jonsson, and G{\'{o}}mez]{Infante2022}
+Guillermo Infante, Anders Jonsson, and Vicen{\c{c}} G{\'{o}}mez.
+\newblock Globally optimal hierarchical reinforcement learning for linearly-solvable markov decision processes.
+\newblock volume~36, pages 6970--6977, Jun. 2022.
+\newblock \doi{10.1609/aaai.v36i6.20655}.
+\newblock URL \url{https://ojs.aaai.org/index.php/AAAI/article/view/20655}.
+
+\bibitem[Jonsson and G{\'{o}}mez(2016)]{Jonsson2016}
+Anders Jonsson and Vicen{\c{c}} G{\'{o}}mez.
+\newblock Hierarchical {Linearly}-{Solvable} {Markov} {Decision} {Problems}.
+\newblock \emph{Proceedings of the International Conference on Automated Planning and Scheduling}, 26:\penalty0 193--201, March 2016.
+\newblock ISSN 2334-0843.
+\newblock \doi{10.1609/icaps.v26i1.13750}.
+\newblock URL \url{https://ojs.aaai.org/index.php/ICAPS/article/view/13750}.
+
+\bibitem[Jothimurugan et~al.(2021)Jothimurugan, Bansal, Bastani, and Alur]{Jothimurugan2021}
+Kishor Jothimurugan, Suguman Bansal, Osbert Bastani, and Rajeev Alur.
+\newblock Compositional {Reinforcement} {Learning} from {Logical} {Specifications}.
+\newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~34, pages 10026--10039, 2021.
+\newblock URL \url{https://papers.nips.cc/paper_files/paper/2021/hash/531db99cb00833bcd414459069dc7387-Abstract.html}.
+
+\bibitem[Kaelbling(1993)]{Kaelbling1993}
+L.~Kaelbling.
+\newblock Learning to {Achieve} {Goals}.
+\newblock In \emph{Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI)}, pages 1094--1099, 1993.
+\newblock URL \url{https://www.semanticscholar.org/paper/Learning-to-Achieve-Goals-Kaelbling/6df43f70f383007a946448122b75918e3a9d6682}.
+
+\bibitem[Kappen(2005)]{Kappen2005}
+Hilbert~J. Kappen.
+\newblock Linear {Theory} for {Control} of {Nonlinear} {Stochastic} {Systems}.
+\newblock \emph{Physical Review Letters}, 95\penalty0 (20):\penalty0 200201, November 2005.
+\newblock \doi{10.1103/PhysRevLett.95.200201}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.95.200201}.
+
+\bibitem[Kappen et~al.(2012)Kappen, G{\'{o}}mez, and Opper]{Kappen2012}
+Hilbert~J. Kappen, Vicen{\c{c}} G{\'{o}}mez, and Manfred Opper.
+\newblock Optimal control as a graphical model inference problem.
+\newblock \emph{Machine Learning}, 87\penalty0 (2):\penalty0 159--182, May 2012.
+\newblock ISSN 1573-0565.
+\newblock \doi{10.1007/s10994-012-5278-7}.
+\newblock URL \url{https://doi.org/10.1007/s10994-012-5278-7}.
+
+\bibitem[Koller and Parr(2000)]{Koller2000}
+Daphne Koller and Ronald Parr.
+\newblock Policy iteration for factored {MDPs}.
+\newblock In \emph{Proceedings of the {Sixteenth} conference on {Uncertainty} in artificial intelligence}, {UAI}'00, pages 326--334, San Francisco, CA, USA, June 2000. Morgan Kaufmann Publishers Inc.
+\newblock ISBN 9781558607095.
+
+\bibitem[Kolobov et~al.(2012)Kolobov, {Mausam}, and Weld]{Kolobov2012}
+Andrey Kolobov, {Mausam}, and Daniel~S. Weld.
+\newblock Discovering hidden structure in factored {MDPs}.
+\newblock \emph{Artificial Intelligence}, 189:\penalty0 19--47, September 2012.
+\newblock ISSN 0004-3702.
+\newblock \doi{10.1016/j.artint.2012.05.002}.
+\newblock URL \url{https://www.sciencedirect.com/science/article/pii/S0004370212000598}.
+
+\bibitem[Kuo et~al.(2020)Kuo, Katz, and Barbu]{Kuo2020}
+Yen-Ling Kuo, Boris Katz, and Andrei Barbu.
+\newblock Encoding formulas as deep networks: Reinforcement learning for zero-shot execution of ltl formulas.
+\newblock In \emph{IEEE/RSJ International Conference on Intelligent Robots and Systems}, pages 5604--5610, 2020.
+
+\bibitem[Le{\'{o}}n et~al.(2020)Le{\'{o}}n, Shanahan, and Belardinelli]{Leon2020}
+Borja~G. Le{\'{o}}n, Murray Shanahan, and Francesco Belardinelli.
+\newblock Systematic generalisation through task temporal logic and deep reinforcement learning.
+\newblock \emph{CoRR}, abs/2006.08767, 2020.
+\newblock URL \url{https://arxiv.org/abs/2006.08767}.
+
+\bibitem[Mann et~al.(2015)Mann, Mannor, and Precup]{Mann2015}
+Timothy~A Mann, Shie Mannor, and Doina Precup.
+\newblock Approximate value iteration with temporally extended actions.
+\newblock \emph{Journal of Artificial Intelligence Research}, 53:\penalty0 375--438, 2015.
+
+\bibitem[Nangue~Tasse et~al.(2020)Nangue~Tasse, James, and Rosman]{NangueTasse2020}
+Geraud Nangue~Tasse, Steven James, and Benjamin Rosman.
+\newblock A {Boolean} {Task} {Algebra} for {Reinforcement} {Learning}.
+\newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~33, pages 9497--9507. Curran Associates, Inc., 2020.
+\newblock URL \url{https://proceedings.neurips.cc/paper/2020/hash/6ba3af5d7b2790e73f0de32e5c8c1798-Abstract.html}.
+
+\bibitem[Neu et~al.(2017)Neu, Jonsson, and G{\'{o}}mez]{Neu2017}
+Gergely Neu, Anders Jonsson, and Vicen{\c{c}} G{\'{o}}mez.
+\newblock A unified view of entropy-regularized markov decision processes.
+\newblock \emph{CoRR}, abs/1705.07798, 2017.
+
+\bibitem[Parr and Russell(1997)]{Parr1997}
+Ronald Parr and Stuart Russell.
+\newblock Reinforcement {Learning} with {Hierarchies} of {Machines}.
+\newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~10. MIT Press, 1997.
+\newblock URL \url{https://proceedings.neurips.cc/paper/1997/hash/5ca3e9b122f61f8f06494c97b1afccf3-Abstract.html}.
+
+\bibitem[Puterman(1994)]{Puterman1994}
+Martin~L. Puterman.
+\newblock \emph{Markov Decision Processes: Discrete Stochastic Dynamic Programming}.
+\newblock Wiley Series in Probability and Statistics. Wiley, 1994.
+\newblock ISBN 978-0-47161977-2.
+\newblock \doi{10.1002/9780470316887}.
+\newblock URL \url{https://doi.org/10.1002/9780470316887}.
+
+\bibitem[Roijers et~al.(2014)Roijers, Whiteson, and Oliehoek]{Roijers2014}
+Diederik~M Roijers, Shimon Whiteson, and Frans~A Oliehoek.
+\newblock Linear support for multi-objective coordination graphs.
+\newblock In \emph{International Conference on Autonomous Agents \& Multiagent Systems}, volume~2, pages 1297--1304, 2014.
+
+\bibitem[Roijers et~al.(2015)Roijers, Whiteson, and Oliehoek]{Roijers2015}
+Diederik~Marijn Roijers, Shimon Whiteson, and Frans~A Oliehoek.
+\newblock Computing convex coverage sets for faster multi-objective coordination.
+\newblock \emph{Journal of Artificial Intelligence Research}, 52:\penalty0 399--443, 2015.
+
+\bibitem[Saxe et~al.(2017)Saxe, Earle, and Rosman]{Saxe2017}
+Andrew~M. Saxe, Adam~C. Earle, and Benjamin Rosman.
+\newblock Hierarchy {Through} {Composition} with {Multitask} {LMDPs}.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine Learning}, pages 3017--3026. PMLR, July 2017.
+\newblock URL \url{https://proceedings.mlr.press/v70/saxe17a.html}.
+
+\bibitem[Schaul et~al.(2015)Schaul, Horgan, Gregor, and Silver]{Schaul2015}
+Tom Schaul, Daniel Horgan, Karol Gregor, and David Silver.
+\newblock Universal value function approximators.
+\newblock In Francis Bach and David Blei, editors, \emph{Proceedings of the 32nd International Conference on Machine Learning}, volume~37 of \emph{Proceedings of Machine Learning Research}, pages 1312--1320, Lille, France, 07--09 Jul 2015. PMLR.
+\newblock URL \url{https://proceedings.mlr.press/v37/schaul15.html}.
+
+\bibitem[Schulman et~al.(2015)Schulman, Levine, Abbeel, Jordan, and Moritz]{Schulman2015}
+John Schulman, Sergey Levine, Pieter Abbeel, Michael~I. Jordan, and Philipp Moritz.
+\newblock Trust region policy optimization.
+\newblock In Francis~R. Bach and David~M. Blei, editors, \emph{Proceedings of the 32nd International Conference on Machine Learning, {ICML} 2015, Lille, France, 6-11 July 2015}, volume~37 of \emph{{JMLR} Workshop and Conference Proceedings}, pages 1889--1897. JMLR.org, 2015.
+\newblock URL \url{http://proceedings.mlr.press/v37/schulman15.html}.
+
+\bibitem[Strehl et~al.(2007)Strehl, Diuk, and Littman]{Strehl2007}
+Alexander~L. Strehl, Carlos Diuk, and Michael~L. Littman.
+\newblock Efficient structure learning in factored-state {MDPs}.
+\newblock In \emph{Proceedings of the 22nd national conference on {Artificial} intelligence - {Volume} 1}, {AAAI}'07, pages 645--650, Vancouver, British Columbia, Canada, July 2007. AAAI Press.
+\newblock ISBN 9781577353232.
+
+\bibitem[Sutton et~al.(1999)Sutton, Precup, and Singh]{Sutton1999}
+Richard~S. Sutton, Doina Precup, and Satinder Singh.
+\newblock Between mdps and semi-mdps: {A} framework for temporal abstraction in reinforcement learning.
+\newblock \emph{Artif. Intell.}, 112\penalty0 (1-2):\penalty0 181--211, 1999.
+\newblock \doi{10.1016/S0004-3702(99)00052-1}.
+
+\bibitem[Todorov(2006)]{Todorov2006}
+Emanuel Todorov.
+\newblock Linearly-solvable markov decision problems.
+\newblock In B.~Sch\"{o}lkopf, J.~Platt, and T.~Hoffman, editors, \emph{Advances in Neural Information Processing Systems}, volume~19. MIT Press, 2006.
+\newblock URL \url{https://proceedings.neurips.cc/paper/2006/file/d806ca13ca3449af72a1ea5aedbed26a-Paper.pdf}.
+
+\bibitem[Todorov(2009{\natexlab{a}})]{Todorov2009}
+Emanuel Todorov.
+\newblock Efficient computation of optimal actions.
+\newblock \emph{Proceedings of the national academy of sciences}, 106\penalty0 (28):\penalty0 11478--11483, 2009{\natexlab{a}}.
+
+\bibitem[Todorov(2009{\natexlab{b}})]{Todorov2009a}
+Emanuel Todorov.
+\newblock Compositionality of optimal control laws.
+\newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~22. Curran Associates, Inc., 2009{\natexlab{b}}.
+\newblock URL \url{https://papers.nips.cc/paper_files/paper/2009/hash/3eb71f6293a2a31f3569e10af6552658-Abstract.html}.
+
+\bibitem[Todorov(2010)]{Todorov2010}
+Emanuel Todorov.
+\newblock Policy gradients in linearly-solvable mdps.
+\newblock In John~D. Lafferty, Christopher K.~I. Williams, John Shawe{-}Taylor, Richard~S. Zemel, and Aron Culotta, editors, \emph{Advances in Neural Information Processing Systems 23: 24th Annual Conference on Neural Information Processing Systems 2010. Proceedings of a meeting held 6-9 December 2010, Vancouver, British Columbia, Canada}, pages 2298--2306. Curran Associates, Inc., 2010.
+\newblock URL \url{https://proceedings.neurips.cc/paper/2010/hash/69421f032498c97020180038fddb8e24-Abstract.html}.
+
+\bibitem[Toro~Icarte et~al.(2018)Toro~Icarte, Klassen, Valenzano, and McIlraith]{Icarte2018b}
+Rodrigo Toro~Icarte, Toryn~Q Klassen, Richard Valenzano, and Sheila~A McIlraith.
+\newblock Teaching multiple tasks to an rl agent using ltl.
+\newblock In \emph{Proceedings of the 17th International Conference on Autonomous Agents and MultiAgent Systems}, pages 452--461, 2018.
+
+\bibitem[Toro~Icarte et~al.(2019)Toro~Icarte, Waldie, Klassen, Valenzano, Castro, and McIlraith]{ToroIcarte2019}
+Rodrigo Toro~Icarte, Ethan Waldie, Toryn Klassen, Rick Valenzano, Margarita Castro, and Sheila McIlraith.
+\newblock Learning {Reward} {Machines} for {Partially} {Observable} {Reinforcement} {Learning}.
+\newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~32. Curran Associates, Inc., 2019.
+\newblock URL \url{https://papers.nips.cc/paper_files/paper/2019/hash/532435c44bec236b471a47a88d63513d-Abstract.html}.
+
+\bibitem[Vaezipoor et~al.(2021)Vaezipoor, Li, Icarte, and Mcilraith]{Vaezipoor2021}
+Pashootan Vaezipoor, Andrew~C. Li, Rodrigo A.~Toro Icarte, and Sheila~A. Mcilraith.
+\newblock {LTL2Action}: {Generalizing} {LTL} {Instructions} for {Multi}-{Task} {RL}.
+\newblock pages 10497--10508. PMLR, July 2021.
+\newblock URL \url{https://proceedings.mlr.press/v139/vaezipoor21a.html}.
+
+\bibitem[van Niekerk et~al.(2019)van Niekerk, James, Earle, and Rosman]{Niekerk2019}
+Benjamin van Niekerk, Steven~D. James, Adam~Christopher Earle, and Benjamin Rosman.
+\newblock Composing value functions in reinforcement learning.
+\newblock In Kamalika Chaudhuri and Ruslan Salakhutdinov, editors, \emph{Proceedings of the 36th International Conference on Machine Learning, {ICML} 2019, 9-15 June 2019, Long Beach, California, {USA}}, volume~97 of \emph{Proceedings of Machine Learning Research}, pages 6401--6409. {PMLR}, 2019.
+\newblock URL \url{http://proceedings.mlr.press/v97/van-niekerk19a.html}.
+
+\bibitem[Vieillard et~al.(2020)Vieillard, Pietquin, and Geist]{Vieillard2020}
+Nino Vieillard, Olivier Pietquin, and Matthieu Geist.
+\newblock Munchausen {Reinforcement} {Learning}.
+\newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~33, pages 4235--4246. Curran Associates, Inc., 2020.
+\newblock URL \url{https://proceedings.neurips.cc/paper/2020/hash/2c6a0bae0f071cbbf0bb3d5b11d90a82-Abstract.html}.
+
+\bibitem[Wan et~al.(2021{\natexlab{a}})Wan, Naik, and Sutton]{Wan2021}
+Yi~Wan, Abhishek Naik, and Richard~S Sutton.
+\newblock Learning and planning in average-reward markov decision processes.
+\newblock In Marina Meila and Tong Zhang, editors, \emph{Proceedings of the 38th International Conference on Machine Learning}, volume 139 of \emph{Proceedings of Machine Learning Research}, pages 10653--10662. PMLR, 18--24 Jul 2021{\natexlab{a}}.
+\newblock URL \url{https://proceedings.mlr.press/v139/wan21a.html}.
+
+\bibitem[Wan et~al.(2021{\natexlab{b}})Wan, Naik, and Sutton]{Wan2021a}
+Yi~Wan, Abhishek Naik, and Richard~S. Sutton.
+\newblock Average-reward learning and planning with options.
+\newblock In Marc'Aurelio Ranzato, Alina Beygelzimer, Yann~N. Dauphin, Percy Liang, and Jennifer~Wortman Vaughan, editors, \emph{Advances in Neural Information Processing Systems 34: Annual Conference on Neural Information Processing Systems 2021, NeurIPS 2021, December 6-14, 2021, virtual}, pages 22758--22769, 2021{\natexlab{b}}.
+\newblock URL \url{https://proceedings.neurips.cc/paper/2021/hash/c058f544c737782deacefa532d9add4c-Abstract.html}.
+
+\bibitem[Watkins and Dayan(1992)]{Watkins1992}
+Christopher~JCH Watkins and Peter Dayan.
+\newblock Q-learning.
+\newblock \emph{Machine learning}, 8:\penalty0 279--292, 1992.
+
+\bibitem[Wen et~al.(2020)Wen, Precup, Ibrahimi, Barreto, Van~Roy, and Singh]{Wen2020}
+Zheng Wen, Doina Precup, Morteza Ibrahimi, Andre Barreto, Benjamin Van~Roy, and Satinder Singh.
+\newblock On {Efficiency} in {Hierarchical} {Reinforcement} {Learning}.
+\newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~33, pages 6708--6718. Curran Associates, Inc., 2020.
+\newblock URL \url{https://proceedings.neurips.cc/paper/2020/hash/4a5cfa9281924139db466a8a19291aff-Abstract.html}.
+
+\end{thebibliography}
