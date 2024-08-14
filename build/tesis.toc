@@ -1,8 +1,9 @@
 \babel@toc {english}{}\relax 
 \babel@toc {catalan}{}\relax 
+\contentsline {chapter}{{ Acknowledgements}}{v}{chapter*.1}%
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{List of figures}{xvi}{chapter*.3}%
-\contentsline {chapter}{List of tables}{xvii}{chapter*.4}%
+\contentsline {chapter}{List of figures}{xvi}{chapter*.4}%
+\contentsline {chapter}{List of tables}{xvii}{chapter*.5}%
 \contentsline {chapter}{\numberline {1}{{ Introduction}}}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Thesis structure}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Contributions}{2}{section.1.2}%
@@ -16,10 +17,10 @@
 \contentsline {section}{\numberline {2.2}Successor features}{4}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Linearly-solvable Markov decision processes}{5}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}First-exit linearly-solvable Markov decision processes}{6}{subsection.2.3.1}%
-\contentsline {subsubsection}{Solving a first-exit LMDP}{8}{section*.5}%
-\contentsline {subsubsection}{Compositionality}{9}{section*.6}%
+\contentsline {subsubsection}{Solving a first-exit LMDP}{8}{section*.6}%
+\contentsline {subsubsection}{Compositionality}{9}{section*.7}%
 \contentsline {subsection}{\numberline {2.3.2}Average-reward linearly-solvable Markov decision processes}{9}{subsection.2.3.2}%
-\contentsline {subsubsection}{Solving an ALMDP}{10}{section*.8}%
+\contentsline {subsubsection}{Solving an ALMDP}{10}{section*.9}%
 \contentsline {subsection}{\numberline {2.3.3}Function approximation in LMDPs}{11}{subsection.2.3.3}%
 \contentsline {section}{\numberline {2.4}Hierarchical Reinforcement Learning}{12}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Optimality of HRL algorithms}{12}{subsection.2.4.1}%
@@ -31,12 +32,12 @@
 \contentsline {section}{\numberline {3.3}Related Work}{14}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Hierarchical LMDPs}{16}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Hierarchical Decomposition}{16}{subsection.3.4.1}%
-\contentsline {paragraph}{Example 1:}{18}{section*.10}%
+\contentsline {paragraph}{Example 1:}{18}{section*.11}%
 \contentsline {subsection}{\numberline {3.4.2}Subtask Compositionality}{18}{subsection.3.4.2}%
-\contentsline {paragraph}{Example 1:}{19}{section*.11}%
-\contentsline {paragraph}{Example 2:}{20}{section*.13}%
+\contentsline {paragraph}{Example 1:}{19}{section*.12}%
+\contentsline {paragraph}{Example 2:}{20}{section*.14}%
 \contentsline {subsection}{\numberline {3.4.3}Eigenvector Approach}{21}{subsection.3.4.3}%
-\contentsline {paragraph}{Example 1:}{21}{section*.14}%
+\contentsline {paragraph}{Example 1:}{21}{section*.15}%
 \contentsline {subsection}{\numberline {3.4.4}Online and Intra-task Learning}{21}{subsection.3.4.4}%
 \contentsline {subsection}{\numberline {3.4.5}Analysis}{23}{subsection.3.4.5}%
 \contentsline {section}{\numberline {3.5}Experiments}{24}{section.3.5}%
@@ -52,7 +53,7 @@
 \contentsline {subsection}{\numberline {4.5.1}Hierarchical Decomposition}{33}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Subtask Compositionality}{33}{subsection.4.5.2}%
 \contentsline {subsection}{\numberline {4.5.3}Efficiency of the value representation}{34}{subsection.4.5.3}%
-\contentsline {paragraph}{Example 1}{35}{section*.18}%
+\contentsline {paragraph}{Example 1}{35}{section*.19}%
 \contentsline {section}{\numberline {4.6}Algorithms}{35}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Eigenvector approach}{35}{subsection.4.6.1}%
 \contentsline {subsection}{\numberline {4.6.2}Online algorithm}{38}{subsection.4.6.2}%
@@ -65,23 +66,23 @@
 \contentsline {section}{\numberline {5.1}Introduction}{45}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Contributions}{46}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Preliminaries}{47}{section.5.3}%
-\contentsline {paragraph}{Propositional Logic}{47}{section*.22}%
-\contentsline {paragraph}{Finite State Automaton}{47}{section*.23}%
-\contentsline {paragraph}{Feature vectors}{47}{section*.25}%
-\contentsline {paragraph}{Policy basis and convex coverage set}{48}{section*.26}%
+\contentsline {paragraph}{Propositional Logic}{47}{section*.23}%
+\contentsline {paragraph}{Finite State Automaton}{47}{section*.24}%
+\contentsline {paragraph}{Feature vectors}{47}{section*.26}%
+\contentsline {paragraph}{Policy basis and convex coverage set}{48}{section*.27}%
 \contentsline {section}{\numberline {5.4}Using Successor Features to Solve non-Markovian Reward Specifications}{49}{section.5.4}%
-\contentsline {paragraph}{Example}{50}{section*.27}%
+\contentsline {paragraph}{Example}{50}{section*.28}%
 \contentsline {subsection}{\numberline {5.4.1}Algorithm}{50}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}Analysis}{51}{subsection.5.4.2}%
 \contentsline {section}{\numberline {5.5}Experiments}{52}{section.5.5}%
 \contentsline {subsection}{\numberline {5.5.1}Environments and tasks}{53}{subsection.5.5.1}%
-\contentsline {paragraph}{Office}{53}{section*.29}%
-\contentsline {paragraph}{Delivery}{53}{section*.30}%
+\contentsline {paragraph}{Office}{53}{section*.30}%
+\contentsline {paragraph}{Delivery}{53}{section*.31}%
 \contentsline {subsection}{\numberline {5.5.2}Baselines}{54}{subsection.5.5.2}%
 \contentsline {subsection}{\numberline {5.5.3}Results}{55}{subsection.5.5.3}%
-\contentsline {paragraph}{A motivating example}{55}{section*.33}%
-\contentsline {paragraph}{Learning}{56}{section*.34}%
-\contentsline {paragraph}{Planning}{57}{section*.35}%
+\contentsline {paragraph}{A motivating example}{55}{section*.34}%
+\contentsline {paragraph}{Learning}{56}{section*.35}%
+\contentsline {paragraph}{Planning}{57}{section*.36}%
 \contentsline {section}{\numberline {5.6}Related Work}{57}{section.5.6}%
 \contentsline {section}{\numberline {5.7}Discussion and Conclusion}{59}{section.5.7}%
 \contentsline {chapter}{\numberline {A}{{ Proof Theorem~\ref {theo:almdps}}}}{69}{appendix.A}%
