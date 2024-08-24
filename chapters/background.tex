@@ -1,6 +1,4 @@
-This chapter introduces all the notation and background necessary to understand the subsequent chapters.
-
-Notation:
+Throughout this dissertation me make use of the following notation
 \begin{itemize}
   \item Given a finite set $\cX$, let $\Delta(\cX)=\{p\in\real^\cX:\sum_x p(x)=1, p(x)\geq 0\;(\forall x)\}$ denote the probability simplex on $\cX$. 
   \item Given a probability distribution $p\in\Delta(\cX)$, let $\cB(p)=\{x\in\cX:p(x) > 0\}\subseteq\cX$ denote the support of $p$.
@@ -40,7 +38,7 @@ Notation:
 % \end{itemize}
 % On what follows, we will assume policies to be stationary, Markovian and randomized unless otherwise specified.
 
-\subsection{Optimality criteria}
+% \subsection{Optimality criteria}
 
 % RL algorithms try to find an optimal policy that maximizes some sort of numerical objective. Throughout this work, the following optimality criteria will be used~\citep{Puterman1994},
 
@@ -60,11 +58,11 @@ Notation:
 % \end{itemize}
 
 
-\subsection{Value functions}
+% \subsection{Value functions}
 
-\subsection{Dynamic programming}
+% \subsection{Dynamic programming}
 
-\subsection{Function approximation}
+% \subsection{Function approximation}
 
 
 \guillermo{
@@ -110,13 +108,13 @@ A fundamental question to solve the so-called \textit{optimal policy transfer le
 
 \section{Linearly-solvable Markov decision processes}
 
-Linearly-solvable Markov decision processes are a restricted class of the more general MDPs where the Bellman optimality equations are linear. This makes the computation of optimal value functions more efficient. In continuous state space domains or contexts of optimal control as probablistic inference, they frequently appear under the names of path-integral or Kullback-Leibler control~\citep{Kappen2012}. 
+Linearly-solvable Markov decision processes~\citep{Todorov2006, Kappen2005} are a restricted class of the more general MDPs where the Bellman optimality equations are linear. This makes the computation of optimal value functions more efficient. In continuous state space domains or contexts of optimal control as probablistic inference, they frequently appear under the names of path-integral or Kullback-Leibler control~\citep{Kappen2012}. 
 
-Even though this formulation is arguably restricted and only applicable to domains with deterministic dynamics, the intuition of entropy-regularization~\citep{Neu2017}, that lies at the core of LMDPs, is fundamental in RL as it is one of the building blocks of current state-of-the-art deep reinforcement learning algorithms such as trust region policy optimization~\citep{Schulman2015}, soft actor-critic (SAC)~\citep{Haarnoja2018} or Manchausen RL~\citep{Vieillard2020}.
+Even though this formulation is arguably restricted and only applicable to domains with deterministic dynamics, the intuition of entropy-regularization~\citep{Neu2017}, that lies at the core of LMDPs, is fundamental in RL as it is one of the building blocks of current state-of-the-art deep reinforcement learning algorithms such as trust region policy optimization~\citep{Schulman2015}, soft actor-critic (SAC)~\citep{Haarnoja2018} or Manchausen RL~\citep{Vieillard2020}. In what follows we introduce linearly-solvable Markov decision processes in the finite-horizon (first-exit) setting, its extension to infinite-horizon (average-reward) setting and we briefly discuss how they can be used along with function approximation.
 
 \subsection{First-exit linearly-solvable Markov decision processes}
 
-We define a first-exit linearly-solvable Markov decision process, or just LMDP~\citep{Todorov2006,Kappen2005}, as a tuple $\cL=\langle\cS,\cT,\kernel,\cR,\cJ\rangle$, where: \begin{itemize}
+We define a first-exit linearly-solvable Markov decision process, or just LMDP, as a tuple $\cL=\langle\cS,\cT,\kernel,\cR,\cJ\rangle$, where: \begin{itemize}
   \item $\cS$ is a set of non-terminal states.
   \item $\cT$ is a set of terminal states.
   \item $\kernel:\cS\rightarrow\Delta(\cS^+)$ is an uncontrolled transition function, also known as passive dynamics or passive controls.
@@ -124,9 +122,9 @@ We define a first-exit linearly-solvable Markov decision process, or just LMDP~\
   \item $\cJ:\cT\rightarrow\real$ is a reward function for terminal states.
 \end{itemize}
 
-\noindent Let $\cS^+=\cS\cup\cT$ denote the full set of states and $B=\max_{s\in\cS}|\cB(\kernel(\cdot|s))|$ an upper bound on the support of $\kernel$. 
+\noindent We let $\cS^+=\cS\cup\cT$ denote the full set of states and $B=\max_{s\in\cS}|\cB(\kernel(\cdot|s))|$ an upper bound on the support of $\kernel$. 
 
-Similarly to the stardard RL learning loop, the agent interacts with the environment in a sequential manner. Nontheless, since there are no explict actions, the learning agent now follows a policy $\pi:\cS\rightarrow\Delta(\cS^+)$. Such a policy chooses, for each non-terminal state $s\in\cS$, a probability distribution over next states in the support of $\kernel(\cdot|s)$, i.e.~$\pi(\cdot|s)\in\Delta(\cB(\kernel(\cdot|s))$. There is also no explicit mention to the initial state distribution, which is asummed to be uniform over the set of non-terminal states (~i.e. $\kernel_0 = \text{unif}(\cS)$). 
+Similarly to the stardard RL learning loop, the agent interacts with the environment in a sequential manner. Nontheless, there are no explict actions, and now the learning agent now follows a policy $\pi:\cS\rightarrow\Delta(\cS^+)$. Such a policy chooses, for each non-terminal state $s\in\cS$, a probability distribution over next states in the support of $\kernel(\cdot|s)$, i.e.~$\pi(\cdot|s)\in\Delta(\cB(\kernel(\cdot|s))$. There is also no explicit mention to the initial state distribution, which is asummed to be uniform over the set of non-terminal states (this is $\kernel_0 = \text{unif}(\cS)$). 
 
 At each timestep $t$, the learning agent observes a state $s_t\in\cS^+$. If $s_t$ is non-terminal, the agent transitions to a new state $s_{t+1}\sim\pi(\cdot|s_t)$ and receives an immediate, regularized reward
 \[
@@ -168,7 +166,7 @@ Now, we introduce the notation $z(s)=e^{\eta v^*_\eta(s)}$ for each $s\in\cS^+$.
 z(s) = e^{\eta\cR(s)} \sum_{s'}\kernel(s'|s)z(s').
 \end{equation}
 \subsubsection{Solving a first-exit LMDP}
-The Bellman equation can be expressed in matrix form by defining an $\lvert\cS\rvert\times\lvert\cS\rvert$ diagonal reward matrix $R=\diag(e^{\eta\cR(\cdot)})$ and an $\lvert\cS\rvert\times \lvert\cS^+\rvert$ stochastic transition matrix $P$ whose entries $(s,s')$ equal $\kernel(s'|s)$. Define a vector $\bf z$ that stores the values $z(s)$ for each non-terminal state $s\in\cS$, and a vector $\bf z^+$ extended to all states in $\cS^+$. Now we can write the Bellman equations in matrix form as:
+The Bellman equation can be expressed in matrix form by defining an $\lvert\cS\rvert\times\lvert\cS\rvert$ diagonal reward matrix $R=\diag(e^{\eta\cR(\cdot)})$ and an $\lvert\cS\rvert\times \lvert\cS^+\rvert$ stochastic transition matrix $P$ whose entries $(s,s')$ equal $\kernel(s'|s)$. We define a vector $\bf z$ that stores the values $z(s)$ for each non-terminal state $s\in\cS$, and a vector $\bf z^+$ extended to all states in $\cS^+$. Now we can write the Bellman equations in matrix form as:
 \begin{equation}\label{eq:eigen_lmdp}
 {\bf z} = R P {\bf z^+}.
 \end{equation}
@@ -204,7 +202,7 @@ Further, as shown in \citep{Jonsson2016}, the corrected update rule in \eqref{eq
 
 \subsubsection{Compositionality}
 \label{section:compositionality}
-\citet{Todorov2009a} introduces the concept of compositionality for LMDPs. Consider a set of LMDPs $\{\cL_1,\ldots,\cL_n\}$, where each LMDP $\cL_i=\langle\cS,\cT,\kernel,\cR,\cJ_i\rangle$ has the same components $\cS,\cT,\kernel,\cR$ and only differ in the reward $\cJ_i(\tau)$ of each terminal state $\tau\in\cT$, as well as its exponentiated value $z_i(\tau)=e^{\eta \cJ_i(\tau)}$.
+\citet{Todorov2009a} introduces the concept of compositionality for LMDPs. Let us consider a set of LMDPs $\{\cL_1,\ldots,\cL_n\}$, where each LMDP $\cL_i=\langle\cS,\cT,\kernel,\cR,\cJ_i\rangle$ has the same components $\cS,\cT,\kernel,\cR$ and only differ in the reward $\cJ_i(\tau)$ of each terminal state $\tau\in\cT$, as well as its exponentiated value $z_i(\tau)=e^{\eta \cJ_i(\tau)}$.
 
 Now consider a new LMDP $\cL=\langle\cS,\cT,\kernel,\cR,\cJ\rangle$ with the same components as the $n$ LMDPs above, except for $\cJ$. Assume that there exist weights $w_1,\ldots,w_n$ such that the exponentiated value of each terminal state $\tau\in\cT$ can be written as
 \[
@@ -214,13 +212,13 @@ Since the Bellman optimality equation of each non-terminal state $s\in\cS$ is li
 \[
 z(s) = \sum_{k=1}^n w_kz_k(s).
 \]
-Consequently, if previously compute the optimal values $z_1,\ldots,z_n$ of the $n$ LMDPs are previously computed and the weights $w_1,\ldots,w_n$ are known, we immediately obtains the optimal values of the new LMDP $\cL$ without further learning.
+Consequently, if the optimal values $z_1,\ldots,z_n$ of the $n$ LMDPs are previously computed and the weights $w_1,\ldots,w_n$ are known, we immediately obtains the optimal values of the new LMDP $\cL$ without further learning.
 
 
 \subsection{Average-reward linearly-solvable Markov decision processes}
 
-LMDPs can be extended to the average-reward setting. An average-reward Linearly-solvable Markov decision process (ALMDP) is a tuple
-$\cL = \langle\cS,\kernel,\cR\rangle$, where $\cS$ is a set of states, $\kernel:\cS\rightarrow\Delta(\cS)$ is the passive dynamics, and $\cR$ is the reward function. Unlike first-exit LMDPs, there are no terminal states, since ALMDPs represent infinite-horizon (continuing) tasks. Consequently, there is no reward function for terminal states.  
+LMDPs can be extended to the average-reward setting. We say an average-reward Linearly-solvable Markov decision process (ALMDP) is a tuple
+$\cL = \langle\cS,\kernel,\cR\rangle$, where $\cS$ is a set of states, $\kernel:\cS\rightarrow\Delta(\cS)$ is the passive dynamics, and $\cR$ is the reward function. ALMDPs represent infinite-horizon (continuing) tasks and, unlike first-exit LMDPs, there are no terminal states. Consequently, there is no reward function for terminal states.  
 
 Throughout this thesis, we make the following assumptions about ALMDPs. These are common assumptions in the average-reward RL setting to avoid ill-defined value functions.
 
@@ -259,7 +257,7 @@ For the optimal value function $z$, the optimal policy is given by the same expr
 
 \subsubsection{Solving an ALMDP}
 
-Let $\Gamma=e^{\eta\rho}$ denote the exponentiated gain. Similar to the first-exit case, Equation~\eqref{eq:boe_z_almdp} can be expressed in matrix form as
+We let $\Gamma=e^{\eta\rho}$ denote the exponentiated gain. Similar to the first-exit case, we can express Equation~\eqref{eq:boe_z_almdp} in matrix form as
 \begin{equation}\label{eq:rel_opt}
   \Gamma {\bf z} = R P {\bf z},
 \end{equation}
@@ -281,7 +279,7 @@ Unlike the first-exit case, the compositionality property does not hold in the a
 
 \subsection{Function approximation in LMDPs}
 
-So far, all the results introduced for (A)LMDPs restrict to the tabular case where the full state space can be enumerated and stored in memory. However, in cases where the state space is considerably large, tabular methods are unfeasible and the value function is approximated.
+So far, we have introduced methods for solving (A)LMDPs in the tabular case, where the full state space can be enumerated and stored in memory. However, in cases where the state space is considerably large, tabular methods are unfeasible and the value function is approximated.
 
 In this line,~\cite{Todorov2010} prescibes two families of methods for adapting LMDPs in the average-reward setting to function approximation. The first one lies in the family of policy gradients while the second ones can be considered critic-only approaches. Here a valid parameterization of the policy $\pi(s'\lvert s, \w)$ is considered.
 
@@ -290,17 +288,17 @@ The Bellman equation~\eqref{eq:boe_almdp} can be rewritten as follows
 \label{eq:boe_for_pg}
 \rho + v^*(s) =\cR(s) +\log{\sum_{s'\in\cS}\kernel(s'\lvert s)e^{v^*(s')}} \;\;\forall s\in\cS,
 \end{equation}
-for the sake of simplicity it is assumed that $\eta=1$. 
+for the sake of simplicity we assume that $\eta=1$. 
 
 The first flavor of methods builds on the policy gradient theorem for ALMDPs~\citep[cf.~Theorem 1]{Todorov2010} that states that the gradient of the gain in ALMDPs is
 \begin{equation}
   \nabla_\w \rho = \sum_{s}\mu(s, \w) \sum_{s'} \nabla_\w \pi(s'\lvert s, \w)\Big( \log \frac{\pi(s'\lvert s, \w)}{\kernel(s'\lvert s)} + \widetilde v(s', \mathbf{r})\Big),
 \end{equation}
-where $\mu(x, \w)$ is the stationary distribution induced by $\pi$ and $\widetilde v(s,\mathbf{r})$ an approximation to the (optimal) value function with parameterization $\mathbf r$.
+where $\mu(x, \w)$ is the stationary distribution induced by $\pi$, and $\widetilde v(s,\mathbf{r})$ is an approximation to the (optimal) value function with parameterization $\mathbf r$.
 
-For the second type of methods one could use \textit{approximate} value iteration or \textit{approximate} policy iteration to iteratively improve the weight vector $\w$, even though this results in a bias estimator. An even more direct approach is to use Gauss-Newton method to fit the weight vector $\w$ by directly optimizing~\eqref{eq:boe_for_pg}.
+For the second type of methods one could use \textit{approximate} value iteration or \textit{approximate} policy iteration to iteratively improve the weight vector $\w$, even though this results in a biased estimator. An even more direct approach is to use Gauss-Newton method to fit the weight vector $\w$ by directly optimizing~\eqref{eq:boe_for_pg}.
 
-Despite the correctness of the theoretical results, which guarantee that function approximation can be used along with LMDPs, they are of little practical use. Even in the linear function approximation (LFA) case, obtaining a correct parameterization for $\widetilde v(s,\mathbf{r})$ requires of an intricate process in the policy gradient approach. Additionally, the representation of the policy still depends on the size of the whole state space. This makes the approach intractable for real-world problems as it dos not scale with large state spaces.
+Despite the correctness of the theoretical results, which guarantee that function approximation can be used along with LMDPs, they are of little practical use. Even in the linear function approximation (LFA) case, obtaining a correct parameterization for $\widetilde v(s,\mathbf{r})$ requires of an intricate process in the policy gradient approach. Additionally, the representation of the policy still depends on the size of the whole state space. This makes the approach intractable for real-world problems as it does not scale with large state spaces.
 
 
 \section{Hierarchical Reinforcement Learning}

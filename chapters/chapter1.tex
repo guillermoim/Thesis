@@ -1,10 +1,11 @@
 \section{Introduction}
-A major challenge in reinforcement learning is to design agents that are able to learn efficiently and to adapt their existing knowledge to solve new tasks. As it has been discussed, one way to reduce the complexity of learning is hierarchical reinforcement learning~\citep{Sutton1999, Dietterich2000, Barto2003}. Here a novel approach to hierarchical reinforcement learning in LMDPs that takes advantage of the compositionality of LMDPs is proposed. This approach assumes that the state space is partitioned into subsets, and the subtasks consist in moving between these partitions. The subtasks are parameterized on the current value estimates of boundary states. 
-In section~\ref{section:compositionality}, compostionality was shown to be one of the computational advantages of LMDPs, which allows for zero-shot learning of new skills by linearly combining previously learned base skills which only differ in their cost or reward at boundary states~\citep{Todorov2009,Silva2009}. 
+A major challenge in reinforcement learning is to design agents that are able to learn efficiently and to adapt their existing knowledge to solve new tasks. As it has been discussed, one way to reduce the complexity of learning is hierarchical reinforcement learning~\citep{Sutton1999, Dietterich2000, Barto2003}. In this Chapter, we propose a novel approach to hierarchical reinforcement learning in LMDPs that takes advantage of the compositionality of LMDPs. This approach assumes that the state space is partitioned into subsets, and the subtasks consist in moving between these partitions. The subtasks are parameterized on the current value estimates of boundary states. 
 
-In this work, instead of solving the subtasks each time the value estimates change, the compositionality property of LMDPs is exploited to express the solution to an arbitrary subtask as a linear combination of a set of base LMDPs. The result is a form of value function decomposition which allows expressing an estimate of the optimal value of an arbitrary state as a combination of multiple value functions with smaller domains.
+In section~\ref{section:compositionality}, compostionality was shown to be one of the computational advantages of LMDPs, which allows for zero-shot learning of new skills by linearly combining previously learned base skills which only differ in their cost or reward at boundary states~\citep{Todorov2009,Silva2009}.  In this work, instead of solving the subtasks each time the value estimates change, the compositionality property of LMDPs is exploited to express the solution to an arbitrary subtask as a linear combination of a set of base LMDPs. The result is a form of value function decomposition which allows expressing an estimate of the optimal value of an arbitrary state as a combination of multiple value functions with smaller domains.
 
-In this chapter, two algorithms are proposed, the first is a two-step eigenvector when both the passive dynamics and the reward functions are known. When these are unknown to the learning agent, an online algorithm can be used to simultaneously learn the value function of the subtasks and the value for the boundary states. Empirical results on two classic control problems accompany the theoretical formulation of the learning algorithm.
+In this chapter, we present two novel algorithms. The first is a two-step eigenvector when both the passive dynamics and the reward functions are known. When these are unknown to the learning agent, an online algorithm can be used to simultaneously learn the value function of the subtasks and the value for the boundary states. 
+We accompany the theoretical results with a empirical evaluation of the learning agent on two classic control problems.
+
 \section{Contributions}
 \begin{itemize}
 %\item We define a novel scheme based on compositionality for solving subtasks, defining local reward functions that constitute a convenient basis for composite reward functions.
@@ -38,7 +39,7 @@ The options keyboard \citep{Barreto2019} combines a successor feature representa
 
 %\textit{multipl}
 
-The proposed method is similar to that of \citet{Wen2020} since a hierarchical decomposition based on a partition of the state space is defined, and exploit the equivalence of subtasks to reduce the learning effort. Unlike previous work, however, the LMDP approach is not restricted to single initial states, does not suffer from non-stationarity in the online setting, proposes a more general definition of equivalence that captures more structure, and guarantees convergence to the optimal value function for stochastic dynamics.
+The proposed method is similar to that of \citet{Wen2020} since a hierarchical decomposition based on a partition of the state space is defined, and exploit the equivalence of subtasks to reduce the learning effort. Unlike previous work, however, our approach is not restricted to single initial states, does not suffer from non-stationarity in the online setting, proposes a more general definition of equivalence that captures more structure, and guarantees convergence to the optimal value function for stochastic dynamics.
 
 The concept of equivalent subtasks is strongly related to factored (L)MDPs, which capture conditional independence among a set of state variables~\citep{Boutilier1995, Koller2000}. Equivalence arises whenever a subset of state variables are conditionally independent of another subset. Several authors have shown how to automatically discover the structure of factored MDPs from experience~\citep{Strehl2007,Kolobov2012}, which in turn could be used to define equivalence classes of subtasks.
 
@@ -46,11 +47,11 @@ The concept of equivalent subtasks is strongly related to factored (L)MDPs, whic
 
 \section{Hierarchical LMDPs}
 
-This section describes the novel approach to hierarchical LMDPs. First, there is a description of the particular form of hierarchical decomposition that is considered, and then the algorithms for solving a decomposed LMDP are presented.
+In this section we describe our novel approach to hierarchical LMDPs. We first describe the particular form of hierarchical decomposition that we consider, and then present algorithms for solving a decomposed LMDP.
 
 \subsection{Hierarchical Decomposition}
 
-The hierarchical decomposition is similar to that of~\citep{Wen2020}. Formally, given an LMDP $\cL=\langle\cS,\cT,\kernel,\cR,\cJ\rangle$, the set of non-terminal states $\cS$ is partitioned into $L$ subsets $\{\cS_i\}_{i=1}^L$. For each such subset $\cS_i$, there exists an induced subtask $\linebreak {\cL_i=\langle\cS_i,\cT_i,\kernel_i,\cR_i,\cJ_i\rangle}$, i.e.~an LMDP whose components are defined as follows:
+Our hierarchical decomposition is similar to that of~\citep{Wen2020}. Formally, given an LMDP $\cL=\langle\cS,\cT,\kernel,\cR,\cJ\rangle$, the set of non-terminal states $\cS$ is partitioned into $L$ subsets $\{\cS_i\}_{i=1}^L$. For each such subset $\cS_i$, there exists an induced subtask $\linebreak {\cL_i=\langle\cS_i,\cT_i,\kernel_i,\cR_i,\cJ_i\rangle}$, i.e.~an LMDP whose components are defined as follows:
 \begin{itemize}
 \item The set of non-terminal states is $\cS_i$.
 \item The set of terminal states $\cT_i=\{\tSi \in\cS^+\setminus\cS_i:\exists s\in \cS_i \; \text{s.t.} \; \tSi \in \cB(\kernel(\cdot|s))\}$ includes all states in $\cS^+\setminus\cS_i$ (terminal or non-terminal) that are reachable in one step from a state in $\cS_i$.
@@ -60,8 +61,8 @@ The hierarchical decomposition is similar to that of~\citep{Wen2020}. Formally, 
 \end{itemize}
 
 Intuitively, if the reward $\cJ_i(\tSi)$ of each terminal state $\tSi\in\cT_i$ equals its optimal value $v(\tSi)$ for the original LMDP~$\cL$, then solving the subtask $\cL_i$ yields the optimal values of the states in $\cS_i$.
-In practice, however, an estimate $\widehat{v}(\tSi)$ of the optimal value is used.
-% VG : what do you mean in practice: during learning? in the presence of function approximation?
+In practice, however, we use an estimate $\widehat{v}(\tSi)$ of the optimal value.
+
 In this case, the subtask $\cL_i$ is {\em parameterized} on the value estimate $\widehat{v}$ of terminal states in $\cT_i$, and each time the value estimate changes, $\cL_i$ can be solved to obtain a new value estimate
 $\widehat{v}(s)$ for each state $s\in\cS_i$.
 
@@ -75,7 +76,7 @@ Two subtasks $\cL_i$ and $\cL_j$ are equivalent if there exists a bijection $f:\
 \end{definition}
 Unlike \citep{Wen2020}, this definition does {\em not} require the sets of terminal states $\cT_i$ and $\cT_j$ to be equivalent. Instead, for each class of equivalent subtasks, the approach is to define a single subtask whose set of terminal states is the {\em union} of the sets of terminal states of subtasks in the class.
 
-Formally, a set of equivalence classes $\cC=\{\cC_1,\ldots,\cC_C\}$ is defined, $C\leq L$, i.e.~a partition of the set of subtasks $\{\cL_1,\ldots,\cL_L\}$ such that all subtasks in a given partition are equivalent. Only a single subtask $\cL_j=\langle\cS_j,\cT_j,\kernel_j,\cR_j,\cJ_j\rangle$ needs to be represented per equivalence class $\cC_j\in\cC$. The components $\cS_j,\kernel_j,\cR_j$ are shared by all subtasks in the equivalence class, while the set of terminal states is $\cT_j=\bigcup_{\cL_i\in\cC_j} \cT_i$, where the union is taken w.r.t. the bijection $f$ relating all equivalent subtasks. As before, the reward $\cJ_j$ of terminal states is parameterized on a given value estimate $\widehat{v}$. It is assumed that each non-terminal state $s\in\cS$ can be easily mapped to its subtask $\cL_i$ and equivalence class $\cC_j$.
+Formally, a set of equivalence classes $\cC=\{\cC_1,\ldots,\cC_C\}$ is defined, $C\leq L$, i.e.~a partition of the set of subtasks $\{\cL_1,\ldots,\cL_L\}$ such that all subtasks in a given partition are equivalent. Only a single subtask $\cL_j=\langle\cS_j,\cT_j,\kernel_j,\cR_j,\cJ_j\rangle$ needs to be represented per equivalence class $\cC_j\in\cC$. The components $\cS_j,\kernel_j,\cR_j$ are shared by all subtasks in the equivalence class, while the set of terminal states is $\cT_j=\bigcup_{\cL_i\in\cC_j} \cT_i$, where the union is taken w.r.t. the bijection $f$ relating all equivalent subtasks. As before, the reward $\cJ_j$ of terminal states is parameterized on a given value estimate $\widehat{v}$. We assume that each non-terminal state $s\in\cS$ can be easily mapped to its subtask $\cL_i$ and equivalence class $\cC_j$.
 
 
 \begin{figure}[!t]
@@ -92,7 +93,7 @@ Hence the number of equivalent subtasks is $C=1$, the number of non-terminal and
 
 \subsection{Subtask Compositionality}
 
-During learning, the value estimate $\widehat{v}$ changes frequently, and it is inefficient to solve all subtasks after each change. Instead, this approach uses compositionality to obtain solutions to the subtasks without learning. The idea is to introduce several base LMDPs for each subtask $\cL_j$ such that {\em any} reward function $\cJ_j$ can be expressed as a combination of the reward functions of the base LMDPs.
+During learning, the value estimate $\widehat{v}$ changes frequently, and it is inefficient to solve all subtasks after each change. Instead, we use compositionality to obtain solutions to the subtasks without learning. The idea is to introduce several base LMDPs for each subtask $\cL_j$ such that {\em any} reward function $\cJ_j$ can be expressed as a combination of the reward functions of the base LMDPs.
 % VG: and learn them simultaneously?
 
 Given a subtask $\cL_j=\langle\cS_j,\cT_j,\kernel_j,\cR_j,\cJ_j\rangle$ as defined above, assume that the set $\cT_j$ contains $n$ states, i.e.~$\cT_j=\{\tSi_1,\ldots,\tSi_n\}$. Then, $n$ base LMDPs $\cL_j^1,\ldots,\cL_j^n$ are defined, where each base LMDP is given by $\cL_j^k=\langle\cS_j,\cT_j,\kernel_j,\cR_j,\cJ_j^k\rangle$. Hence the base LMDPs only differ in the reward of terminal states.
@@ -114,7 +115,7 @@ Due to compositionality, the estimated value of each non-terminal state $s\in\cS
 \begin{align}\label{eq:comp3}
 \widehat{z}(s)=\sum_{k=1}^n \widehat{z}(\tSi_k) z_j^k(s) \;\; \forall s\in\cS_i,\forall\cL_i\in\cC_j.
 \end{align}
-Here, the terminal states $\tSi_1,\ldots,\tSi_n$ are by definition exit states in $\cE$. Assuming access to a value estimate $\widehat{z}_\cE:\cE\rightarrow\mathbb{R}$ on exit states, as well as the value functions $z_j^1,\ldots,z_j^n$ of all base LMDPs, \eqref{eq:comp3} can be used to express the value estimate of each other state without learning. Hence~\eqref{eq:comp3} is a form of value function decomposition, that allows expressing the values of arbitrary states in $\cS$ in terms of value functions with smaller domains. Concretely, there are $O(CN)$ base LMDPs, each with $O(M)$ values, so in total $O(CMN+E)$ values are needed for the decomposition.
+Here, the terminal states $\tSi_1,\ldots,\tSi_n$ are by definition exit states in $\cE$. Assuming that we have access to a value estimate $\widehat{z}_\cE:\cE\rightarrow\mathbb{R}$ on exit states, as well as the value functions $z_j^1,\ldots,z_j^n$ of all base LMDPs, \eqref{eq:comp3} can be used to express the value estimate of each other state without learning. Hence~\eqref{eq:comp3} is a form of value function decomposition, that allows expressing the values of arbitrary states in $\cS$ in terms of value functions with smaller domains. Concretely, there are $O(CN)$ base LMDPs, each with $O(M)$ values, so in total $O(CMN+E)$ values are needed for the decomposition.
 
 \paragraph{Example 1:} %Returning to the example in Figure~\ref{fig:ex},
 In the 4-room example, there are five base LMDPs with value functions $z^F$, $z^L$, $z^R$, $z^T$ and $z^B$, respectively. Given an initial value estimate $\widehat{z}_\cE$ for each exit state in $\cE$, a value estimate of any state in the top left room is given by \[\linebreak\widehat{z}(s)=\widehat{z}_\cE(1^B) z^B(s) + \widehat{z}_\cE(1^R) z^R(s),\] where $\widehat{z}_\cE(F)=\widehat{z}_\cE(L)=\widehat{z}_\cE(T)=0$ can be used to indicate that the terminal states $F$, $L$ and $T$ are not present in the top left room. $CMN = 125$ values are needed to store the value functions of the 5 base LMDPs, and $E=9$ values to store the value estimates of all exit states. Although this is more than the 100 states of the original LMDP, if the number of rooms increases to $X\times Y$, the term $CMN$ is a constant as long as all rooms have equivalent dynamics, and the number of exit states is $E=(2X-1)(2Y-1)$, which is much smaller than the $25 XY$ total states. For $10\times 10$ rooms, the value function decomposition requires $486$ values to represent the values of $2{,}500$ states.\\
@@ -128,7 +129,7 @@ Concretely, if there is a subset of variables $\cU\subset\cV$ such that the tran
     \begin{center}
         \input{figures/chapter1/tikz/taxi.tex}
     \end{center}
-    \caption{a) A 5x5 grid of the Taxi LMDP, where there are 4 colored pickup/dropoff locations (which are one step away from the corresponding gridcell); b) the only existing subtask with exit states $E_1,E_2,E_3,E_4$, where it can be observed that exit states are one step away of the grid corners.} 
+    \caption{a) A 5x5 grid of the Taxi LMDP, where there are 4 colored pickup/dropoff locations (which are one step away from the corresponding gridcell); b) the only existing subtask with exit states $E_1,E_2,E_3, \text{and} E_4$. We can observe that exit states are one step away of the grid corners.} 
     \label{fig:domain_taxi}
 \end{figure}
     
@@ -139,7 +140,7 @@ Concretely, if there is a subset of variables $\cU\subset\cV$ such that the tran
 \subsection{Eigenvector Approach}
 \label{section:hlmdps_eigenvector_episodic}
 
-If the dynamics $\kernel$ and the state costs $\cR, \cJ$ are known, the power method can be used to solve the original LMDP $\cL$ by composing individual solutions of the subtask LMDPs $\cL_i$.
+If the dynamics $\kernel$ and the state costs $\cR, \cJ$ are known, we can use the power method to solve the original LMDP $\cL$ by composing individual solutions of the subtask LMDPs $\cL_i$.
 In this case, the base LMDPs of all equivalence classes are solved by defining Bellman equations in \eqref{eq:eigenvector}.
 To compute the values of the original LMDP $\cL$ for the exit states in $\cE$, the compositionality relation in~\eqref{eq:comp3} gives rise to an additional system of linear equations, one for each non-terminal exit state. This additional system of equations can be reformulated in matrix form defined for the exit states ${\bf z}_\cE$:
 \begin{equation}\label{eq:exits}
@@ -159,24 +160,24 @@ Since now the value $z(s)$ of each state $s\in\cS$ can be obtained, the optimal 
 
 %Alternatively, in the learning setting where there agent is learning by interacting with the environment, we need to maintain 
 
-In the online learning case, estimates $\widehat{z}_j^1,\ldots,\widehat{z}_j^n$ of the value functions of the base LMDPs associated with each equivalent subtask $\cL_j$ are mantained.These estimates can be updated using the Z-learning rule~\eqref{eqn:zlearning-imp} after each transition.
+In the online learning case, we maintain estimates $\widehat{z}_j^1,\ldots,\widehat{z}_j^n$ of the value functions of the base LMDPs associated with each equivalent subtask $\cL_j$.These estimates can be updated using the Z-learning rule~\eqref{eqn:zlearning-imp} after each transition.
 But to make learning more efficient, a single transition $(s_t,r_t,s_{t+1})$ with $s_t\in\cS_j$ can be used to update the values of {\em all} base LMDPs associated with $\cL_j$ simultaneously. This is known in the literature as intra-task learning~\citep{Kaelbling1993,Jonsson2016}.
 
 %In the case of unknown dynamics, we need to maintain estimates $\widehat{z}_j^1,\ldots,\widehat{z}_j^n$ of the value functions of the base LMDPs associated with each equivalent subtask $\cL_j$. These estimates are updated using the Z-learning rule in~\eqref{eqn:zlearning-imp} after each transition. To make learning more efficient, we can use a single transition $(s_t,r_t,s_{t+1})$ with $s_t\in\cS_j$ to update the values of {\em all} base LMDPs associated with $\cL_j$ simultaneously. This is known in the literature as intra-task learning~\textit{Kaelbling93}.
 
 Given the estimates $\widehat{z}_j^1,\ldots,\widehat{z}_j^n$, then the same system of linear equations in~\eqref{eq:comp3} could be formulated and solved to obtain the value estimates of exit states. However, it is impractical to solve this system of equations every time %the estimates 
-$\widehat{z}_j^1,\ldots,\widehat{z}_j^n$ are updated. Instead, estimates $\widehat{z}_\cE$ of the values of exit states in the set $\cE$ are explicitly mantained, and updated incrementally. 
+$\widehat{z}_j^1,\ldots,\widehat{z}_j^n$ are updated. Instead, we explicitly maintain estimates $\widehat{z}_\cE$ of the values of exit states in the set $\cE$, and we update them incrementally. 
 For that,~\eqref{eq:comp3} is turned into an update rule:
 \begin{align}\label{eq:comprule}
 \widehat{z}_\cE(s) \leftarrow &(1 - \alpha_\ell) \widehat{z}_\cE(s) + \alpha_\ell \sum_{k=1}^n \widehat{z}_j^k(s) \widehat{z}_\cE(\tSi_k).
 \end{align}
-The question is when to update the value of an exit state. The different alternatives are proposed:
+The question is when to update the value of an exit state. We propose three different alternatives:
 \begin{itemize}
-\item[$V_1$:] Update the value of an exit state $s\in\cE_i$ each time the agent takes a transition from $s$.
+\item[$V_1$:] To update the value of an exit state $s\in\cE_i$ each time the agent takes a transition from $s$.
 \item[$V_2$:] When the agent reaches a terminal state of the subtask $\cL_i$, update the values of all exit states in $\cE_i$.
 \item[$V_3$:] When the agent reaches a terminal state of the subtask $\cL_i$, update the values of all exit states in $\cE_i$ and all exit states of subtasks in the equivalence class $\cC_j$ of $\cL_i$.
 \end{itemize}
-Again, the estimated policy $\pi$ is defined directly by the value estimates $\widehat{z}$ and~\eqref{eq:lmdp_optimal_policy}, and thus does not select among subtasks. The pseudo-code of the proposed algorithm is in Algorithm~\ref{alg:online_hlmdps}.
+Again, the estimated policy $\pi$ is defined directly by the value estimates $\widehat{z}$ and~\eqref{eq:lmdp_optimal_policy}, and thus does not select among subtasks. The provide the pseudo-code of this in Algorithm~\ref{alg:online_hlmdps}.
 
 \begin{algorithm}[!htb]
 \setstretch{1.2}
@@ -258,7 +259,7 @@ More precisely, given an upper bound $B$ on the support of $\kernel$ and a spars
 
 \section{Experiments}
 \label{section:hlmdps_experiments}
-This section contains the evaluation of the learning algorithm in the two classic control problems introduced.\footnote{Code available at https://github.com/guillermoim/HRL\_LMDP}
+We evaluate the the learning algorithm in the two classic control problems already introduced.\footnote{Code available at https://github.com/guillermoim/HRL\_LMDP}
 % Vicenc:
 % \footnote{texttt{https://github.com/guillermoim/HRL\_LMDP}}
 %, the Rooms domain and the Taxi domain.
@@ -272,7 +273,7 @@ In all experiments, the learning rates for each abstraction level is $\alpha_\el
 In addition, the MAE for the subtasks learning (Figures \ref{fig:hlmdps_errors_nrooms} and \ref{fig:hlmdps_errors_taxi}, bottom row) is also reported. The intention for this is two-fold: first, to show that the value functions for the subtasks also converge to their optimal value, and second, that the faster learning of the subtasks boosts learning at the higher level.
 
 \subsection{N-room domain.}
-Here performance for different room sizes and number of rooms (Figure \ref{fig:hlmdps_errors_nrooms}) is presented. In all configurations the proposed hierarchical approach outperfoms Z-IS and $Q_o$. Concretely, $Q_o$ suffers from non-stationarity: initial option executions will incur more negative reward than later executions, which causes high-level Q-learning updates to be {\em incorrect}, and it takes the learner significant time to recover from this.
+Here, we report the results for different environment configurations in which we change the number of the rooms and the room sizes (Figure \ref{fig:hlmdps_errors_nrooms}) is presented. In all configurations the proposed hierarchical approach outperfoms Z-IS and $Q_o$. Concretely, $Q_o$ suffers from non-stationarity: initial option executions will incur more negative reward than later executions, which causes high-level Q-learning updates to be {\em incorrect}, and it takes the learner significant time to recover from this.
 
 \begin{figure}[!htb]
 \centering
@@ -293,7 +294,7 @@ The difference between variants $V_1$, $V_2$ and $V_3$ is more pronounced in the
 Again, variant $V_3$ has the best performance, in this case by a larger 
 margin than before.
 
-In all cases, the the convergence of the subtasks coincides almost exactly with the convergence of the higher level. This suggests that, once the agent has learned the value function for the subtasks, learning the value in the reduced number of exit states is an easy process thanks to compositionality. Surprisingly, the variant $V_3$ seems to converge before the subtasks do. This might be an effect of the choice of the metric used at the higher level, since only the error at the exit states is reported. It might be the case that, since exit states are pairwise contiguous, the algorithm does not need the value function for the whole subtask to be accurate, only at the required exit states. This phenomenom shoudl disapear if the MAE is taken over the whole state space instead.
+In all cases, the the convergence of the subtasks coincides almost exactly with the convergence of the higher level. This suggests that, once the agent has learned the value function for the subtasks, learning the value in the reduced number of exit states is an easy process due to compositionality. Surprisingly, the variant $V_3$ seems to converge before the subtasks do. This might be an effect of the choice of the metric used at the higher level, since only the error at the exit states is reported. It might be the case that, since exit states are pairwise contiguous, the algorithm does not need the value function for the whole subtask to be accurate, only at the required exit states. This phenomenom shoudl disapear if the MAE is taken over the whole state space instead.
 
 % Vicenc:
 %Figure~\ref{fig:hlmdps_errors_nrooms} (left) shows results for $3\times 3$ rooms of size $5\times 5$ and Figure~\ref{fig:hlmdps_errors_nrooms} (center) shows results for $5\times 5$ rooms of size $3\times 3$. Both scenarios have $225$ interior states.
@@ -310,7 +311,7 @@ In all cases, the the convergence of the subtasks coincides almost exactly with 
 
 \subsection{Taxi Domain.}
 %Since LMDPs have no explicit actions, we adapted the Taxi domain as follows.
-To allow comparison between all the methods, the Taxi (see Figure~\ref{fig:domain_taxi}) is adapted as domain as follows: when the taxi is at the correct pickup location, it can transition to a state with the passenger in the taxi.
+To allow comparison between all the methods, we adapt the Taxi domain (see Figure~\ref{fig:domain_taxi}) as follows: when the taxi is at the correct pickup location, it can transition to a state with the passenger in the taxi.
 In a wrong pickup location, it can instead transition to a terminal state with large negative reward (simulating an unsuccessful pick-up).
 When the passenger is in the taxi, it can be dropped off at any pickup location, successfully completing the task whenever dropped at the correct destination.
 
@@ -346,7 +347,7 @@ Again, the subtasks of the higher level converge in the same order of magnitud a
 
 In summary, this chapter introduces a novel approach to hierarchical reinforcement learning that focuses on the class of linearly-solvable Markov decision processes.
 Using subtask compositionality, the value function can be effectively decomposed and new hierarchical algorithms can be derived so that they converge to the optimal value function.
-To the best of this author's knowledge, this approach is the first to exploit both the concurrent compositionality enabled by LMDPs together with hierarchies and intra-task learning to obtain globally optimal policies efficiently.
+To the best of our knowledge, this approach is the first to exploit both the concurrent compositionality enabled by LMDPs together with hierarchies and intra-task learning to obtain globally optimal policies efficiently.
 
 The proposed hierarchical decomposition leads to a new form of zero-shot learning that allows to incorporate subtasks that belong to an existing equivalent class without additional learning effort.
 For example, adding new rooms in our example.
