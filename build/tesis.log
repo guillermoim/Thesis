@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.31)  26 AUG 2024 09:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.31)  3 SEP 2024 08:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -839,12 +839,12 @@ LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/marvosym/marvosym.sty
 Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
 ))
-LaTeX Font Info:    Trying to load font information for T1+EBGaramond-OsF on input line 167.
+LaTeX Font Info:    Trying to load font information for T1+EBGaramond-OsF on input line 168.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/ebgaramond/T1EBGaramond-OsF.fd
 File: T1EBGaramond-OsF.fd 2023/03/19 (autoinst) Font definitions for T1/EBGaramond-OsF.
 )
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 167.
+(Font)              scaled to size 12.0pt on input line 168.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count352
@@ -856,37 +856,37 @@ LaTeX Warning: Label `fig:ex' multiply defined.
 )
 \openout1 = `tesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Info: Redefining \microtypecontext on input line 167.
-Package microtype Info: Applying patch `item' on input line 167.
-Package microtype Info: Applying patch `toc' on input line 167.
-Package microtype Info: Applying patch `eqnum' on input line 167.
-Package microtype Info: Applying patch `footnote' on input line 167.
-Package microtype Info: Applying patch `verbatim' on input line 167.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Info: Redefining \microtypecontext on input line 168.
+Package microtype Info: Applying patch `item' on input line 168.
+Package microtype Info: Applying patch `toc' on input line 168.
+Package microtype Info: Applying patch `eqnum' on input line 168.
+Package microtype Info: Applying patch `footnote' on input line 168.
+Package microtype Info: Applying patch `verbatim' on input line 168.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 167.
+LaTeX Info: Redefining \showhyphens on input line 168.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -916,21 +916,21 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 167.
+Package hyperref Info: Link coloring OFF on input line 168.
  (build/tesis.out) (build/tesis.out)
 \@outlinefile=\write6
 \openout6 = `tesis.out'.
 
-LaTeX Info: Redefining \l on input line 167.
-LaTeX Info: Redefining \L on input line 167.
-Package crop Info: requested driver: `' on input line 167.
-Package crop Info: detected driver: `pdftex' on input line 167.
-Package crop Info: using `pdftex' graphics driver on input line 167.
+LaTeX Info: Redefining \l on input line 168.
+LaTeX Info: Redefining \L on input line 168.
+Package crop Info: requested driver: `' on input line 168.
+Package crop Info: detected driver: `pdftex' on input line 168.
+Package crop Info: using `pdftex' graphics driver on input line 168.
 \c@mv@tabular=\count359
 \c@mv@boldtabular=\count360
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 20.74pt on input line 172.
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 172.
+(Font)              scaled to size 20.74pt on input line 173.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 173.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
@@ -939,34 +939,34 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 172.
+(Font)              scaled to size 17.28pt on input line 173.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 172.
+(Font)              scaled to size 14.4pt on input line 173.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 172.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 173.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 172.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 173.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 172.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 173.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 24.88pt on input line 172.
-<logo_upf.png, id=268, 240.9pt x 87.6876pt>
+(Font)              scaled to size 24.88pt on input line 173.
+<logo_upf.png, id=284, 240.9pt x 87.6876pt>
 File: logo_upf.png Graphic file (type png)
 <use logo_upf.png>
-Package pdftex.def Info: logo_upf.png  used on input line 172.
+Package pdftex.def Info: logo_upf.png  used on input line 173.
 (pdftex.def)             Requested size: 96.35828pt x 35.0744pt.
  [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_tcdnmr.enc}
 
@@ -991,7 +991,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 200.
+(Font)              scaled to size 12.0pt on input line 201.
  [7
 
 
@@ -1010,24 +1010,24 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 
 ] (build/tesis.lof
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 9.
+(Font)              scaled to size 8.0pt on input line 10.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 9.
+(Font)              scaled to size 6.0pt on input line 10.
 
-Overfull \hbox (4.45778pt too wide) in paragraph at lines 9--9
+Overfull \hbox (4.45778pt too wide) in paragraph at lines 10--10
  [][] [][]\T1/EBGaramond-OsF/m/n/12 (-20) a) A 5x5 grid of the Taxi LMDP, where there are 4 col-ored pickup/dropoff 
  []
 
-LaTeX Font Info:    Trying to load font information for U+mvs on input line 18.
+LaTeX Font Info:    Trying to load font information for U+mvs on input line 19.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/marvosym/umvs.fd) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-mvs.cfg
 File: mt-mvs.cfg 2006/07/05 v1.1 microtype config. file: Marvosym Euro (RS)
 )
-Overfull \hbox (25.72641pt too wide) in paragraph at lines 18--18
+Overfull \hbox (25.72641pt too wide) in paragraph at lines 19--19
  \OMS/cmsy/m/n/12 P \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f[]\OML/cmm/m/it/12 ; []; o\OMS/cmsy/m/n/12 g$ \T1/EBGaramond-OsF/m/n/12 (-20) while the set of exit states is $\OMS/cmsy/m/n/12 E \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f[][]\OML/cmm/m/it/12 ; [][]; [][]; [][]; o[]; o[]\OMS/cmsy/m/n/12 g$\T1/EBGaramond-OsF/m/n/12 (-20) . 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1460) has occurred while \output is active []
 
  [13])
 \tf@lof=\write8
@@ -1079,45 +1079,52 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 
 {/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_yod6vr.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_ljow5q.enc}] [2]
 Chapter 2.
-(./chapters/background.tex
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 32.
-
-
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 107.
-
-
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 107.
-
-[3
+(./chapters/background.tex [3
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 22--24
+\T1/EBGaramond-OsF/m/n/12 (+20) the agent ex-e-cutes ac-tion $\OML/cmm/m/it/12 A[]$ \T1/EBGaramond-OsF/m/n/12 (+20) in the en-vi-ron-ment, it re-ceives a re-ward $
+ []
 
-LaTeX Warning: Reference `eq:qfunction' on page 4 undefined on input line 107.
+<figures/RL_loop.png, id=504, 258.0039pt x 108.405pt>
+File: figures/RL_loop.png Graphic file (type png)
+<use figures/RL_loop.png>
+Package pdftex.def Info: figures/RL_loop.png  used on input line 27.
+(pdftex.def)             Requested size: 253.49762pt x 106.51239pt.
+[4 <./figures/RL_loop.png>]
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
+(Font)              scaled to size 14.4pt on input line 55.
+ [5] [6] [7]
+Package hyperref Info: bookmark level for unknown assumption defaults to 0 on input line 134.
+ [8]
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 205.
 
 
-Overfull \hbox (4.70108pt too wide) in paragraph at lines 107--107
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 205.
+
+
+LaTeX Warning: Reference `eq:qfunction' on page 9 undefined on input line 205.
+
+
+Overfull \hbox (4.70108pt too wide) in paragraph at lines 205--205
 []\T1/EBGaramond-OsF/m/n/12 (-20) The SF rep-re-sen-ta-tion leads to \T1/EBGaramond-OsF/m/it/12 (-20) gen-er-al-ized pol-icy eval-u-a-tion \T1/EBGaramond-OsF/m/n/12 (-20) (GPE) over mul-ti-ple tasks [[]Bar-
  []
 
-[4] [5] [6] [7] [8]
-Package hyperref Info: bookmark level for unknown assumption defaults to 0 on input line 226.
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 251.
- [9] [10]
-Underfull \vbox (badness 4673) has occurred while \output is active []
+[9] [10] [11] [12] [13]
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 349.
+ [14] [15] [16]) [17] [18
 
- [11]) [12]
+
+]
 Chapter 3.
 (./chapters/chapter1.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13
-
-
-] [14] [15] [16]
+ [19] [20] [21] [22]
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 75.
  (./figures/chapter1/tikz/nrooms.tex
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
@@ -1125,27 +1132,27 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 )
 Underfull \vbox (badness 2197) has occurred while \output is active []
 
- [17]
+ [23]
 Underfull \vbox (badness 6412) has occurred while \output is active []
 
- [18]
+ [24]
 Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
 
-[19] (./figures/chapter1/tikz/taxi.tex
+[25] (./figures/chapter1/tikz/taxi.tex
 LaTeX Font Info:    Trying to load font information for U+fontawesomeone on input line 17.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/fontawesome/ufontawesomeone.fd
 File: ufontawesomeone.fd 2016/05/22 Font definitions for U/fontawesomeone.
 ))
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc}]
+ [26{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc}]
 Underfull \hbox (badness 10000) in paragraph at lines 152--155
 
  []
 
-[21]
+[27]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 185.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 187.
@@ -1154,59 +1161,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 187--190
 \T1/EBGaramond-OsF/m/n/12 (+20) A set $\OMS/cmsy/m/n/12 fC[]\OML/cmm/m/it/12 ; [] ; \OMS/cmsy/m/n/12 C[]g$ \T1/EBGaramond-OsF/m/n/12 (+20) of equiv-a-lent sub-tasks and re-lated base LMDPs $
  []
 
-[22]
+[28]
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 211.
- [23]
+ [29]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 7.0pt on input line 262.
- [24]
-<figures/chapter1/learning/nrooms_3_3.png, id=819, 611.886pt x 429.2838pt>
+ [30]
+<figures/chapter1/learning/nrooms_3_3.png, id=904, 611.886pt x 429.2838pt>
 File: figures/chapter1/learning/nrooms_3_3.png Graphic file (type png)
 <use figures/chapter1/learning/nrooms_3_3.png>
 Package pdftex.def Info: figures/chapter1/learning/nrooms_3_3.png  used on input line 280.
 (pdftex.def)             Requested size: 124.80286pt x 87.55832pt.
-<figures/chapter1/learning/nrooms_5_5.png, id=820, 611.886pt x 429.2838pt>
+<figures/chapter1/learning/nrooms_5_5.png, id=905, 611.886pt x 429.2838pt>
 File: figures/chapter1/learning/nrooms_5_5.png Graphic file (type png)
 <use figures/chapter1/learning/nrooms_5_5.png>
 Package pdftex.def Info: figures/chapter1/learning/nrooms_5_5.png  used on input line 281.
 (pdftex.def)             Requested size: 124.80286pt x 87.55832pt.
-<figures/chapter1/learning/nrooms_8_8.png, id=821, 611.886pt x 429.2838pt>
+<figures/chapter1/learning/nrooms_8_8.png, id=906, 611.886pt x 429.2838pt>
 File: figures/chapter1/learning/nrooms_8_8.png Graphic file (type png)
 <use figures/chapter1/learning/nrooms_8_8.png>
 Package pdftex.def Info: figures/chapter1/learning/nrooms_8_8.png  used on input line 282.
 (pdftex.def)             Requested size: 124.80286pt x 87.55832pt.
-<figures/chapter1/subtasks/nrooms_3_3_subtasks.png, id=822, 591.6504pt x 429.2838pt>
+<figures/chapter1/subtasks/nrooms_3_3_subtasks.png, id=907, 591.6504pt x 429.2838pt>
 File: figures/chapter1/subtasks/nrooms_3_3_subtasks.png Graphic file (type png)
 <use figures/chapter1/subtasks/nrooms_3_3_subtasks.png>
 Package pdftex.def Info: figures/chapter1/subtasks/nrooms_3_3_subtasks.png  used on input line 283.
 (pdftex.def)             Requested size: 124.80286pt x 90.55182pt.
-<figures/chapter1/subtasks/nrooms_5_5_subtasks.png, id=823, 591.6504pt x 429.2838pt>
+<figures/chapter1/subtasks/nrooms_5_5_subtasks.png, id=908, 591.6504pt x 429.2838pt>
 File: figures/chapter1/subtasks/nrooms_5_5_subtasks.png Graphic file (type png)
 <use figures/chapter1/subtasks/nrooms_5_5_subtasks.png>
 Package pdftex.def Info: figures/chapter1/subtasks/nrooms_5_5_subtasks.png  used on input line 284.
 (pdftex.def)             Requested size: 124.80286pt x 90.55182pt.
-<figures/chapter1/subtasks/nrooms_8_8_subtasks.png, id=824, 591.6504pt x 429.2838pt>
+<figures/chapter1/subtasks/nrooms_8_8_subtasks.png, id=909, 591.6504pt x 429.2838pt>
 File: figures/chapter1/subtasks/nrooms_8_8_subtasks.png Graphic file (type png)
 <use figures/chapter1/subtasks/nrooms_8_8_subtasks.png>
 Package pdftex.def Info: figures/chapter1/subtasks/nrooms_8_8_subtasks.png  used on input line 285.
 (pdftex.def)             Requested size: 124.80286pt x 90.55182pt.
- [25 <./figures/chapter1/learning/nrooms_3_3.png (PNG copy)> <./figures/chapter1/learning/nrooms_5_5.png (PNG copy)> <./figures/chapter1/learning/nrooms_8_8.png (PNG copy)> <./figures/chapter1/subtasks/nrooms_3_3_subtasks.png (PNG copy)> <./figures/chapter1/subtasks/nrooms_5_5_subtasks.png (PNG copy)> <./figures/chapter1/subtasks/nrooms_8_8_subtasks.png (PNG copy)>]
-<figures/chapter1/learning/taxi_5.png, id=833, 611.886pt x 429.2838pt>
+ [31 <./figures/chapter1/learning/nrooms_3_3.png (PNG copy)> <./figures/chapter1/learning/nrooms_5_5.png (PNG copy)> <./figures/chapter1/learning/nrooms_8_8.png (PNG copy)> <./figures/chapter1/subtasks/nrooms_3_3_subtasks.png (PNG copy)> <./figures/chapter1/subtasks/nrooms_5_5_subtasks.png (PNG copy)> <./figures/chapter1/subtasks/nrooms_8_8_subtasks.png (PNG copy)>]
+<figures/chapter1/learning/taxi_5.png, id=918, 611.886pt x 429.2838pt>
 File: figures/chapter1/learning/taxi_5.png Graphic file (type png)
 <use figures/chapter1/learning/taxi_5.png>
 Package pdftex.def Info: figures/chapter1/learning/taxi_5.png  used on input line 320.
 (pdftex.def)             Requested size: 191.10214pt x 134.07225pt.
-<figures/chapter1/learning/taxi_10.png, id=834, 611.886pt x 429.2838pt>
+<figures/chapter1/learning/taxi_10.png, id=919, 611.886pt x 429.2838pt>
 File: figures/chapter1/learning/taxi_10.png Graphic file (type png)
 <use figures/chapter1/learning/taxi_10.png>
 Package pdftex.def Info: figures/chapter1/learning/taxi_10.png  used on input line 321.
 (pdftex.def)             Requested size: 191.10214pt x 134.07225pt.
-<figures/chapter1/subtasks/taxi_5_subtasks.png, id=835, 591.6504pt x 429.2838pt>
+<figures/chapter1/subtasks/taxi_5_subtasks.png, id=920, 591.6504pt x 429.2838pt>
 File: figures/chapter1/subtasks/taxi_5_subtasks.png Graphic file (type png)
 <use figures/chapter1/subtasks/taxi_5_subtasks.png>
 Package pdftex.def Info: figures/chapter1/subtasks/taxi_5_subtasks.png  used on input line 322.
 (pdftex.def)             Requested size: 191.10214pt x 138.65749pt.
-<figures/chapter1/subtasks/taxi_10_subtasks.png, id=836, 607.5498pt x 429.2838pt>
+<figures/chapter1/subtasks/taxi_10_subtasks.png, id=921, 607.5498pt x 429.2838pt>
 File: figures/chapter1/subtasks/taxi_10_subtasks.png Graphic file (type png)
 <use figures/chapter1/subtasks/taxi_10_subtasks.png>
 Package pdftex.def Info: figures/chapter1/subtasks/taxi_10_subtasks.png  used on input line 323.
@@ -1215,7 +1222,7 @@ Package pdftex.def Info: figures/chapter1/subtasks/taxi_10_subtasks.png  used on
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26]) [27 <./figures/chapter1/learning/taxi_5.png (PNG copy)> <./figures/chapter1/learning/taxi_10.png (PNG copy)> <./figures/chapter1/subtasks/taxi_5_subtasks.png (PNG copy)> <./figures/chapter1/subtasks/taxi_10_subtasks.png (PNG copy)>] [28
+[32]) [33 <./figures/chapter1/learning/taxi_5.png (PNG copy)> <./figures/chapter1/learning/taxi_10.png (PNG copy)> <./figures/chapter1/subtasks/taxi_5_subtasks.png (PNG copy)> <./figures/chapter1/subtasks/taxi_10_subtasks.png (PNG copy)>] [34
 
 
 ]
@@ -1223,9 +1230,9 @@ Chapter 4.
 (./chapters/chapter2.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29] [30]
+ [35] [36]
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 73.
- [31]
+ [37]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 82.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
@@ -1239,101 +1246,101 @@ Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/6'
  Excluding 'comment' comment. (./figures/chapter2/tikz/nrooms.tex
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/5'
 (microtype)             (new value: 5.0pt) on input line 19.
-) [32] [33] [34] [35]
+) [38] [39] [40] [41]
 Underfull \hbox (badness 7326) in paragraph at lines 239--240
 []\T1/EBGaramond-OsF/m/n/12 (+20) Strict mono-tonic-ity re-quires that there ex-ists $\OML/cmm/m/it/12 " > \OT1/cmr/m/n/12 0$ \T1/EBGaramond-OsF/m/n/12 (+20) such that $
  []
 
-[36]
+[42]
 Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 262.
- [37] [38] [39]
-<figures/chapter2/eigenvectors/lmdp-nroom-3.pdf, id=1019, 541.52937pt x 406.74712pt>
+ [43] [44] [45]
+<figures/chapter2/eigenvectors/lmdp-nroom-3.pdf, id=1104, 541.52937pt x 406.74712pt>
 File: figures/chapter2/eigenvectors/lmdp-nroom-3.pdf Graphic file (type pdf)
 <use figures/chapter2/eigenvectors/lmdp-nroom-3.pdf>
 Package pdftex.def Info: figures/chapter2/eigenvectors/lmdp-nroom-3.pdf  used on input line 334.
 (pdftex.def)             Requested size: 191.10214pt x 143.53664pt.
-<figures/chapter2/eigenvectors/lmdp-taxi-8.pdf, id=1021, 541.52937pt x 406.74712pt>
+<figures/chapter2/eigenvectors/lmdp-taxi-8.pdf, id=1106, 541.52937pt x 406.74712pt>
 File: figures/chapter2/eigenvectors/lmdp-taxi-8.pdf Graphic file (type pdf)
 <use figures/chapter2/eigenvectors/lmdp-taxi-8.pdf>
 Package pdftex.def Info: figures/chapter2/eigenvectors/lmdp-taxi-8.pdf  used on input line 335.
 (pdftex.def)             Requested size: 191.10214pt x 143.53664pt.
- [40 <./figures/chapter2/eigenvectors/lmdp-nroom-3.pdf> <./figures/chapter2/eigenvectors/lmdp-taxi-8.pdf>]
-<figures/chapter2/online/nrooms_3_3_1.png, id=1133, 605.6226pt x 436.029pt>
+ [46 <./figures/chapter2/eigenvectors/lmdp-nroom-3.pdf> <./figures/chapter2/eigenvectors/lmdp-taxi-8.pdf>]
+<figures/chapter2/online/nrooms_3_3_1.png, id=1218, 605.6226pt x 436.029pt>
 File: figures/chapter2/online/nrooms_3_3_1.png Graphic file (type png)
 <use figures/chapter2/online/nrooms_3_3_1.png>
 Package pdftex.def Info: figures/chapter2/online/nrooms_3_3_1.png  used on input line 349.
 (pdftex.def)             Requested size: 189.44434pt x 136.39178pt.
-<figures/chapter2/online/nrooms_5_5_1.png, id=1135, 606.5862pt x 436.029pt>
+<figures/chapter2/online/nrooms_5_5_1.png, id=1220, 606.5862pt x 436.029pt>
 File: figures/chapter2/online/nrooms_5_5_1.png Graphic file (type png)
 <use figures/chapter2/online/nrooms_5_5_1.png>
 Package pdftex.def Info: figures/chapter2/online/nrooms_5_5_1.png  used on input line 350.
 (pdftex.def)             Requested size: 189.44434pt x 136.17223pt.
-<figures/chapter2/online/nrooms_8_8_1.png, id=1137, 590.6868pt x 436.029pt>
+<figures/chapter2/online/nrooms_8_8_1.png, id=1222, 590.6868pt x 436.029pt>
 File: figures/chapter2/online/nrooms_8_8_1.png Graphic file (type png)
 <use figures/chapter2/online/nrooms_8_8_1.png>
 Package pdftex.def Info: figures/chapter2/online/nrooms_8_8_1.png  used on input line 351.
 (pdftex.def)             Requested size: 189.44434pt x 139.84482pt.
-<figures/chapter2/online/nrooms_3_3_subtasks_1.png, id=1139, 603.6954pt x 436.029pt>
+<figures/chapter2/online/nrooms_3_3_subtasks_1.png, id=1224, 603.6954pt x 436.029pt>
 File: figures/chapter2/online/nrooms_3_3_subtasks_1.png Graphic file (type png)
 <use figures/chapter2/online/nrooms_3_3_subtasks_1.png>
 Package pdftex.def Info: figures/chapter2/online/nrooms_3_3_subtasks_1.png  used on input line 353.
 (pdftex.def)             Requested size: 189.44434pt x 136.82425pt.
-<figures/chapter2/online/nrooms_5_5_subtasks_1.png, id=1141, 615.2586pt x 436.029pt>
+<figures/chapter2/online/nrooms_5_5_subtasks_1.png, id=1226, 615.2586pt x 436.029pt>
 File: figures/chapter2/online/nrooms_5_5_subtasks_1.png Graphic file (type png)
 <use figures/chapter2/online/nrooms_5_5_subtasks_1.png>
 Package pdftex.def Info: figures/chapter2/online/nrooms_5_5_subtasks_1.png  used on input line 354.
 (pdftex.def)             Requested size: 189.44434pt x 134.25609pt.
-<figures/chapter2/online/nrooms_8_8_subtasks_1.png, id=1143, 603.6954pt x 436.029pt>
+<figures/chapter2/online/nrooms_8_8_subtasks_1.png, id=1228, 603.6954pt x 436.029pt>
 File: figures/chapter2/online/nrooms_8_8_subtasks_1.png Graphic file (type png)
 <use figures/chapter2/online/nrooms_8_8_subtasks_1.png>
 Package pdftex.def Info: figures/chapter2/online/nrooms_8_8_subtasks_1.png  used on input line 355.
 (pdftex.def)             Requested size: 189.44434pt x 136.82425pt.
-<figures/chapter2/online/nrooms_3_3_gammas_1.png, id=1145, 617.1858pt x 436.029pt>
+<figures/chapter2/online/nrooms_3_3_gammas_1.png, id=1230, 617.1858pt x 436.029pt>
 File: figures/chapter2/online/nrooms_3_3_gammas_1.png Graphic file (type png)
 <use figures/chapter2/online/nrooms_3_3_gammas_1.png>
 Package pdftex.def Info: figures/chapter2/online/nrooms_3_3_gammas_1.png  used on input line 357.
 (pdftex.def)             Requested size: 189.44434pt x 133.83693pt.
-<figures/chapter2/online/nrooms_5_5_gammas_1.png, id=1147, 617.1858pt x 436.029pt>
+<figures/chapter2/online/nrooms_5_5_gammas_1.png, id=1232, 617.1858pt x 436.029pt>
 File: figures/chapter2/online/nrooms_5_5_gammas_1.png Graphic file (type png)
 <use figures/chapter2/online/nrooms_5_5_gammas_1.png>
 Package pdftex.def Info: figures/chapter2/online/nrooms_5_5_gammas_1.png  used on input line 358.
 (pdftex.def)             Requested size: 189.44434pt x 133.83693pt.
-<figures/chapter2/online/nrooms_8_8_gammas_1.png, id=1149, 617.1858pt x 436.029pt>
+<figures/chapter2/online/nrooms_8_8_gammas_1.png, id=1234, 617.1858pt x 436.029pt>
 File: figures/chapter2/online/nrooms_8_8_gammas_1.png Graphic file (type png)
 <use figures/chapter2/online/nrooms_8_8_gammas_1.png>
 Package pdftex.def Info: figures/chapter2/online/nrooms_8_8_gammas_1.png  used on input line 359.
 (pdftex.def)             Requested size: 189.44434pt x 133.83693pt.
-<figures/chapter2/online/taxi_5_1.png, id=1155, 590.6868pt x 436.029pt>
+<figures/chapter2/online/taxi_5_1.png, id=1240, 590.6868pt x 436.029pt>
 File: figures/chapter2/online/taxi_5_1.png Graphic file (type png)
 <use figures/chapter2/online/taxi_5_1.png>
 Package pdftex.def Info: figures/chapter2/online/taxi_5_1.png  used on input line 377.
 (pdftex.def)             Requested size: 191.10214pt x 141.06903pt.
-<figures/chapter2/online/taxi_8_1.png, id=1157, 606.5862pt x 436.029pt>
+<figures/chapter2/online/taxi_8_1.png, id=1242, 606.5862pt x 436.029pt>
 File: figures/chapter2/online/taxi_8_1.png Graphic file (type png)
 <use figures/chapter2/online/taxi_8_1.png>
 Package pdftex.def Info: figures/chapter2/online/taxi_8_1.png  used on input line 378.
 (pdftex.def)             Requested size: 191.10214pt x 137.36981pt.
-<figures/chapter2/online/taxi_5_subtask_1.png, id=1159, 603.6954pt x 436.029pt>
+<figures/chapter2/online/taxi_5_subtask_1.png, id=1244, 603.6954pt x 436.029pt>
 File: figures/chapter2/online/taxi_5_subtask_1.png Graphic file (type png)
 <use figures/chapter2/online/taxi_5_subtask_1.png>
 Package pdftex.def Info: figures/chapter2/online/taxi_5_subtask_1.png  used on input line 379.
 (pdftex.def)             Requested size: 191.10214pt x 138.02184pt.
-<figures/chapter2/online/taxi_8_subtask_1.png, id=1161, 587.796pt x 436.029pt>
+<figures/chapter2/online/taxi_8_subtask_1.png, id=1246, 587.796pt x 436.029pt>
 File: figures/chapter2/online/taxi_8_subtask_1.png Graphic file (type png)
 <use figures/chapter2/online/taxi_8_subtask_1.png>
 Package pdftex.def Info: figures/chapter2/online/taxi_8_subtask_1.png  used on input line 380.
 (pdftex.def)             Requested size: 191.10214pt x 141.76096pt.
-<figures/chapter2/online/taxi_5_gammas_1.png, id=1163, 617.1858pt x 436.029pt>
+<figures/chapter2/online/taxi_5_gammas_1.png, id=1248, 617.1858pt x 436.029pt>
 File: figures/chapter2/online/taxi_5_gammas_1.png Graphic file (type png)
 <use figures/chapter2/online/taxi_5_gammas_1.png>
 Package pdftex.def Info: figures/chapter2/online/taxi_5_gammas_1.png  used on input line 381.
 (pdftex.def)             Requested size: 191.10214pt x 135.0079pt.
-<figures/chapter2/online/taxi_8_gammas_1.png, id=1165, 617.1858pt x 436.029pt>
+<figures/chapter2/online/taxi_8_gammas_1.png, id=1250, 617.1858pt x 436.029pt>
 File: figures/chapter2/online/taxi_8_gammas_1.png Graphic file (type png)
 <use figures/chapter2/online/taxi_8_gammas_1.png>
 Package pdftex.def Info: figures/chapter2/online/taxi_8_gammas_1.png  used on input line 382.
 (pdftex.def)             Requested size: 191.10214pt x 135.0079pt.
-) [41] [42 <./figures/chapter2/online/nrooms_3_3_1.png (PNG copy)> <./figures/chapter2/online/nrooms_5_5_1.png (PNG copy)> <./figures/chapter2/online/nrooms_8_8_1.png (PNG copy)> <./figures/chapter2/online/nrooms_3_3_subtasks_1.png (PNG copy)> <./figures/chapter2/online/nrooms_5_5_subtasks_1.png (PNG copy)> <./figures/chapter2/online/nrooms_8_8_subtasks_1.png (PNG copy)> <./figures/chapter2/online/nrooms_3_3_gammas_1.png (PNG copy)> <./figures/chapter2/online/nrooms_5_5_gammas_1.png (PNG copy)> <./figures/chapter2/online/nrooms_8_8_gammas_1.png (PNG copy)>] [43 <./figures/chapter2/online/taxi_5_1.png (PNG copy)> <./figures/chapter2/online/taxi_8_1.png (PNG copy)> <./figures/chapter2/online/taxi_5_subtask_1.png (PNG copy)> <./figures/chapter2/online/taxi_8_subtask_1.png (PNG copy)> <./figures/chapter2/online/taxi_5_gammas_1.png (PNG copy)> <./figures/chapter2/online/taxi_8_gammas_1.png (PNG copy)>] [44
+) [47] [48 <./figures/chapter2/online/nrooms_3_3_1.png (PNG copy)> <./figures/chapter2/online/nrooms_5_5_1.png (PNG copy)> <./figures/chapter2/online/nrooms_8_8_1.png (PNG copy)> <./figures/chapter2/online/nrooms_3_3_subtasks_1.png (PNG copy)> <./figures/chapter2/online/nrooms_5_5_subtasks_1.png (PNG copy)> <./figures/chapter2/online/nrooms_8_8_subtasks_1.png (PNG copy)> <./figures/chapter2/online/nrooms_3_3_gammas_1.png (PNG copy)> <./figures/chapter2/online/nrooms_5_5_gammas_1.png (PNG copy)> <./figures/chapter2/online/nrooms_8_8_gammas_1.png (PNG copy)>] [49 <./figures/chapter2/online/taxi_5_1.png (PNG copy)> <./figures/chapter2/online/taxi_8_1.png (PNG copy)> <./figures/chapter2/online/taxi_5_subtask_1.png (PNG copy)> <./figures/chapter2/online/taxi_8_subtask_1.png (PNG copy)> <./figures/chapter2/online/taxi_5_gammas_1.png (PNG copy)> <./figures/chapter2/online/taxi_8_gammas_1.png (PNG copy)>] [50
 
 
 ]
@@ -1346,13 +1353,13 @@ Overfull \hbox (1.39156pt too wide) in paragraph at lines 9--10
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [45]
+ [51]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/sc' will be
 (Font)              scaled to size 12.0pt on input line 15.
- [46{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_byuyni.enc}] (./figures/chapter3/office.tex
+ [52{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_byuyni.enc}] (./figures/chapter3/office.tex
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/10.95'
 (microtype)             (new value: 10.95pt) on input line 10.
-) (./figures/chapter3/fsm/office/fsm_office_composite_ex.tex) [47]
+) (./figures/chapter3/fsm/office/fsm_office_composite_ex.tex) [53]
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/10'
 (microtype)             (new value: 10.0pt) on input line 64.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/7'
@@ -1365,23 +1372,23 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [48] [49] [50] [51]
-<figures/chapter3/results/delivery_learning.pdf, id=1304, 618.23782pt x 432.51526pt>
+ [54] [55] [56] [57]
+<figures/chapter3/results/delivery_learning.pdf, id=1389, 618.23782pt x 432.51526pt>
 File: figures/chapter3/results/delivery_learning.pdf Graphic file (type pdf)
 <use figures/chapter3/results/delivery_learning.pdf>
 Package pdftex.def Info: figures/chapter3/results/delivery_learning.pdf  used on input line 162.
 (pdftex.def)             Requested size: 173.10541pt x 121.10344pt.
-<figures/chapter3/results/office_learning.pdf, id=1305, 606.74176pt x 432.1859pt>
+<figures/chapter3/results/office_learning.pdf, id=1390, 606.74176pt x 432.1859pt>
 File: figures/chapter3/results/office_learning.pdf Graphic file (type pdf)
 <use figures/chapter3/results/office_learning.pdf>
 Package pdftex.def Info: figures/chapter3/results/office_learning.pdf  used on input line 169.
 (pdftex.def)             Requested size: 169.88654pt x 121.01122pt.
-<figures/chapter3/results/readapt_delivery.pdf, id=1306, 629.7339pt x 432.29568pt>
+<figures/chapter3/results/readapt_delivery.pdf, id=1391, 629.7339pt x 432.29568pt>
 File: figures/chapter3/results/readapt_delivery.pdf Graphic file (type pdf)
 <use figures/chapter3/results/readapt_delivery.pdf>
 Package pdftex.def Info: figures/chapter3/results/readapt_delivery.pdf  used on input line 175.
 (pdftex.def)             Requested size: 176.32428pt x 121.04196pt.
-<figures/chapter3/results/readapt_office.pdf, id=1307, 618.23782pt x 431.96632pt>
+<figures/chapter3/results/readapt_office.pdf, id=1392, 618.23782pt x 431.96632pt>
 File: figures/chapter3/results/readapt_office.pdf Graphic file (type pdf)
 <use figures/chapter3/results/readapt_office.pdf>
 Package pdftex.def Info: figures/chapter3/results/readapt_office.pdf  used on input line 182.
@@ -1399,24 +1406,24 @@ Overfull \hbox (1.5996pt too wide) in paragraph at lines 160--186
 
 Underfull \vbox (badness 5490) has occurred while \output is active []
 
- [52] (./figures/chapter3/delivery.tex) [53 <./figures/chapter3/results/delivery_learning.pdf> <./figures/chapter3/results/office_learning.pdf> <./figures/chapter3/results/readapt_delivery.pdf> <./figures/chapter3/results/readapt_office.pdf>] [54]
-<figures/chapter3/double_slit.png, id=1501, 703.62875pt x 349.305pt>
+ [58] (./figures/chapter3/delivery.tex) [59 <./figures/chapter3/results/delivery_learning.pdf> <./figures/chapter3/results/office_learning.pdf> <./figures/chapter3/results/readapt_delivery.pdf> <./figures/chapter3/results/readapt_office.pdf>] [60]
+<figures/chapter3/double_slit.png, id=1586, 703.62875pt x 349.305pt>
 File: figures/chapter3/double_slit.png Graphic file (type png)
 <use figures/chapter3/double_slit.png>
 Package pdftex.def Info: figures/chapter3/double_slit.png  used on input line 214.
 (pdftex.def)             Requested size: 272.99881pt x 135.52484pt.
- [55 <./figures/chapter3/double_slit.png>] [56] [57]
+ [61 <./figures/chapter3/double_slit.png>] [62] [63]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [58]) (build/tesis.bbl [59] [60
+ [64]) (build/tesis.bbl [65] [66
 
 
-] [61]
+] [67]
 Underfull \hbox (badness 10000) in paragraph at lines 78--82
 \T1/EBGaramond-OsF/m/n/12 (+20) 1992.  URL []$\T1/cmtt/m/n/12 https : / / proceedings . neurips . cc / paper / 1992 / hash /
  []
 
-[62]
+[68]
 Underfull \hbox (badness 10000) in paragraph at lines 110--116
 []\T1/EBGaramond-OsF/m/n/12 (+20) Tuomas Haarnoja, Vitchyr Pong, Au-rick Zhou, Mur-taza Dalal, Pieter
  []
@@ -1456,7 +1463,7 @@ Underfull \hbox (badness 6078) in paragraph at lines 153--157
 \T1/EBGaramond-OsF/m/it/12 (+20) in Neu-ral In-for-ma-tion Pro-cess-ing Sys-tems\T1/EBGaramond-OsF/m/n/12 (+20) , vol-ume 34, pages 10026--10039,
  []
 
-[63]
+[69]
 Underfull \hbox (badness 10000) in paragraph at lines 159--163
 []\T1/EBGaramond-OsF/m/n/12 (+20) L. Kael-bling.  Learn-ing to Achieve Goals.  In \T1/EBGaramond-OsF/m/it/12 (+20) Pro-ceed-ings of the
  []
@@ -1491,7 +1498,7 @@ Underfull \hbox (badness 3039) in paragraph at lines 210--214
 \T1/EBGaramond-OsF/m/it/12 (+20) ma-tion Pro-cess-ing Sys-tems\T1/EBGaramond-OsF/m/n/12 (+20) , vol-ume 33, pages 9497--9507. Cur-ran As-so-ciates,
  []
 
-[64] [65]
+[70] [71]
 Underfull \hbox (badness 1622) in paragraph at lines 286--290
 []\T1/EBGaramond-OsF/m/n/12 (+20) Emanuel Todorov.  Com-po-si-tion-al-ity of op-ti-mal con-trol laws.  In \T1/EBGaramond-OsF/m/it/12 (+20) Ad-vances
  []
@@ -1521,7 +1528,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 303--307
 \T1/EBGaramond-OsF/m/n/12 (+20) URL []$\T1/cmtt/m/n/12 https : / / papers . nips . cc / paper _ files / paper / 2019 / hash /
  []
 
-[66]
+[72]
 Underfull \hbox (badness 10000) in paragraph at lines 321--325
 []\T1/EBGaramond-OsF/m/n/12 (+20) Nino Vieil-lard, Olivier Pietquin, and Matthieu Geist.  Mun-chausen
  []
@@ -1541,7 +1548,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 321--325
 \T1/EBGaramond-OsF/m/n/12 (+20) 2020.  URL []$\T1/cmtt/m/n/12 https : / / proceedings . neurips . cc / paper / 2020 / hash /
  []
 
-) [67] [68
+) [73] [74
 
 
 ]
@@ -1552,26 +1559,26 @@ Overfull \hbox (4.53133pt too wide) in paragraph at lines 9--10
  []
 
 
-Package natbib Warning: Citation `Borkar1998' on page 69 undefined on input line 22.
+Package natbib Warning: Citation `Borkar1998' on page 75 undefined on input line 22.
 
 
 Underfull \vbox (badness 5607) has occurred while \output is active []
 
- [69] [70] [71]
+ [75] [76] [77]
 Overfull \hbox (29.00023pt too wide) detected at line 130
 [][][][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12   []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 r[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^U [] []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ [] [] [] P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s[]\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 e[] \OMS/cmsy/m/n/12 ^^@ []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 )[]\U/msb/m/n/12 I\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 s \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 X[]\OMS/cmsy/m/n/12 g\OML/cmm/m/it/12 ;
  []
 
 
-Package natbib Warning: Citation `Borkar2009' on page 72 undefined on input line 140.
+Package natbib Warning: Citation `Borkar2009' on page 78 undefined on input line 140.
 
 
-Package natbib Warning: Citation `Borkar2009' on page 72 undefined on input line 140.
+Package natbib Warning: Citation `Borkar2009' on page 78 undefined on input line 140.
 
 
-Package natbib Warning: Citation `Borkar1998' on page 72 undefined on input line 140.
+Package natbib Warning: Citation `Borkar1998' on page 78 undefined on input line 140.
 
-[72] [73]) [74] (build/tesis.ind)
+[78] [79]) [80] (build/tesis.ind)
 
 Package natbib Warning: There were undefined citations.
 
@@ -1588,21 +1595,21 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `tesis.out' has not changed.
-(rerunfilecheck)             Checksum: 5F34C1BB432BD803259E39D74F5371D9;11362.
+(rerunfilecheck)             Checksum: 68E7028F46AA6F02506E9B00C25AA8AC;12016.
  ) 
 Here is how much of TeX's memory you used:
- 36647 strings out of 473993
- 708701 string characters out of 5741040
- 1953904 words of memory out of 5000000
- 57536 multiletter control sequences out of 15000+600000
- 751043 words of font info for 464 fonts, out of 8000000 for 9000
+ 36704 strings out of 473993
+ 709572 string characters out of 5741040
+ 1952904 words of memory out of 5000000
+ 57557 multiletter control sequences out of 15000+600000
+ 751177 words of font info for 465 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,117p,3351b,1479s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/marvosym/marvosym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on build/tesis.pdf (90 pages, 3557135 bytes).
+Output written on build/tesis.pdf (96 pages, 3622538 bytes).
 PDF statistics:
- 2046 PDF objects out of 2073 (max. 8388607)
- 1609 compressed objects within 17 object streams
- 344 named destinations out of 1000 (max. 500000)
- 86816 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 2136 PDF objects out of 2487 (max. 8388607)
+ 1691 compressed objects within 17 object streams
+ 379 named destinations out of 1000 (max. 500000)
+ 86853 words of extra memory for PDF output out of 89155 (max. 10000000)
 

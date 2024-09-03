@@ -1,20 +1,20 @@
 # Fdb version 4
-["bibtex build/tesis"] 1724690171.88056 "build/tesis.aux" "build/tesis.bbl" "build/tesis" 1724690176.97987 0
+["bibtex build/tesis"] 1725344006.50777 "build/tesis.aux" "build/tesis.bbl" "build/tesis" 1725344828.93487 0
   "./bibliography.bib" 1722931096.01642 75334 408051d6a7ac5b39250defd868ec99d9 ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "build/tesis.aux" 1724690176.40265 35865 05a9d72763949a4dc5cdde5b24b219dd "pdflatex"
+  "build/tesis.aux" 1725344828.57344 37522 7a223c8b54c2fd382a9e4a1105c0638a "pdflatex"
   (generated)
   "build/tesis.bbl"
   "build/tesis.blg"
   (rewritten before read)
-["makeindex build/tesis.idx"] 1724548750.58037 "build/tesis.idx" "build/tesis.ind" "build/tesis" 1724690176.97964 0
-  "build/tesis.idx" 1724690173.54767 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex build/tesis.idx"] 1725344002.06175 "build/tesis.idx" "build/tesis.ind" "build/tesis" 1725344828.93476 0
+  "build/tesis.idx" 1725344827.45047 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "build/tesis.ilg"
   "build/tesis.ind"
   (rewritten before read)
-["pdflatex"] 1724690172.13825 "/home/guillermo/Desktop/projects/Thesis/tesis.tex" "build/tesis.pdf" "tesis" 1724690176.98014 0
-  "/home/guillermo/Desktop/projects/Thesis/tesis.tex" 1724690168.21071 6336 321ec1fa869530928b179b565b1a9c42 ""
+["pdflatex"] 1725344826.86213 "/home/guillermo/Desktop/projects/Thesis/tesis.tex" "build/tesis.pdf" "tesis" 1725344828.93499 0
+  "/home/guillermo/Desktop/projects/Thesis/tesis.tex" 1725260395.84674 6366 251d4292c044a69cb72405813e7a810c ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_byuyni.enc" 1679344195 3645 7e30a6c2020f6c2e5207ff5bf518ca0f ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_ljow5q.enc" 1679344195 3064 ad039a5bf6faa075ad3278d742de72a1 ""
@@ -337,20 +337,21 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1717166594 5483668 9e45798515b35c9eab0413928a3e8881 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1717166665 8225722 11db55c4f2080f0827b2595f99661c7d ""
   "/usr/local/texlive/2024/texmf.cnf" 1717166590.06911 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "build/tesis.aux" 1724690176.40265 35865 05a9d72763949a4dc5cdde5b24b219dd "pdflatex"
-  "build/tesis.bbl" 1724690172.11368 23444 22dc2001c3f524032b416dccdf294a42 "bibtex build/tesis"
-  "build/tesis.ind" 1724548750.77274 0 d41d8cd98f00b204e9800998ecf8427e "makeindex build/tesis.idx"
-  "build/tesis.lof" 1724690176.40765 4805 6c5fbfae8d31a11f24f6c8abef480c8c "pdflatex"
-  "build/tesis.lot" 1724690176.40765 230 66c236342c5a169716e46a6783a7d11b "pdflatex"
-  "build/tesis.out" 1724690176.40765 11362 5f34c1bb432bd803259e39d74f5371d9 "pdflatex"
-  "build/tesis.toc" 1724690176.40765 6829 06cc27b9704d3bef2d025767648057f1 "pdflatex"
+  "build/tesis.aux" 1725344828.57344 37522 7a223c8b54c2fd382a9e4a1105c0638a "pdflatex"
+  "build/tesis.bbl" 1725344006.63114 23444 22dc2001c3f524032b416dccdf294a42 "bibtex build/tesis"
+  "build/tesis.ind" 1725344002.17313 0 d41d8cd98f00b204e9800998ecf8427e "makeindex build/tesis.idx"
+  "build/tesis.lof" 1725344828.57644 4932 cd6069093f034ab49a1451b67e55b800 "pdflatex"
+  "build/tesis.lot" 1725344828.57644 230 66c236342c5a169716e46a6783a7d11b "pdflatex"
+  "build/tesis.out" 1725344828.57544 12016 68e7028f46aa6f02506e9b00c25aa8ac "pdflatex"
+  "build/tesis.toc" 1725344828.57644 7184 d4fe7b81c8aec475d18def5ec0d0c0c9 "pdflatex"
   "chapters/ack.tex" 1723478831.37751 26 0f6fb526be491c2e6776eee5401fac10 ""
   "chapters/appendix.tex" 1722326613.63363 12453 0685b9097471d93fc265b3b4fa3776b3 ""
-  "chapters/background.tex" 1724512146.87228 28062 86c65a056cec29f6003f86858ac46c75 ""
+  "chapters/background.tex" 1725344826.66848 36376 66aea8b81f2c35cc906397002caea6f0 ""
   "chapters/chapter1.tex" 1724557489.63617 44299 88b41418241c8a254e39173a18abc842 ""
   "chapters/chapter2.tex" 1724689623.81564 41187 743c1b8a4e86322183a13f1a08ac03de ""
   "chapters/chapter3.tex" 1724690056.84051 43424 7419c2d993ad5729b4de233e00e00657 ""
   "chapters/introduction.tex" 1721054246.13258 1562 f32c61aaf2588c927d2f0409eb39aff6 ""
+  "figures/RL_loop.png" 1725216874.64834 87399 699d06c3facb90e8a675009e7379332b ""
   "figures/chapter1/learning/nrooms_3_3.png" 1724557411.93113 136091 32f6436eac7d021b03802fb5ad65c7d8 ""
   "figures/chapter1/learning/nrooms_5_5.png" 1724557424.49313 129414 6beb014fedda993c7795571608a10f5a ""
   "figures/chapter1/learning/nrooms_8_8.png" 1724557435.76314 110796 b6f1901184334033f99d42c847797e73 ""
@@ -392,7 +393,7 @@
   "logo_upf.png" 1718868940 90896 0d88315c51b699df53f789186d6d9c32 ""
   "macros/mdrawing.tex" 1720884479.36952 915 315ba6d8d2f8a4b96ad7645cac0e5283 ""
   "tesi_upf.cls" 1720685330.83052 24353 b7ded09368819973527e096d671b3dfe ""
-  "tesis.tex" 1724690168.21071 6336 321ec1fa869530928b179b565b1a9c42 ""
+  "tesis.tex" 1725260395.84674 6366 251d4292c044a69cb72405813e7a810c ""
   (generated)
   "build/tesis.aux"
   "build/tesis.idx"

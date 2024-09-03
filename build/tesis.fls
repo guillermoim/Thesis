@@ -562,7 +562,14 @@ INPUT ./chapters/background.tex
 INPUT ./chapters/background.tex
 INPUT ./chapters/background.tex
 INPUT chapters/background.tex
+INPUT ./figures/RL_loop.png
+INPUT ./figures/RL_loop.png
+INPUT ./figures/RL_loop.png
+INPUT ./figures/RL_loop.png
+INPUT ./figures/RL_loop.png
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Bold-osf-t1.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/ebgaramond/EBGaramond-Bold-osf-t1.vf
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Bold-osf-t1--base.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
@@ -573,8 +580,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/wasy/wasyb10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/ebgaramond/EBGaramond-Bold-osf-t1.vf
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Bold-osf-t1--base.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/ebgaramond/EBGaramond-Regular-osf-t1.vf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Regular-osf-t1--base.tfm
 INPUT ./chapters/chapter1.tex
