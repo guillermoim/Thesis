@@ -1,0 +1,20 @@
+\begin{tikzpicture}[node distance=cm,on grid,every initial by arrow/.style={ultra thick,->, >=stealth}]
+
+    \tikzstyle{round}=[thick,draw=black,circle]
+
+    \node[round] (s_0) at (0,0) {$s_0$};
+    \node[round] (s_1) at (4,0) {$s_1$};
+    \node[round] (s_2) at (2,-2) {$s_2$};
+    \node[round] (s_3) at (6,-2) {$s_3$};
+
+    \path[thick,->, >=stealth] (s_0) edge[font=\fontsize{9}{0}][bend left] node [above] {$\kernel(s_1\lvert s_0, a_1)=1$} (s_1);
+    \path[thick,->, >=stealth] (s_1) edge[font=\fontsize{9}{0}][bend right] node [left] {$\kernel(s_2\lvert s_1, a_1)=1$} (s_2);
+    \path[thick,->, >=stealth] (s_1) edge[font=\fontsize{9}{0}][bend left] node [right] {$\kernel(s_3\lvert s_1, a_2)=1$} (s_3);
+
+    \path[thick,->, >=stealth] (s_2) edge[font=\fontsize{9}{0}][bend right] node [below] {$\kernel(s_3\lvert s_1, a_1)=1$} (s_3);
+    \path[thick,->, >=stealth] (s_3) edge[font=\fontsize{9}{0}][bend right] node [above] {$\kernel(s_3\lvert s_1, a_1)=1$} (s_2);
+    \path[thick,->, >=stealth, red] (s_2) edge[font=\fontsize{9}{0}] [loop left] node {$\kernel(s_2\lvert s_2, a_2)=1$} (s_2);
+    \path[thick,->, >=stealth, red] (s_3) edge[font=\fontsize{9}{0}] [loop right] node {$\kernel(s_3\lvert s_3, a_2)=1$} (s_3);
+
+
+\end{tikzpicture}

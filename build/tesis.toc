@@ -10,81 +10,80 @@
 \contentsline {chapter}{\numberline {2}{{ Background}}}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Markov decision processes}{3}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}The discounted case}{5}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}The average-reward case}{8}{subsection.2.1.2}%
-\contentsline {section}{\numberline {2.2}Reinforcement learning}{8}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}The discounted setting}{9}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}The average-reward setting}{9}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Successor features}{9}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Linearly-solvable Markov decision processes}{10}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}First-exit linearly-solvable Markov decision processes}{10}{subsection.2.4.1}%
-\contentsline {subsubsection}{Solving a first-exit LMDP}{12}{section*.6}%
-\contentsline {subsubsection}{Compositionality}{13}{section*.7}%
-\contentsline {subsection}{\numberline {2.4.2}Average-reward linearly-solvable Markov decision processes}{14}{subsection.2.4.2}%
-\contentsline {subsubsection}{Solving an ALMDP}{15}{section*.9}%
-\contentsline {subsection}{\numberline {2.4.3}Function approximation in LMDPs}{15}{subsection.2.4.3}%
-\contentsline {section}{\numberline {2.5}Hierarchical Reinforcement Learning}{16}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Optimality of HRL algorithms}{16}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}The options framework}{17}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}Non-Markovian task specification}{17}{section.2.6}%
-\contentsline {chapter}{\numberline {3}{{ Globally Optimal Hierarchical Reinforcement Learning for Linearly-solvable Markov Decision Processes}}}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction}{19}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Contributions}{20}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Related Work}{20}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Hierarchical LMDPs}{22}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Hierarchical Decomposition}{22}{subsection.3.4.1}%
-\contentsline {paragraph}{Example 1:}{24}{section*.11}%
-\contentsline {subsection}{\numberline {3.4.2}Subtask Compositionality}{24}{subsection.3.4.2}%
-\contentsline {paragraph}{Example 1:}{25}{section*.12}%
-\contentsline {paragraph}{Example 2:}{26}{section*.14}%
-\contentsline {subsection}{\numberline {3.4.3}Eigenvector Approach}{27}{subsection.3.4.3}%
-\contentsline {paragraph}{Example 1:}{27}{section*.15}%
-\contentsline {subsection}{\numberline {3.4.4}Online and Intra-task Learning}{27}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5}Analysis}{29}{subsection.3.4.5}%
-\contentsline {section}{\numberline {3.5}Experiments}{30}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}N-room domain.}{31}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Taxi Domain.}{32}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}Discussion and Conclusion}{32}{section.3.6}%
-\contentsline {chapter}{\numberline {4}{{ Hierarchical Average-reward Linearly-solvable Markov Decision Pocesses}}}{35}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction}{35}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Contributions}{36}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Related work}{36}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Alternative method for solving an ALMDP}{37}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Hierarchical Average-Reward LMDPs}{38}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Hierarchical Decomposition}{39}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Subtask Compositionality}{39}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Efficiency of the value representation}{40}{subsection.4.5.3}%
-\contentsline {paragraph}{Example 1}{41}{section*.19}%
-\contentsline {section}{\numberline {4.6}Algorithms}{41}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Eigenvector approach}{41}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Online algorithm}{44}{subsection.4.6.2}%
-\contentsline {section}{\numberline {4.7}Experiments}{45}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}N-room domain}{46}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Taxi domain}{47}{subsection.4.7.2}%
-\contentsline {section}{\numberline {4.8}Conclusion}{47}{section.4.8}%
-\contentsline {chapter}{\numberline {5}{{ Compositionality with Successor Features via Policy Basis}}}{51}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduction}{51}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Contributions}{52}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Preliminaries}{53}{section.5.3}%
-\contentsline {paragraph}{Propositional Logic}{53}{section*.23}%
-\contentsline {paragraph}{Finite State Automaton}{53}{section*.24}%
-\contentsline {paragraph}{Feature vectors}{53}{section*.26}%
-\contentsline {paragraph}{Policy basis and convex coverage set}{54}{section*.27}%
-\contentsline {section}{\numberline {5.4}Using Successor Features to Solve non-Markovian Reward Specifications}{55}{section.5.4}%
-\contentsline {paragraph}{Example}{56}{section*.28}%
-\contentsline {subsection}{\numberline {5.4.1}Algorithm}{56}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Analysis}{57}{subsection.5.4.2}%
-\contentsline {section}{\numberline {5.5}Experiments}{58}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Environments and tasks}{59}{subsection.5.5.1}%
-\contentsline {paragraph}{Office}{59}{section*.30}%
-\contentsline {paragraph}{Delivery}{59}{section*.31}%
-\contentsline {subsection}{\numberline {5.5.2}Baselines}{60}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Results}{61}{subsection.5.5.3}%
-\contentsline {paragraph}{A motivating example}{61}{section*.34}%
-\contentsline {paragraph}{Learning}{62}{section*.35}%
-\contentsline {paragraph}{Planning}{63}{section*.36}%
-\contentsline {section}{\numberline {5.6}Related Work}{63}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Discussion and Conclusion}{65}{section.5.7}%
-\contentsline {chapter}{\numberline {A}{{ Proof Theorem~\ref {theo:almdps}}}}{75}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Preliminaries}{75}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Assumptions}{76}{section.A.2}%
-\contentsline {section}{\numberline {A.3}The proof}{77}{section.A.3}%
+\contentsline {subsection}{\numberline {2.1.2}The average-reward case}{9}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Reinforcement learning}{12}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}The discounted setting}{12}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}The average-reward setting}{13}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Successor features}{14}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Combining policies in SF}{15}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.4}Linearly-solvable Markov decision processes}{16}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}First-exit linearly-solvable Markov decision processes}{16}{subsection.2.4.1}%
+\contentsline {subsubsection}{Solving a first-exit LMDP}{18}{section*.9}%
+\contentsline {subsubsection}{Compositionality}{19}{section*.10}%
+\contentsline {subsection}{\numberline {2.4.2}Average-reward linearly-solvable Markov decision processes}{19}{subsection.2.4.2}%
+\contentsline {subsubsection}{Solving an ALMDP}{20}{section*.11}%
+\contentsline {subsection}{\numberline {2.4.3}Function approximation in LMDPs}{21}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Hierarchical reinforcement learning}{22}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}The options framework}{22}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Optimality of HRL algorithms}{23}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Non-Markovian task specification}{24}{section.2.6}%
+\contentsline {chapter}{\numberline {3}{{ Globally Optimal Hierarchical Reinforcement Learning for Linearly-solvable Markov Decision Processes}}}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{25}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Contributions}{26}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Related Work}{26}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Hierarchical LMDPs}{28}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Hierarchical Decomposition}{28}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Subtask Compositionality}{29}{subsection.3.4.2}%
+\contentsline {paragraph}{Example 2:}{32}{section*.17}%
+\contentsline {subsection}{\numberline {3.4.3}Eigenvector Approach}{33}{subsection.3.4.3}%
+\contentsline {paragraph}{Example 1:}{33}{section*.18}%
+\contentsline {subsection}{\numberline {3.4.4}Online and Intra-task Learning}{33}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Analysis}{35}{subsection.3.4.5}%
+\contentsline {section}{\numberline {3.5}Experiments}{36}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}N-room domain.}{37}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Taxi Domain.}{38}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}Discussion and Conclusion}{39}{section.3.6}%
+\contentsline {chapter}{\numberline {4}{{ Hierarchical Average-reward Linearly-solvable Markov Decision Pocesses}}}{41}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction}{41}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Contributions}{42}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Related work}{42}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Alternative method for solving an ALMDP}{43}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Hierarchical Average-Reward LMDPs}{44}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Hierarchical Decomposition}{45}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Subtask Compositionality}{45}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Efficiency of the value representation}{46}{subsection.4.5.3}%
+\contentsline {paragraph}{Example 1}{47}{section*.23}%
+\contentsline {section}{\numberline {4.6}Algorithms}{47}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Eigenvector approach}{47}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Online hierarchical algorithm}{50}{subsection.4.6.2}%
+\contentsline {section}{\numberline {4.7}Experiments}{51}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}N-room domain}{52}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Taxi domain}{54}{subsection.4.7.2}%
+\contentsline {section}{\numberline {4.8}Conclusion}{54}{section.4.8}%
+\contentsline {chapter}{\numberline {5}{{ Compositionality with Successor Features via Policy Basis}}}{57}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduction}{57}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Contributions}{58}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Preliminaries}{59}{section.5.3}%
+\contentsline {paragraph}{Propositional Logic}{59}{section*.28}%
+\contentsline {paragraph}{Finite State Automaton}{59}{section*.29}%
+\contentsline {paragraph}{Feature vectors}{59}{section*.31}%
+\contentsline {paragraph}{Policy basis and convex coverage set}{60}{section*.32}%
+\contentsline {section}{\numberline {5.4}Using Successor Features to Solve non-Markovian Reward Specifications}{61}{section.5.4}%
+\contentsline {paragraph}{Example}{62}{section*.33}%
+\contentsline {subsection}{\numberline {5.4.1}Algorithm}{62}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Analysis}{63}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Experiments}{64}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Environments and tasks}{65}{subsection.5.5.1}%
+\contentsline {paragraph}{Office}{65}{section*.35}%
+\contentsline {paragraph}{Delivery}{65}{section*.36}%
+\contentsline {subsection}{\numberline {5.5.2}Baselines}{66}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Results}{67}{subsection.5.5.3}%
+\contentsline {subsubsection}{A motivating example}{67}{section*.39}%
+\contentsline {subsubsection}{Learning}{68}{section*.40}%
+\contentsline {subsubsection}{Planning}{69}{section*.41}%
+\contentsline {section}{\numberline {5.6}Related Work}{69}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Discussion and Conclusion}{71}{section.5.7}%
+\contentsline {chapter}{\numberline {A}{{ Proof of Theorem~\ref {theo:almdps}}}}{81}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Preliminaries}{81}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Assumptions}{82}{section.A.2}%
+\contentsline {section}{\numberline {A.3}The proof}{83}{section.A.3}%

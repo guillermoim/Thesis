@@ -8,8 +8,7 @@ have important restrictions that severely reduce their applicability, e.g.~a sin
 in order to learn the low-level and high-level tasks simultaneously.
 
 
-
-In this chapter we describe a novel framework for for hierarchical RL in the average-reward setting that simultaneously solves low-level and high-level tasks. Concretely, considering the class of Linearly-solvable Markov Decision Processes (LMDPs)~\citep{Todorov2006}. The method here developed is an extension of the episodic case, described in the previous chapter, to the average-reward setting. Even though the compositionality property for LMDPs or methods of similar flavor have been proposed in RL~\cite{Hunt2019,Niekerk2019,NangueTasse2020} and in combination with hierarchical RL in the finite-horizon setting~\cite{Jonsson2016,Saxe2017,Infante2022}, adapting this idea to the average-reward setting requires careful analysis and pose a new challenge.
+In this chapter we describe a novel framework for hierarchical RL in the average-reward setting that simultaneously solves low-level and high-level tasks. Concretely, considering the class of Linearly-solvable Markov Decision Processes (LMDPs)~\citep{Todorov2006}. The method here developed is an extension of the episodic case, described in the previous chapter, to the average-reward setting. Even though the compositionality property for LMDPs or methods of similar flavor have been proposed in RL~\cite{Hunt2019,Niekerk2019,NangueTasse2020} and in combination with hierarchical RL in the finite-horizon setting~\cite{Jonsson2016,Saxe2017,Infante2022}, adapting this idea to the average-reward setting requires careful analysis and poses a new challenge.
 
 
 %% VICEN
@@ -25,12 +24,12 @@ Similarly to the first-exit case and unlike most frameworks for hierarchical RL,
 This avoids introducing non-stationarity at the higher level when updating the low-level policies.
 
 \section{Contributions}
-In this work we make the following contributions:
+In this chapter we make the following contributions:
 \begin{itemize}
   \item To develop a hierarchical framework that learns the low-level and  the high-level tasks simultaneously in the average-reward setting, without imposing additional restrictions on the low-level tasks.
     \item To propose two novel algorithms for solving hierarchical RL in the average reward setting: the first one is based on the eigenvector approach used for solving LMDPs. The second is an online variant in which an agent learns simultaneously the low-level and high-level tasks.
 %  \item Representing low-level tasks as finite-horizon rather than average-reward decision processes.
-    \item To provide two main theoretical contributions LMDPs: convergence proofs for both differential soft TD-learning for (non-hierarchical) LMDPs and also for the eigenvector approach in the hierarchical case.
+    \item To provide two main theoretical contributions FOR LMDPs: convergence proofs for both differential soft TD-learning for (non-hierarchical) LMDPs and also for the eigenvector approach in the hierarchical case.
 %  \item Proving the convergence of average-reward RL in non-hierarchical LMDPs.
   %\item Applying compositionality for reinforcement learning in the average-reward setting.
 \end{itemize}
@@ -42,11 +41,11 @@ Most research on hierarchical RL formulates problems as a Semi-Markov Decision P
 
 \citet{Fruit2017} and~\cite{Fruit2017b} propose algorithms for solving SMDPs with options in the average-reward setting, proving that the regret of their algorithms is polynomial in the size of the SMDP components, which may be smaller than the components of the underlying Markov Decision Process (MDP).
 \citet{Wan2021a} present a version of differential Q-learning for SMDPs with options in the average-reward setting, proving that differential Q-learning converges to the optimal policy.
-However, the above work assumes that the option policies are given prior to learning.
+However, the above works assumes that the option policies are given prior to learning.
 \citet{Ghavamzadeh2007} propose a framework for hierarchical average-reward RL based on the MAXQ decomposition, in which low-level tasks are also modeled as average-reward decision processes.
 However, since the distribution over initial states can change as the high-level policy changes, the authors restrict low-level tasks to have a single initial state.
 
-\citet{Infante2022} combine the compositionality of LMDPs with the equivalence of low-level tasks to develop a framework for hierarchical RL in the finite-horizon setting.
+In the previous chapter combine the compositionality of LMDPs with the equivalence of low-level tasks to develop a framework for hierarchical RL in the finite-horizon setting.
 
 In contrast, our hierarchical framework based on LMDPs can represent the globally optimal policy.
 
@@ -57,8 +56,9 @@ Given a reference state $s^*$ and an original ALMDP $\cL=\langle\cS,\kernel,\cR\
 
 Alternatively, when $\kernel$ and $\cR$ are not known, an estimate $\widehat v$ of the optimal value $v$ and an estimate $\widehat\rho$ of the optimal gain $\rho$ are kept using \textit{differential soft TD-learning}, similar to differential Q-learning~\citep{Wan2021}. We collect $(s_t, r_t, s_{t+1})$ generated by the estimated policy $\widehat\pi$ derived from $\widehat v$ as in \eqref{eq:lmdp_optimal_policy}. The update rules for $\widehat v$ and $\widehat \rho$ from \eqref{eq:boe_almdp} are as follows
 \begin{align}
-    \widehat{v}_{t+1}(s_t) &\gets \widehat{v}_t(s_t) + \alpha_t \delta_t,\label{eq:main_v_td_update}\\
-    \widehat{\rho}_{t+1} &\gets \widehat{\rho}_t + \lambda \alpha_t \delta_t.\label{eq:main_rho_td_update}
+    \widehat{v}_{t+1}(s_t) &\gets \widehat{v}_t(s_t) + \alpha_t \delta_t,
+    \label{eq:halmdps_main_v_td_update}\\
+    \widehat{\rho}_{t+1} &\gets \widehat{\rho}_t + \lambda \alpha_t \delta_t.\label{eq:halmdps_main_rho_td_update}
     \end{align}
 Here, the TD error $\delta_t$ is given by
 \begin{align*}
@@ -70,7 +70,7 @@ Note that both updates use the same TD error. At any time, we can retrieve the e
 
 
 \begin{theorem}
-    Under mild assumptions, differential soft TD-learning in~\eqref{eq:main_v_td_update} and~\eqref{eq:main_rho_td_update} converges to the optimal values of $v$ and $\rho$ in $\cL$. \label{theo:almdps}
+    Under mild assumptions, differential soft TD-learning in~\eqref{eq:halmdps_main_v_td_update} and~\eqref{eq:halmdps_main_rho_td_update} converges to the optimal values of $v$ and $\rho$ in $\cL$. \label{theo:almdps}
 \end{theorem}
 
 \begin{proof}[Proof sketch]
@@ -83,33 +83,13 @@ To adapt the previous proof, it is sufficient to show that $T$ is a non-expansio
 For completeness, the full proof appears in Appendix~\ref{proof:theo_almdps}.
 \end{proof}
 
-\begin{comment}
-We also notice that we can perform the updates in the logarithmic space. In this case, the update rules are given by
-\begin{align}
-  \frac{1}{\eta}\log{\widehat z_{t+1}(s_t)}    & \gets \frac{1}{\eta}\log{\widehat z_t(s_t)} + \alpha_t \delta_t     \\
-  \frac{1}{\eta}\log{\widehat\Gamma_{t+1}} & \gets \frac{1}{\eta}\log{\widehat \Gamma_t} + \beta_t \delta_t.
-\end{align}
-The TD error $\delta_t$ is given by
-\begin{align*}
-  \delta_t & = \Big(r_t - \frac{1}{\eta}\log{\widehat\Gamma_t} -\frac{1}{\eta}\log{\frac{\widehat\pi(s_{t+1}\lvert s_t)}{\cP(s_{t+1}\lvert s_t)}} + \frac{1}{\eta} \log{\widehat z_t(s_{t+1})} - \frac{1}{\eta} \log{\widehat z_t(s_{t})}\Big) \\
-           & = \Big(r_t- \frac{1}{\eta}\log{\widehat\Gamma_t} + \frac{1}{\eta}\log{G\left[\widehat z_t\right](s)} - \frac{1}{\eta} \log{\widehat z_t(s_{t})}\Big).
-\end{align*}
-After exponentiation, the update rules can be rewritten as
-\begin{align}
-  \widehat z_{t+1}(s_t)    & \gets \widehat z_t(s_t)e^{\eta\alpha_t\delta_t} =  \widehat z_t(s_t)^{1-\alpha_t} \Bigg(\frac{e^{\eta r_t}}{\widehat \Gamma_t}G\left[\widehat z_t\right](s_t) \Bigg)^{\alpha_t}  \\
-  \widehat\Gamma_{t+1} & \gets \widehat\Gamma_t e^{\eta\beta_t\delta_t} =  \widehat\Gamma_t^{1-\beta_t} \Bigg(e^{\eta r_t}\frac{G\left[\widehat z_t\right](s_t)}{\widehat z_t(s_t)} \Bigg)^{\beta_t}.
-  \label{eq:td_gamma}
-\end{align}
-{\color{blue} A full derivation of these updates rules can be found in Appendix.} \todo{Should we draw a comparison between the two update rules?}
-\end{comment}
-
 
 \begin{figure*}
   \begin{center}
   \input{figures/chapter2/tikz/nrooms.tex}
   \end{center}
   \caption{An example $4$-room ALMDP that shows the adaptation of the previously introduced N-room domain to the average-reward setting. \\}
-  \label{fig:ex}
+  \label{fig:halmdps_example}
 \end{figure*}
 
 \section{Hierarchical Average-Reward LMDPs}
@@ -128,10 +108,10 @@ The components of each such subtask $\cL_i$ are defined as follows:
   \item $\cJ_i$ is defined for each $\tau\in\cT_i$ as $\cJ_i(\tau)=\widehat v(\tau)$, where $\widehat v$ is a current value estimate (hence $z_i(\tau)=e^{\eta\widehat v(\tau)} = \widehat z(\tau)$ is defined by a current exponentiated value estimate $\widehat z$).
 \end{itemize}
 The Bellman optimality equations of each subtask $\cL_i$ are given by
-\begin{equation}\label{eq:subtask}
+\begin{equation}\label{eq:halmdps_subtask}
   z_i(s) = e^{\eta \cR_i(s)} \sum_{s'} \kernel_i(s'|s) z_i(s') \;\; \forall s\in\cS_i.
 \end{equation}
-By inspection of the Bellman optimality equations in~\eqref{eq:boe_z_almdp} and~\eqref{eq:subtask}, they are equal if $\cR_i(s)=\cR(s)-\rho$. Thus, if $z_i(\tau)=z(\tau)$ for each $\tau\in\cT_i$ then the solution of the subtask $\cL_i$ corresponds to the optimal solution for each $s\in\cS_i$. However, in general neither $\rho$ nor $z(\tau)$ are known prior to learning and, therefore, estimates $\widehat\rho$ and $\widehat z(\tau)$ must be used instead. Each subtask $\cL_i$ can be seen as being {\it parameterized\/} on the value estimates $\widehat z(\tau)$ for each $\tau\in\cT_j$ and the gain estimate $\widehat\rho$. Every time that $\widehat z(\tau)$, $\tau\in\cT_i$, and $\widehat\rho$ change, we can obtain a new value estimate for each $s\in\cS_i$ by solving the subtask for the new parameters.
+By inspection of the Bellman optimality equations in~\eqref{eq:boe_z_almdp} and~\eqref{eq:halmdps_subtask}, they are equal if $\cR_i(s)=\cR(s)-\rho$. Thus, if $z_i(\tau)=z(\tau)$ for each $\tau\in\cT_i$ then the solution of the subtask $\cL_i$ corresponds to the optimal solution for each $s\in\cS_i$. However, in general neither $\rho$ nor $z(\tau)$ are known prior to learning and, therefore, estimates $\widehat\rho$ and $\widehat z(\tau)$ must be used instead. Each subtask $\cL_i$ can be seen as being {\it parameterized\/} on the value estimates $\widehat z(\tau)$ for each $\tau\in\cT_j$ and the gain estimate $\widehat\rho$. Every time that $\widehat z(\tau)$, $\tau\in\cT_i$, and $\widehat\rho$ change, we can obtain a new value estimate for each $s\in\cS_i$ by solving the subtask for the new parameters.
 
 %\subsection{Subtask compositionality}
 \subsection{Subtask Compositionality}
@@ -151,20 +131,20 @@ $z(\tau^k) z_i^k(\tau;\rho) = z(\tau^k)\cdot 0$ otherwise.
 Thanks to compositionality, it is also possible to represent the value function for each subtask state $s\in\cS_i$ as
 \begin{equation}
   z(s) = \sum_{k=1}^n z(\tau^k) z_i^k(s;\rho)\;\;\forall s\in\cS_i.
-  \label{eq:comp_internal}
+  \label{eq:halmdps_comp_internal}
 \end{equation}
-It is signficant to remark that the base LMDPs depend on the gain $\rho$ by the definition of the reward function. This parameter is not known prior to learning. The subtasks in practice are solved for the latest estimate $\widehat\rho$ and must be re-learned for every update of this parameter until convergence.
+It is significant to remark that the base LMDPs depend on the gain $\rho$ by the definition of the reward function. This parameter is not known prior to learning. The subtasks in practice are solved for the latest estimate $\widehat\rho$ and must be re-learned for every update of this parameter until convergence.
 \subsection{Efficiency of the value representation}
  Similar to previous work~\citep{Wen2020,Infante2022} the equivalence of subtasks is exploited to learn more efficiently. Let $\cC=\{\cC_1,\ldots,\cC_C\}$, $C\leq L$, be a set of equivalence classes, i.e.~a partition of the set of subtasks $\{\cL_1,\ldots,\cL_L\}$ such that all subtasks in a given partition are equivalent.
 As before, a set of exit states as $\cE=\cup_{i=1}^L\cT_i$ is also defined.
-Due to the decomposition, there is no need to keep an explicit value estimate $\widehat z(s)$ for every state $s\in\cS$. Instead, it is sufficient to keep a value function for exit states $\widehat z_\cE: \cE\rightarrow\real$ and a value function for each base LMDP of each equivalence class. This is enough to represent the value for any state $s\in\cS$ using the compositionality expression in~\eqref{eq:comp_internal}.
+Due to the decomposition, there is no need to keep an explicit value estimate $\widehat z(s)$ for every state $s\in\cS$. Instead, it is sufficient to keep a value function for exit states $\widehat z_\cE: \cE\rightarrow\real$ and a value function for each base LMDP of each equivalence class. This is enough to represent the value for any state $s\in\cS$ using the compositionality expression in~\eqref{eq:halmdps_comp_internal}.
 
 Again, let $K=\max_{i=1} ^L\lvert\cS_i\rvert$,  $N=\max_{i=1} ^L\lvert\cT_i\rvert$ and $E=\lvert\cE\rvert$. Then only $O(KN)$ values are needed to represent the base LMDPs of a subtask, and the value function can be represented with $O(CKN + E)$ values. The decomposition leads to an efficient representation of the value function whenever $CKN + E \ll \lvert\cS\rvert$. This is achieved when there are few equivalence classes, the size of each subtask is small (in terms of the number of states) and there are relatively few exit states.
 
-  % {\bf Example}: Consider the $4$-room example depicted in Figure~\ref{fig:ex}. Here there is a single equivalence class that generalizes all the rooms. Therefore, a single subclass is represented with $5\times 5$ states. This subtask induces $5$ base-LMDPs with terminal states in $G,L,R,T,B$. Besides, there is a total of 
+  % {\bf Example}: Consider the $4$-room example depicted in Figure~\ref{fig:halmdps_example}. Here there is a single equivalence class that generalizes all the rooms. Therefore, a single subclass is represented with $5\times 5$ states. This subtask induces $5$ base-LMDPs with terminal states in $G,L,R,T,B$. Besides, there is a total of 
 
   %{\bf Example 1:} 
-  \paragraph{Example 1}: Figure~\ref{fig:ex} shows an 4-room LMDP adapted to the average-reward seeing. When reaching the state marked $G$, separate from the room but reachable in one step from the highlighted location, the agent receives a reward of $0$ and, in contrast to the first-exit case, the system transitions to a restart state (top left corner). In all other states the reward is $-1$. The other aspects of the decomposition, remain equal to the first-exit setting. % as those of the subtasks.
+  \paragraph{Example 1}: Figure~\ref{fig:halmdps_example} shows an 4-room LMDP adapted to the average-reward seeing. When reaching the state marked $G$, separate from the room but reachable in one step from the highlighted location, the agent receives a reward of $0$ and, in contrast to the first-exit case, the system transitions to a restart state (top left corner). In all other states the reward is $-1$. To behave optimally, thus, the agent should visit the state marked as $G$ as often as possible. The other aspects of the decomposition, remain equal to the first-exit setting. % as those of the subtasks.
   %Hence the number of equivalent subtasks is $C=1$, the number of non-terminal and terminal states of subtasks is $K=25$ and $N=5$, respectively, and the number of exit states is $E=9$.
     %In the 4-room example, t
     % There are five base LMDPs with value functions $z^G$, $z^L$, $z^R$, $z^T$ and $z^B$, respectively. Given an initial value estimate $\widehat{z}_\cE$ for each exit state in $\cE$, a value estimate of any state in the top left room is given by $\widehat{z}(s)=\widehat{z}_\cE(1^B) z^B(s) + \widehat{z}_\cE(1^R) z^R(s)$, where $\widehat{z}_\cE(G)=\widehat{z}_\cE(L)=\widehat{z}_\cE(T)=0$ is used to indicate that the terminal states $G$, $L$ and $T$ are not reachable in the top left room. 
@@ -189,11 +169,12 @@ In the episodic case, the base LMDPs are only solved once, and the solutions are
 %However, even though the subtask policy $\pi_i$ can be expressed in terms of the base LMDP policies $\pi_i^k$, we have been unable to formulate $d_i$ as a composition of the durations $d_i^k$ of base LMDPs, and hence the duration would have to be recomputed each time we resolve a subtask $\cL_i$, which is inefficient.
 
 %We describe in Algorithm~\ref{alg:halmdps_eigenvector}. 
-The eigenvector approach for solving hierarchical ALMDPs appears in Algorithm~\ref{alg:halmdps_eigenvector}. The intuition is that in each iteration, we first solve the subtasks for the latest estimate of the exponentiated gain $\widehat\Gamma$. For this, the base LMDPs are solved with~\eqref{eq:subtask} using with the current value of $\widehat\rho$. Then~\eqref{eq:comp_internal} is applied, restricted to $\cE$ to obtain an estimate of the value for the exit states. This yields the system of linear equations
+The eigenvector approach for solving hierarchical ALMDPs appears in Algorithm~\ref{alg:halmdps_eigenvector}. The intuition is that in each iteration, we first solve the subtasks for the latest estimate of the exponentiated gain $\widehat\Gamma$. For this, the base LMDPs are solved with~\eqref{eq:halmdps_subtask} using with the current value of $\widehat\rho$. Then~\eqref{eq:halmdps_comp_internal} is applied, restricted to $\cE$ to obtain an estimate of the value for the exit states. This yields the system of linear equations
 \begin{equation}
-    {\bf z_\cE} = G_\cE {\bf z_\cE}.\label{eq:eigenvector}
+    {\bf z_\cE} = G_\cE {\bf z_\cE}.\label{eq:halmdps_eigenvector}
 \end{equation}
-Here, the matrix $G_\cE\in\real^{\lvert\cE\rvert\times \lvert\cE\rvert}$ contains the optimal values of the base LMDPs and has elements defined as in~\eqref{eq:comp_internal}. The previously introduced idea to transform the ALMDP $\cL$ to a first-exit LMDP $\cL'$ parameterized on the estimated gain $\widehat\rho$ is used, and  the optimal exponentiated gain $\Gamma$ is found using binary search. There is a reference state $s^*\in\cS$ (which is by definition an exit state) and is used the test described above to decide how to update the search interval. 
+Here, the matrix $G_\cE\in\real^{\lvert\cE\rvert\times \lvert\cE\rvert}$ contains the optimal values of the base LMDPs and has elements defined as in~\eqref{eq:halmdps_comp_internal}. The previously introduced idea to transform the ALMDP $\cL$ to a first-exit LMDP $\cL'$ parameterized on the estimated gain $\widehat\rho$ is used, and the optimal exponentiated gain $\Gamma$ is found using binary search. There is a reference state $s^*\in\cS$ (which is by definition an exit state) and on which binary search is performed to find $\Gamma$.
+
 \begin{algorithm}[!b]
   \caption{Eigenvector approach to solving a hierarchical ALMDP.}
   \setstretch{1.2}
@@ -263,7 +244,7 @@ which is the same Bellman equation as for $z(s)$. Assuming that $z_i(\tau) = z(\
     If the optimal gain $\rho$ in $\cL$ is known, each base LMDP $\cL_j^k$ has a unique solution $z_j^k(\cdot;\rho)$.
 \end{corollary}
 
-\begin{proof} From \eqref{eq:comp_internal}, the optimal values of subtask states satisfy
+\begin{proof} From \eqref{eq:halmdps_comp_internal}, the optimal values of subtask states satisfy
 \[
   z(s) = \sum_{k=1}^n z(\tau^k) z_i^k(s;\rho)\;\;\forall s\in\cS_i.
 \]
@@ -277,7 +258,7 @@ For $\widehat\rho\geq\rho$, the equation ${\bf \widehat z_\cE} = G_\cE {\bf\wide
 \end{lemma}
 
 \begin{proof}
-At convergence, due to \eqref{eq:comp_internal} it has to hold for each non-terminal exit $\tau\in\cE$ that
+At convergence, due to \eqref{eq:halmdps_comp_internal} it has to hold for each non-terminal exit $\tau\in\cE$ that
 \[
   z_\cE(\tau) = \sum_{k=1}^n z_\cE(\tau^k) z_i^k(s;\widehat\rho)\;\;\forall s\in\cS_i,
 \]
@@ -286,8 +267,8 @@ where each $\tau^k$ is also an exit and $z_i^k(s;\widehat\rho)$ is well-defined 
 
 Now we have all the ingredients to prove Theorem~\ref{thm:converge}. When $\widehat\rho\geq\rho$ (or equivalently, $\widehat\Gamma\geq\Gamma$), each base LMDP has a unique solution, and $z_\cE$ is also unique. Moreover, when $\widehat\rho>\rho$, the condition on line 8 is true, which causes binary search to discard all values greater than $\widehat\rho$. If the base LMDPs or $z_\cE$ do not have a unique solution, it means that $\widehat\rho$ is too small, and hence all values less than $\widehat\rho$ can be discarded. Since the solution $z(\cdot;\widehat\rho)$ is monotonically decreasing in $\widehat\rho$, binary search is guaranteed to find the optimal gain $\rho$ within a factor of $\epsilon$.
 
-\subsection{Online algorithm}
- In the online case (see Algorithm~\ref{alg:halmdps_online}), we keep an estimate of the exponentiated gain $\widehat\Gamma=e^{\eta\widehat\rho}$ which is updated every timestep. We also keep estimates of the value functions of the base LMDPs $\widehat z_i^1(\cdot;\widehat\rho),\ldots,\widehat z_i^n(\cdot;\widehat\rho)$ for each equivalence class $\cC_i$, and estimates of the value function on exit states $\widehat z_\cE$.  All the base LMDPs of the same equivalence class can be updated with the same sample using intra-task learning with the appropriate {\it importance sampling weights\/}~\citep{Jonsson2016}. We only update the the estimates of the exit states upon visitation. In that case, the compositionality expression in~\eqref{eq:comp_internal} is used to derive the following update:
+\subsection{Online hierarchical algorithm}
+ In the online case (see Algorithm~\ref{alg:halmdps_online}), we keep an estimate of the exponentiated gain $\widehat\Gamma=e^{\eta\widehat\rho}$ which is updated every timestep. We also keep estimates of the value functions of the base LMDPs $\widehat z_i^1(\cdot;\widehat\rho),\ldots,\widehat z_i^n(\cdot;\widehat\rho)$ for each equivalence class $\cC_i$, and estimates of the value function on exit states $\widehat z_\cE$.  All the base LMDPs of the same equivalence class can be updated with the same sample using intra-task learning with the appropriate {\it importance sampling weights\/}~\citep{Jonsson2016}. We only update the estimates of the exit states upon visitation. In that case, the compositionality expression in~\eqref{eq:halmdps_comp_internal} is used to derive the following update:
 \begin{equation}
   \widehat z_\cE(s)\gets (1-\alpha_\ell) \widehat z_\cE(s) + \alpha_\ell \sum_{k=1}^n \widehat z_\cE(\tau^k) \widehat z_i^k(s;\rho).
   \label{eq:halmdps_update_exit}
@@ -295,18 +276,16 @@ Now we have all the ingredients to prove Theorem~\ref{thm:converge}. When $\wide
 Here, $\alpha_\ell$ is the learning rate. Each of the learned components (i.e., gain, base LMDPs and exit state value estimates) maintain independent learning rates.
 
 \begin{algorithm}[!htpb]
-  \caption{Online algorithm.}
+  \caption{Online hierarchical algorithm.}
   \setstretch{1.12}
   \begin{algorithmic}[1]
     \State{{\bf Input:} $\cL,\cS_1,\ldots,\cS_L,\cE,s_0,\epsilon,\eta$}
     \State $t \gets 0$, $\widehat{\Gamma} \gets 1$
-    \State af
-
     \While {{\it not terminate}}
     \State Observe $(s_{t}, r_{t}, s_{t+1})\sim\widehat\pi_t$
-    \State Update $\widehat z_j^1(\cdot;\widehat\rho),\ldots,\widehat z_j^n(\cdot;\widehat\rho)$ using Equation~\eqref{eq:main_v_td_update}
-    \State Compute $\widehat z(s_t)$ and $\sum_{s'}\kernel(s'|s_t)\widehat z(s')$ using Equation \eqref{eq:comp_internal}
-    \State Update $\widehat\Gamma$ using Equation~\eqref{eq:main_rho_td_update}
+    \State Update $\widehat z_j^1(\cdot;\widehat\rho),\ldots,\widehat z_j^n(\cdot;\widehat\rho)$ using Equation~\eqref{eq:halmdps_main_v_td_update}
+    \State Compute $\widehat z(s_t)$ and $\sum_{s'}\kernel(s'|s_t)\widehat z(s')$ using Equation \eqref{eq:halmdps_comp_internal}
+    \State Update $\widehat\Gamma$ using Equation~\eqref{eq:halmdps_main_rho_td_update}
     \If{$s_t\in\cE$}
     \State Update $\widehat z_\cE(s_t)$ using Equation~\eqref{eq:halmdps_update_exit}
     \EndIf
@@ -319,30 +298,33 @@ Here, $\alpha_\ell$ is the learning rate. Each of the learned components (i.e., 
 
 \section{Experiments}
 
-We now introduce the experimental results for the two benchmark control problems introduced in the previous chapter and explain how we adapted them to the continuing case. We report some results for Algorithm~\ref{alg:halmdps_eigenvector}. These are  simple experiments meant to show that the hierarchical eigenvector method converges to the optimal (exponentiated) gain up to an arbitrary precision, and, consequently, to the optimal value function.
+We now present the experimental results for the two benchmark control problems introduced in the previous chapter and explain how we adapt them to the continuing case. \footnote{Code available at \url{https://github.com/guillermoim/halmdps}}.
+% Vicenc: We report some results for Algorithm~\ref{alg:halmdps_eigenvector}. These are  simple experiments meant to show that the hierarchical eigenvector method indeed converges to the optimal (exponentiated) gain up to an arbitrary precision, and, consequently, to the optimal value function.
 
-Then, we compare Algorithm~\ref{alg:halmdps_online} against differential soft TD-learning in the flat representation of the ALMDP. Similarly to the first-exit case, the metric used for the experiments Mean Absolute Error (MAE) between the estimated value function $\widehat z$ and the true optimal value function $z$, taken exclusively at the exit states. For each algorithm, the results are averaged over five seeds. Along with the the average, the standard deviation is also reported. Here, the learning rates decay every $n$ samples, and are given by the expression $\alpha_\ell \leftarrow k \alpha_\ell$, where $k$ is the decay factor. The hyperparameters $n$ and $k$ are optimized per instance.
+Then, we compare Algorithm~\ref{alg:halmdps_online} against differential soft TD-learning in the flat representation of the ALMDP. Similarly to the first-exit case, the metric used for the experiments Mean Absolute Error (MAE) between the estimated value function $\widehat z$ and the true optimal value function $z$, taken exclusively at the exit states. For each algorithm, the results are averaged over five seeds. Along with the average, the standard deviation is also reported. Here, the learning rates decay every $n$ samples, and are given by the expression $\alpha_\ell \leftarrow k \alpha_\ell$, where $k$ is the decay factor. The hyperparameters $n$ and $k$ are optimized per instance. \todo{Why no $V_2$ and $V_3$.}
 
-Note that, while the updates rules for differential Z-learning (equations~\eqref{eq:diff_update_z} and~\eqref{eq:diff_update_gamma}) are in the exponential domain, the here derived soft TD-learning updates (equations~\eqref{eq:main_v_td_update} and~\eqref{eq:main_rho_td_update}) are in the logarithmic domain. This has some advantages such as using a single TD-error for both the value function and the gain update. Similarly, for our hierarchical approach we can keep an estimate of the value function $\widehat v_\cE$ in the logarithmic domain. In such a case, the update rule~\eqref{eq:halmdps_update_exit} can be expressed as 
+Note that, while the updates rules for differential Z-learning (Equations~\eqref{eq:diff_update_z} and~\eqref{eq:diff_update_gamma}) are in the exponential domain, the here derived soft TD-learning updates (Equations~\eqref{eq:halmdps_main_v_td_update} and~\eqref{eq:halmdps_main_rho_td_update}) are in the logarithmic domain. This has some advantages such as using a single TD-error for both the value function and the gain update. Similarly, for our hierarchical approach we can keep an estimate of the value function $\widehat v_{\cE}$ in the logarithmic domain. In such a case, the update rule~\eqref{eq:halmdps_update_exit} can be expressed as 
 \begin{equation*}
-    \widehat v_\cE(s)\gets (1-\alpha_\ell) \widehat v_\cE(s) + \alpha_\ell\frac{1}{\eta} \log\Big(\sum_{k=1}^n \widehat z_\cE(\tau^k) \widehat z_i^k(s;\rho)\Big).
+    \widehat v_{\cE}(s)\gets (1-\alpha_\ell) \widehat v_\cE(s) + \alpha_\ell\frac{1}{\eta} \log\Big(\sum_{k=1}^n e^{\eta \widehat  v_\cE(\tau^k)} \widehat z_i^k(s;\rho)\Big).
 \end{equation*}
-Simultaneously, the gain estimate is updated with~\eqref{eq:main_rho_td_update}. Recall that, at any moment, these estimates can be expressed in the exponential domain with $\widehat z_\cE(s)=e^{\eta\hat v(s)}$ and $\widehat\Gamma=e^{\eta\hat\rho}$. Our experimental results show that this version of the hierarchical algorithm is more estable.
+Simultaneously, the gain estimate is updated with~\eqref{eq:halmdps_main_rho_td_update}. Recall that, at any moment, these estimates can be expressed in the exponential domain with $\widehat z_\cE(s)=e^{\eta\widehat v_\cE(s)}$ and $\widehat\Gamma=e^{\eta\widehat\rho}$. Our experimental results show that this version of the hierarchical algorithm is more stable.
 
 \begin{figure}[!ht]
   \centering
   \includegraphics*[width=0.49\textwidth]{figures/chapter2/eigenvectors/lmdp-nroom-3.pdf}
   \includegraphics*[width=0.49\textwidth]{figures/chapter2/eigenvectors/lmdp-taxi-8.pdf}
   \caption{Error in $\widehat\Gamma$ per iteration for Algorithm~\ref{alg:halmdps_eigenvector}.}
-  \label{fig:eigenvectos}
+  \label{fig:halmdps_eigenvectos}
  \end{figure}
 
-Besides the learning error for the higher level, the learning error for the subtasks and the gain are also disclosed for the logarithmic and exponential domains. These results should be able to partly show better stability in the logarithmic domain. In contrast to the first-exit case, now there is a three-way dependency during learning between the (optimal) gain, value function of the subtasks and values of the exit states, which makes this hierarchical learning more challenging.  
+Besides the learning error for the higher level, the learning error for the subtasks and the gain are also disclosed for the logarithmic and exponential domains. These results should be able to partly show better stability in the logarithmic domain. In contrast to the first-exit case, now there is a three-way dependency during learning between the (optimal) gain, value function of the subtasks and values of the exit states which makes hierarchical learning in the average-reward setting more challenging.  
 
   \subsection{N-room domain}
  As in the episodic case, there are some `goal' states with high reward (i.e. $0$). When the agent enters a goal state, the next action causes it to receive the given reward and transition to a {\it restart\/} location. The number of rooms as well as the size of the rooms are varied to obtain different instances of the problem.   
  
- Figure~\ref{fig:eigenvectos} (left) shows the results for a single run of Algorithm~\ref{alg:halmdps_eigenvector} in the largest instance of this domain. We report the absolute error of the estimate $\widehat\Gamma$ at each iteration. We observe that the binary search procedure finds the optimal value up to an arbitrary precision which can be then used to compute the optimal value function. The results for learning are in Figure~\ref{fig:halmdps_nrooms}. The difference in the error scale in the figures is due to the initialization of the base LMDPs. We observe that both the hierarchical approaches (logarithmic and exponential domains) outperfom the flat learner by several orders of magnitude (note the logarithmic scale).  The average reward setting poses an extra challenge since the `sparsity' of the reward can make the estimates of the gain oscillate. This ultimately has an impact on the estimates of the base LMDPs and the value estimates of the exit states, and it is likely the reason why in Figure~\ref{fig:halmdps_taxi} the error increases before decreasing down to zero. Nonetheless, the logarithmic version of the algorithm converges faster.This is likely to be caused by a faster convergence of $\widetilde \Gamma$. The bottom row of Figure~\ref{fig:halmdps_nrooms} shows that the magnitude of this error behaves more stably in the logarithmic version, which might cause of the error in the subtasks (middle row of Figure~\ref{fig:halmdps_nrooms}) to be better upperbounded. Consequently, this might translate in a better convergence in the high-level (top row of Figure~\ref{fig:halmdps_nrooms}).
+ Figure~\ref{fig:halmdps_eigenvectos} (left) shows the results for a single run of Algorithm~\ref{alg:halmdps_eigenvector} in the largest instance of this domain. We report the absolute error of the estimate $\widehat\Gamma$ at each iteration. We observe that the binary search procedure finds the optimal value up to an arbitrary precision which can be then used to compute the optimal value function. 
+ 
+ The results for learning are in Figure~\ref{fig:halmdps_nrooms}. The difference in the error scale in the figures is due to the initialization of the base LMDPs. We observe that both the hierarchical approaches (logarithmic and exponential domains) outperfom the flat learner by several orders of magnitude (note the logarithmic scale).  The average reward setting poses an extra challenge since the `sparsity' of the reward can make the estimates of the gain oscillate. This ultimately has an impact on the estimates of the base LMDPs and the value estimates of the exit states, and it is likely the reason why in Figure~\ref{fig:halmdps_taxi} the error increases before decreasing down to zero. Nonetheless, the logarithmic version of the algorithm converges faster. This is likely to be caused by a faster convergence of $\widehat \Gamma$. The bottom row of Figure~\ref{fig:halmdps_nrooms} shows that the magnitude of this error behaves more stably in the logarithmic version, which might cause of the error in the subtasks (middle row of Figure~\ref{fig:halmdps_nrooms}) to be better upperbounded. Consequently, this might translate in a better convergence in the high-level (top row of Figure~\ref{fig:halmdps_nrooms}).
 
   \begin{sidewaysfigure}
   \centering
@@ -368,7 +350,7 @@ Besides the learning error for the higher level, the learning error for the subt
   \subsection{Taxi domain}
   Adapting this environment to the continuing case is more natural. In this variant of the original domain~\citep{Dietterich2000}, once the passenger has been dropped off, the system transitions to a state in which the driver is in the last drop-off location, but a new passenger appears randomly at another location. Hence the driver immediately receives a new assignment after having successfully completed the previous one. 
 
-  The results of the eigenvector algortihm in Figure~\ref{fig:eigenvectos} (right) shows the same pattern as in the N-room domain. In this domain, the results for the learning algirthm Figure~\ref{fig:halmdps_taxi} also provide the same conclusions as in the N-room domain: the hierarhical approaches need less number of samples to converge, and the logarithmic version seems to be faster and more stable.
+  The results of the eigenvector algortihm in Figure~\ref{fig:halmdps_eigenvectos} (right) shows the same pattern as in the N-room domain. In this domain, the results for the learning algirthm Figure~\ref{fig:halmdps_taxi} also provide the same conclusions as in the N-room domain: the hierarhical approaches need less number of samples to converge, and the logarithmic version seems to be faster and more stable.
 
 
 
@@ -408,6 +390,6 @@ Besides the learning error for the higher level, the learning error for the subt
 
 \section{Conclusion}
 
-In this paper we present a novel framework for hierarchical average-reward reinforcement learning which makes it possible to learn the low-level and high-level tasks simultaneously. 
-We propose an eigenvector approach and an online algorithm for solving problems in our framework, and show that the former converges to the optimal value function. We provide experimental results of the hierarchical updates both in the logarithmic and exponential domains that show that the logarithmic domain behaves more stably.
+In this chapter we present a novel framework for hierarchical average-reward reinforcement learning which makes it possible to learn the low-level and high-level tasks simultaneously. 
+We propose an eigenvector approach and an online algorithm for solving problems in our hierarchical framework, and show that the former converges to the optimal value function. We provide experimental results of the hierarchical updates both in the logarithmic and exponential domains that show that the logarithmic domain behaves more stably. The experimental results also show that either of the hierarchical versions outperforms a flat learner by several orders of magnitude.
 As a by-product of our analysis, we also provide a convergence theorem in the non-hierarchical case for average-reward LMDPs, which to the extent of our knowledge, was not previously done. In the future we would like to prove convergence also for the proposed online algorithm.

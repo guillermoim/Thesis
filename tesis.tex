@@ -99,8 +99,9 @@
 \newcommand{\cD}{\mathcal{D}}
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cF}{\mathcal{F}}
-\newcommand{\cH}{\mathcal{H}}
 \newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
 \newcommand{\cJ}{\mathcal{J}}
 \newcommand{\cK}{\mathcal{K}}
 \newcommand{\cL}{\mathcal{L}}
@@ -150,11 +151,29 @@
 \newtheorem{definition}{Definition}
 \newtheorem{assumption}[theorem]{Assumption}
 
-% \newenvironment{proof}[1][Proof]{\begin{trivlist}
-% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+% Define Example environment
+\definecolor{myblue}{HTML}{060963}
+
+\newcounter{example}[section]
+\newenvironment{example}[1][]{%
+  \color{myblue}
+  \refstepcounter{example}
+  \par\medskip\noindent
+  %~\theHchapter.\theexample}
+  \if
+  \relax\detokenize{#1}\relax
+  \else
+  {\bfseries#1.}
+  \fi
+  \enspace
+  \ignorespaces
+}{\par\medskip}
 
 \input{macros/mdrawing}
 
+
+% Allow page breaks in aligns
+\allowdisplaybreaks
 
 %ADD YOUR DATA
 \title{Compositionality for Hierarchical Reinforcement Learning}
@@ -220,7 +239,7 @@
 % LENGTH OF SPACES BETWEEN PARAGRAPHS
 \setlength{\parskip}{0.5\baselineskip}
 \setlength{\parindent}{0pt}
-
+\raggedbottom
 %START THE TEXT
 \mainmatter
 
@@ -243,7 +262,7 @@
 \bibliography{bibliography}
 
 **\appendix
-\chapter{Proof Theorem~\ref{theo:almdps}}
+\chapter{Proof of Theorem~\ref{theo:almdps}}
 \input{chapters/appendix.tex}
 
 \backmatter 

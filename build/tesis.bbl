@@ -1,4 +1,4 @@
-\begin{thebibliography}{55}
+\begin{thebibliography}{62}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -47,6 +47,24 @@ Andrew~G. Barto and Sridhar Mahadevan.
 \newblock ISSN 1573-7594.
 \newblock \doi{10.1023/A:1025696116075}.
 \newblock URL \url{https://doi.org/10.1023/A:1025696116075}.
+
+\bibitem[Bellman(1958)]{Bellman1958}
+Richard Bellman.
+\newblock Dynamic programming and stochastic control processes.
+\newblock \emph{Information and Control}, 1\penalty0 (3):\penalty0 228--239, 1958.
+\newblock ISSN 0019-9958.
+\newblock \doi{https://doi.org/10.1016/S0019-9958(58)80003-0}.
+\newblock URL \url{https://www.sciencedirect.com/science/article/pii/S0019995858800030}.
+
+\bibitem[Borkar(1998)]{Borkar1998}
+Vivek~S Borkar.
+\newblock Asynchronous stochastic approximations.
+\newblock \emph{SIAM Journal on Control and Optimization}, 36\penalty0 (3):\penalty0 840--851, 1998.
+
+\bibitem[Borkar(2009)]{Borkar2009}
+Vivek~S Borkar.
+\newblock \emph{Stochastic approximation: a dynamical systems viewpoint}, volume~48.
+\newblock Springer, 2009.
 
 \bibitem[Boutilier et~al.(1995)Boutilier, Dearden, Goldszmidt, et~al.]{Boutilier1995}
 Craig Boutilier, Richard Dearden, Mois{\'e}s Goldszmidt, et~al.
@@ -119,6 +137,11 @@ Tuomas Haarnoja, Aurick Zhou, Pieter Abbeel, and Sergey Levine.
 \newblock Soft {Actor}-{Critic}: {Off}-{Policy} {Maximum} {Entropy} {Deep} {Reinforcement} {Learning} with a {Stochastic} {Actor}.
 \newblock pages 1861--1870. PMLR, July 2018{\natexlab{b}}.
 \newblock URL \url{https://proceedings.mlr.press/v80/haarnoja18b.html}.
+
+\bibitem[Howard(1960)]{Howard1960}
+Ronald~A Howard.
+\newblock Dynamic programming and markov processes.
+\newblock 1960.
 
 \bibitem[Hunt et~al.(2019)Hunt, Barreto, Lillicrap, and Heess]{Hunt2019}
 Jonathan Hunt, Andre Barreto, Timothy Lillicrap, and Nicolas Heess.
@@ -201,6 +224,12 @@ Borja~G. Le{\'{o}}n, Murray Shanahan, and Francesco Belardinelli.
 \newblock \emph{CoRR}, abs/2006.08767, 2020.
 \newblock URL \url{https://arxiv.org/abs/2006.08767}.
 
+\bibitem[Mahadevan(1996)]{Mahadevan1996}
+Sridhar Mahadevan.
+\newblock Average reward reinforcement learning: Foundations, algorithms, and empirical results.
+\newblock \emph{Mach. Learn.}, 22\penalty0 (1-3):\penalty0 159--195, 1996.
+\newblock \doi{10.1023/A:1018064306595}.
+
 \bibitem[Mann et~al.(2015)Mann, Mannor, and Precup]{Mann2015}
 Timothy~A Mann, Shie Mannor, and Doina Precup.
 \newblock Approximate value iteration with temporally extended actions.
@@ -264,6 +293,11 @@ Alexander~L. Strehl, Carlos Diuk, and Michael~L. Littman.
 \newblock Efficient structure learning in factored-state {MDPs}.
 \newblock In \emph{Proceedings of the 22nd national conference on {Artificial} intelligence - {Volume} 1}, {AAAI}'07, pages 645--650, Vancouver, British Columbia, Canada, July 2007. AAAI Press.
 \newblock ISBN 9781577353232.
+
+\bibitem[Sutton(1988)]{Sutton1988}
+Richard~S. Sutton.
+\newblock Learning to predict by the methods of temporal differences.
+\newblock \emph{Machine learning}, 3:\penalty0 9--44, 1988.
 
 \bibitem[Sutton et~al.(1999)Sutton, Precup, and Singh]{Sutton1999}
 Richard~S. Sutton, Doina Precup, and Satinder Singh.
@@ -345,5 +379,13 @@ Zheng Wen, Doina Precup, Morteza Ibrahimi, Andre Barreto, Benjamin Van~Roy, and 
 \newblock On {Efficiency} in {Hierarchical} {Reinforcement} {Learning}.
 \newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~33, pages 6708--6718. Curran Associates, Inc., 2020.
 \newblock URL \url{https://proceedings.neurips.cc/paper/2020/hash/4a5cfa9281924139db466a8a19291aff-Abstract.html}.
+
+\bibitem[White(1963)]{White1963}
+D.J White.
+\newblock Dynamic programming, markov chains, and the method of successive approximations.
+\newblock \emph{Journal of Mathematical Analysis and Applications}, 6\penalty0 (3):\penalty0 373--376, 1963.
+\newblock ISSN 0022-247X.
+\newblock \doi{https://doi.org/10.1016/0022-247X(63)90017-9}.
+\newblock URL \url{https://www.sciencedirect.com/science/article/pii/0022247X63900179}.
 
 \end{thebibliography}

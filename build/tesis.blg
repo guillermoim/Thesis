@@ -3,54 +3,53 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: tesis.aux
 The style file: plainnat.bst
 Database file #1: bibliography.bib
-Warning--I didn't find a database entry for "Borkar1998"
-Warning--I didn't find a database entry for "Borkar2009"
 Warning--empty booktitle in Alegre2022
 Warning--empty booktitle in Araki2021
 Warning--empty booktitle in Haarnoja2018
+Warning--empty journal in Howard1960
 Warning--empty booktitle in Hunt2019
 Warning--empty booktitle in Infante2022
 Warning--can't use both volume and number fields in Infante2022
 Warning--empty booktitle in Vaezipoor2021
-You've used 55 entries,
+You've used 62 entries,
             2773 wiz_defined-function locations,
-            1060 strings with 20307 characters,
-and the built_in function-call counts, 34382 in all, are:
-= -- 3292
-> -- 1885
-< -- 65
-+ -- 631
-- -- 573
-* -- 2844
-:= -- 4985
-add.period$ -- 256
-call.type$ -- 55
-change.case$ -- 342
-chr.to.int$ -- 52
-cite$ -- 117
-duplicate$ -- 1565
-empty$ -- 2675
-format.name$ -- 644
-if$ -- 7520
+            1106 strings with 21330 characters,
+and the built_in function-call counts, 36981 in all, are:
+= -- 3542
+> -- 1955
+< -- 73
++ -- 659
+- -- 594
+* -- 3026
+:= -- 5393
+add.period$ -- 284
+call.type$ -- 62
+change.case$ -- 369
+chr.to.int$ -- 59
+cite$ -- 132
+duplicate$ -- 1704
+empty$ -- 2933
+format.name$ -- 672
+if$ -- 8068
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 56
-newline$ -- 349
-num.names$ -- 240
-pop$ -- 665
+missing$ -- 64
+newline$ -- 391
+num.names$ -- 268
+pop$ -- 715
 preamble$ -- 1
-purify$ -- 288
+purify$ -- 309
 quote$ -- 0
-skip$ -- 1288
+skip$ -- 1379
 stack$ -- 0
-substring$ -- 1694
-swap$ -- 454
-text.length$ -- 48
+substring$ -- 1816
+swap$ -- 461
+text.length$ -- 49
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 600
-warning$ -- 7
-while$ -- 295
+type$ -- 672
+warning$ -- 8
+while$ -- 324
 width$ -- 0
-write$ -- 891
-(There were 9 warnings)
+write$ -- 994
+(There were 8 warnings)

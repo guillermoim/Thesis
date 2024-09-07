@@ -25,8 +25,6 @@ We introduce a series of necessary assumptions for convergence. We adapt Assumpt
 %  \label{ass:communicating}
 % \end{assumption}
 
-% NOT NEEDED since we have unichain
-
 \begin{assumption}
  (Value function uniqueness) There exists a unique solution to $v$ in equation~\eqref{eq:boe_almdp} up to a constant shift.
   \label{ass:uniqueness}
@@ -128,7 +126,7 @@ We adapt Theorem B.2 in~\cite{Wan2021}.
         \widehat{v}_{t+1}(s) \gets \widehat{v}_t(s) + \alpha_t(s) \big( r_t(s) - \lambda\sum_s \hat v_t(s) - \frac 1 \eta \log \sum_{s'\in\cS} \cP(s'|s) e^{\eta \widehat{v}_t(s')} - \widehat{v}_t(s)\big)  \mathbb{I}\{s\in X_t\},
         \label{eq:td_update_theo}
     \end{equation}
-    
+    If the following assumptions hold:
     \begin{enumerate}
         \item Assumptions~\ref{ass:unichain} and~\ref{ass:uniqueness}-\ref{ass:stepsize3} hold.
         \item $f:\real^{\lvert\cS\rvert}\rightarrow\real$ is Lipschitz and there exists some $u>0$ such that $\forall c\in\real$ and $x\in\real^{\lvert\cS\rvert}$, $f(\mathds{1})=u$, $f(x + c\mathds{1})=f(x)+cu$ and $f(cx) = c f(x)$
@@ -153,7 +151,7 @@ We also define the following operators,
     T^2(v) &= T(v) - f(v)\mathds{1} =  T^1(v) + (\rho - f(v))\mathds{1}.
 \end{align*}
 
-The function $f$ is given by $f(v) = \lambda\sum_s v(s)$, which satisfies condition 2 of Theorem~\ref{theo:our_theorem}. The error term $M_{t+1}=r_t-\cR$ is only needed in case the reward vector $r_t$ is sampled from a distribution with mean $\cR$; if reward is deterministic, $M_{t+1}$ can be omitted. If the reward is sampled from a distribution, it should be easy to show that $M_{t+1}$ has zero mean and bounded variance.
+The function $f$ is given by $f(v) = \lambda\sum_s v(s)$, which satisfies condition 2 of Theorem~\ref{theo:our_theorem}. The error term $M_{t+1}=r_t-\cR$ is only needed in case the reward vector $r_t$ is sampled from a distribution with mean $\cR$; if reward is deterministic, $M_{t+1}$ can be omitted. If the reward is sampled from a distribution, it is easy to show that $M_{t+1}$ has zero mean and bounded variance.
 
 The operator $T$ is a non-expansion in the max-norm:
 \begin{align*}
