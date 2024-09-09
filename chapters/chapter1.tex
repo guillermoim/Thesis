@@ -92,7 +92,7 @@ Formally, a set of equivalence classes $\cC=\{\cC_1,\ldots,\cC_C\}$ is defined, 
 
 
 
-\begin{example}
+\begin{example}[Example 1]
  Figure~\ref{fig:ex}a) shows an example 4-room LMDP with a single terminal state marked $F$, separate from the room but reachable in one step from the highlighted location. The rooms are only connected via a single doorway; hence the states are partitioned by room, the subtask corresponding to each room has two terminal states in other rooms, plus the terminal state $F$ for the top right room. The 9 exit states in $\cE$ are highlighted and correspond to states next to doorways, plus $F$. Figure~\ref{fig:ex}b) shows a single subtask that is equivalent to all four room subtasks, since dynamics is shared inside rooms and the set of terminal states is the union of those of the subtasks.
 Hence the number of equivalent subtasks is $C=1$, the number of non-terminal and terminal states of subtasks is $K=25$ and $N=5$, respectively, and the number of exit states is $E=9$.
 \end{example}
@@ -123,7 +123,7 @@ Due to compositionality, the estimated value of each non-terminal state $s\in\cS
 \end{align}
 Here, the terminal states $\tSi_1,\ldots,\tSi_n$ are by definition exit states in $\cE$. Assuming that we have access to a value estimate $\widehat{z}_\cE:\cE\rightarrow\mathbb{R}$ on exit states, as well as the value functions $z_j^1,\ldots,z_j^n$ of all base LMDPs, \eqref{eq:comp3} can be used to express the value estimate of each other state without learning. Hence~\eqref{eq:comp3} is a form of value function decomposition, that allows expressing the values of arbitrary states in $\cS$ in terms of value functions with smaller domains. Concretely, there are $O(CN)$ base LMDPs, each with $O(M)$ values, so in total $O(CMN+E)$ values are needed for the decomposition.
 
-\begin{example}[1] %Returning to the example in Figure~\ref{fig:ex},
+\begin{example}[Example 1] %Returning to the example in Figure~\ref{fig:ex},
 In the 4-room example, there are five base LMDPs with value functions $z^F$, $z^L$, $z^R$, $z^T$ and $z^B$, respectively. Given an initial value estimate $\widehat{z}_\cE$ for each exit state in $\cE$, a value estimate of any state in the top left room is given by \[\linebreak\widehat{z}(s)=\widehat{z}_\cE(1^B) z^B(s) + \widehat{z}_\cE(1^R) z^R(s),\] where $\widehat{z}_\cE(F)=\widehat{z}_\cE(L)=\widehat{z}_\cE(T)=0$ can be used to indicate that the terminal states $F$, $L$ and $T$ are not present in the top left room. $CMN = 125$ values are needed to store the value functions of the 5 base LMDPs, and $E=9$ values to store the value estimates of all exit states. Although this is more than the 100 states of the original LMDP, if the number of rooms increases to $X\times Y$, the term $CMN$ is a constant as long as all rooms have equivalent dynamics, and the number of exit states is $E=(2X-1)(2Y-1)$, which is much smaller than the $25 XY$ total states. For $10\times 10$ rooms, the value function decomposition requires $486$ values to represent the values of $2{,}500$ states.
 \end{example}
 
@@ -141,9 +141,9 @@ Concretely, if there is a subset of variables $\cU\subset\cV$ such that the tran
 \end{figure}
     
 
-\paragraph{Example 2:} The Taxi domain~\citep{Dietterich2000} (see Figure~\ref{fig:domain_taxi}) is described by three variables: the location of the taxi ($v_1$), and the location and destination of the passenger ($v_2$ and $v_3$). Since the location of the taxi is independent of the other two, it is natural to partition the states according to the location and destination of the passenger. Each partition consists of the possible locations of the taxi, defining a unique equivalent subtask whose terminal states are the locations at which the taxi can pick up or drop off passengers. Since there are 16 valid combinations of passenger location and destination, there are 16 such equivalent subtasks.
+\begin{example}[Example 2] The Taxi domain~\citep{Dietterich2000} (see Figure~\ref{fig:domain_taxi}) is described by three variables: the location of the taxi ($v_1$), and the location and destination of the passenger ($v_2$ and $v_3$). Since the location of the taxi is independent of the other two, it is natural to partition the states according to the location and destination of the passenger. Each partition consists of the possible locations of the taxi, defining a unique equivalent subtask whose terminal states are the locations at which the taxi can pick up or drop off passengers. Since there are 16 valid combinations of passenger location and destination, there are 16 such equivalent subtasks.
 \citep{Dietterich2000} calls this condition {\em max node irrelevance}, where ``max node'' refers to a given subtask.
-
+\end{example}
 \subsection{Eigenvector Approach}
 \label{section:hlmdps_eigenvector_episodic}
 
@@ -156,9 +156,10 @@ To compute the values of the original LMDP $\cL$ for the exit states in $\cE$, t
 Here, the matrix $G$ contains the values of the base LMDPs according to~\eqref{eq:comp3}.
 The power method can be used on this system of linear equations to obtain the values of all exit states in $\cE$.
 
-\paragraph{Example 1:} In the 4-room example, the row in $G$ corresponding to $\widehat{z}_\cE(2^L)$ contains the element $z^B(2^L)$ in the column for $\widehat{z}_\cE(1^B)$, and the element $z^R(2^L)$ in the column for $\widehat{z}_\cE(1^R)$, while all other elements equal $0$. While the flat approach requires one run of the power method on a large matrix, %of $100\times 100$ states
+\begin{example}[Example 1] In the 4-room example, the row in $G$ corresponding to $\widehat{z}_\cE(2^L)$ contains the element $z^B(2^L)$ in the column for $\widehat{z}_\cE(1^B)$, and the element $z^R(2^L)$ in the column for $\widehat{z}_\cE(1^R)$, while all other elements equal $0$. While the flat approach requires one run of the power method on a large matrix, %of $100\times 100$ states
 the hierachical approach needs five runs of the power method on significantly reduced %$(5+4)\times (5+4)$
- matrices (these runs can be parallelized), and one additional run on a $8\times 9$ (where the value of $G$ is known by definition) matrix, corresponding to~\eqref{eq:exits}.\\ %, to obtain the same global optimal solution.
+ matrices (these runs can be parallelized), and one additional run on a $8\times 9$ (where the value of $G$ is known by definition) matrix, corresponding to~\eqref{eq:exits}.
+\end{example} %, to obtain the same global optimal solution.
 
 The values of states in $\cS\setminus\cE$ are not explicitly represented since they are given by~\eqref{eq:comp3}.
 Since now the value $z(s)$ of each state $s\in\cS$ can be obtained, the optimal policy is directly defined in terms of the values $z$ and the expression in~\eqref{eq:lmdp_optimal_policy}. Hence unlike most approaches to hierarchical reinforcement learning, the policy does not select among subtasks, but instead depends directly on the decomposed value estimates.

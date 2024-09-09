@@ -16,7 +16,7 @@ Stochastic sequential decision problems are usually modeled as Markov decision p
 \end{itemize}
 
 The most general form of the interaction between the learning agent and the environment is depicted in Figure~\ref{fig:rl_loop}. Initially, the environment is in a start state that is sampled from the initial state distribution $S_0\sim\kernel_0$. At any timestep $t$, the agent observes a state $S_t$ and chooses an action $A_t\sim\pi(S_t)$ according to a decision rule $\pi$. Such a decision rule is called policy, and it is a function 
-$\pi:\cS\rightarrow\Delta(\cA)$ that maps states to distributions over actions. Once the agent executes action $A_t$ in the environment, it receives a reward $R_{t+1} = \cR(S_t, A_t, S_{t+1})$ and a new state $S_{t+1}\sim\kernel(\cdot\lvert\cS_t, A_t)$. When access to a simulator is available it is a common practice to restart the interaction every some timesteps according to the initial state distribution. 
+$\pi:\cS\rightarrow\Delta(\cA)$ that maps states to distributions over actions. Once the agent executes action $A_t$ in the environment, it receives a reward $R_{t+1} = \cR(S_t, A_t, S_{t+1})$ and a new state $S_{t+1}\sim\kernel(\cdot\lvert\cS_t, A_t)$. When access to a simulator is available it is a common practice to restart the interaction every some timesteps according to the initial state distribution $\cP_0$. 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{figures/background/RL_loop.png}
@@ -28,7 +28,7 @@ $\pi:\cS\rightarrow\Delta(\cA)$ that maps states to distributions over actions. 
 The quadruple $(s_t, a_t, r_{t+1}, s_{t+1})$ defines a transition while the sequence of transitions up to a certain timestep, \begin{equation*}
   h_t = (s_0, s_0, r_1, s_1,\dots,r_t,s_t),
 \end{equation*}
-is called history. We let $\cH$ denote the set of all possible histories. Note that the interaction of an agent with the environment can be described at any time by means of trajectories $h\in\cH$.
+is called history. We let $\cH$ denote the set of all possible histories. Note that the interaction of an agent with the environment can be described at any time by means of elements $h\in\cH$.
 
 These processes are so-called Markov because the Markov property holds both in the reward and transition probability functions. Formally,
 \begin{align*}
@@ -50,6 +50,7 @@ The aim of the learning agent is to come up with policies that optimize some num
 In the following sections we describe how we can solve each case when $\kernel$ and $\cR$ are fully disclosed to the agent, via dynamic-programming techniques. This setting, in which the reward and transition functions are known, is also referred to as planning in MDPs.
 
 \subsection{The discounted case}
+\label{sec:dp}
 In the discounted setting, an optimal policy is such that it maximizes the expected discounted return. The discounted return is given by the sum of discounted rewards, 
 \begin{equation}
   G_t = \sum_{i=t} ^\infty \gamma ^ {i-t} \cR(S_i, A_i, S_{i+1}).
@@ -124,7 +125,7 @@ The previous expression indicates that the optimal value function $v^*$ is the f
 
 We  derive the first dynamic-programming algorithm called value iteration~\citep{Bellman1958} from Equation~\ref{eq:boo_vector}. Here, we keep an estimate $v_k$ of the optimal value function which updated iteratively as 
 \begin{equation}
-  v_{k+1}\leftarrow T^* v_k,
+  v_{k+1}\gets T^* v_k,
   \label{eq:value_iteration}
 \end{equation}
 for some arbitrary initialization $v_0$ until $\lvert v_{k+1} - v_k\rvert < \epsilon$, where $\epsilon$ is the user-specified precision. Value iteration can be shown to converge thanks to the contraction mapping theorem. \todo{Add proof in the appendix??}
@@ -138,7 +139,7 @@ The idea of the operators can be also applied to the action-value function. Thus
 \end{equation}
 Value iteration can also be implemented using action-value function, in that case we keep an estimate $q_k$ and update it iteratively as
 \begin{equation}
-  q_{k+1}\leftarrow T^* q_k.
+  q_{k+1}\gets T^* q_k.
 \end{equation}
 We also introduce the greedy operator $\cG:\real^{\cS}\rightarrow\cA^\cS$ over action-value functions which is defined as 
 \begin{equation}
@@ -156,13 +157,13 @@ The second dynamic-programming algorithm is \textit{policy iteration}~\citep{How
  \begin{enumerate}[label=(\arabic*)]
   \item Fix some initial policy $\pi_0$.
   \item At each iteration solve $T^{\pi_k} q^{\pi_k} = q^{\pi_k}$ (policy evaluation).
-  \item Then derive new policy $\pi_{k+1}\leftarrow\cG q^{\pi_k}$ (policy improvement).
+  \item Then derive new policy $\pi_{k+1}\gets\cG q^{\pi_k}$ (policy improvement).
   \item If $\pi_k(s)\neq\pi_{k+1}(s)$ for some $s\in\cS$, repeat (2) and (3).
 \end{enumerate}
 Policy iteration converges to an optimal policy $\pi^*$.
 
-\begin{example}[Total-reward case]
-  For certain problems discount factor can be deprecated, and we can set $\gamma=1$. Let us consider the exteded MDP definition $\cM=\langle\cS,\cA,\cT\cR,\kernel,\kernel_0\rangle$ where $\cT$ is a set of absorbing, terminal states. This implies that $\kernel(s\lvert s, a) = 1\;\forall a\in\cA$ for any $s\in\cT$. In this type of problems the interaction halts when the agent reaches some $s\in\cT$, and gets restarted to an initial state according to $\kernel_0$. This constitutes an episode, and this setting usually appears under the names of episodic, first-exit case or goal-oriented MDP. The return is now expressed as
+\begin{example}[The episodic case]
+  For certain problems discount factor can be deprecated, and we can set $\gamma=1$ when using a suitable reward function. Consider the extended MDP definition $\cM=\langle\cS,\cA,\cT,\cR,\kernel,\kernel_0\rangle$ where $\cT$ is a set of absorbing, terminal states. This implies that $\kernel(s\lvert s, a) = 1\;\forall a\in\cA$ for any $s\in\cT$. In this type of problems the interaction halts when the agent reaches some $s\in\cT$, and gets restarted to an initial state according to $\kernel_0$. This piece of the interaction is called an episode, therefore the name. This setting usually appears under the names of total-reward, first-exit case or goal-oriented MDP. The return is now expressed as
   \begin{equation*}
     G_t = \sum_{i=0}^T \cR(S_i, A_i, S_{i+1}),
   \end{equation*}
@@ -234,7 +235,7 @@ We redefine the Bellman operators for the value function:
 
 We can use \textit{value iteration} as-is (Equation~\ref{eq:value_iteration}) to compute the optimal value function with the newly defined operators. Unfortunately, the values can grow very large. \textit{Relative value iteration}~\citep{White1963} can be used instead. The idea is to have some reference state $s^*$ whose value is subtracted in every iteration. This modified version of value iteration can be expressed in vector form as
 \begin{equation}
-    v_{k+1}\leftarrow T^* v_k - T^* v_k(s^*).
+    v_{k+1}\gets T^* v_k - T^* v_k(s^*).
 \end{equation}
 Even though neither of the versions of value iteration computes the optimal gain, this can be computed as 
 \begin{equation*}
@@ -253,14 +254,14 @@ We review the update rules  used by different algorithms in the discounted and a
 \citet{Sutton1988} introduces the idea of temporal difference (TD) learning that uses bootstrapping (using predicted values as targets) during learning. The agent interacts with the environment following policy $\pi$ that is kept fixed. The interaction produces samples ${(s_t, a_t, r_{t+1}, s_{t+1})}$ that are used to learn the value function of the given policy in an online manner. The agent maintains an estimate $\widehat v$ of $v^\pi$. The update rule of the so-called TD($0$) algorithm is
 \begin{align}
   \delta_t &= r_{t+1} + \gamma \widehat v(s_{t+1}) - \widehat v(s_t)\\  
-  \widehat v(s_t) &\leftarrow \widehat v(s_t) + \alpha_t \delta_t,
+  \widehat v(s_t) &\gets \widehat v(s_t) + \alpha_t \delta_t,
 \end{align}
 where the term $\delta_t$ is called the TD error and $\alpha_t$ is the learning rate. This algorithm is said to be on-policy because the policy that is target of the learning is the one used to interact with the environment. 
 
 We can also learn the optimal policy by directly estimating the optimal action-value function using the temporal difference technique. This is the idea of the probably most canonical algorithm in RL, called Q-learning~\citep{Watkins1992}. In this case, the agent keeps an estimate $\widehat q$ of the optimal action-value function $q^*$, and its values are updated using the following scheme:
 \begin{align}
   \delta_t &= r_{t+1} + \gamma \max_a \widehat  q(s_{t+1}, a) - \widehat q(s_t, a_t) \\
-  \widehat q(s_t, a_t) &\leftarrow \widehat q(s_t, a_t) + \alpha_t \delta_t
+  \widehat q(s_t, a_t) &\gets \widehat q(s_t, a_t) + \alpha_t \delta_t
   \label{eq:qlearning}
 \end{align}
 During learning the agent follows an $\epsilon$-greedy policy which with probability $1-\epsilon$ selects the greedy action $(\cG)(s)$, otherwise selects a random exploratory action.
@@ -271,8 +272,8 @@ Nonetheless, the target policy is a greedy, deterministic policy over the estima
 The TD learning scheme can also be applied in the average-reward setting. \citet{Mahadevan1996} gives the average-reward counterpart of the Q-learning algorithm. Now, in addition to maintaining the action-value estimate, we also need to update an estimate $\widehat\rho$ of the optimal gain $\rho^*$. The update rules are as follows
 \begin{align}
   \delta_t &= r_{t+1} - \widehat\rho +  \max_a \widehat q(s_{t+1}, a)  - \widehat q(s_t, a_t) \\
-  \widehat q(s_t, a_t) &\leftarrow \widehat q(s_t, a_t) + \alpha_t \delta_t \\
-  \widehat \rho &\leftarrow \widehat\rho + \beta_t \big(r_t - \widehat\rho + \max_a \widehat q(s_{t+1}, a) - \max_b \widehat q (s_t, b) \big).
+  \widehat q(s_t, a_t) &\gets \widehat q(s_t, a_t) + \alpha_t \delta_t \\
+  \widehat \rho &\gets \widehat\rho + \beta_t \big(r_t - \widehat\rho + \max_a \widehat q(s_{t+1}, a) - \max_b \widehat q (s_t, b) \big).
   \label{eq:rlearning}
 \end{align}
 $\alpha_t$ and $\beta_t$ are different learning rates that can be updated independently. The estimate of the gain $\widehat\rho$ is only updated when a non-exploratory action is executed.
@@ -409,7 +410,7 @@ If the dynamics $\kernel$ and $\cR$ are known, we can apply the power iteration 
 Alternatively, we can learn an estimate $\widehat{z}$ incrementally using stochastic updates based on state transitions sampled from the uncontrolled dynamics $(s_t,r_t,s_{t+1})$ with the following TD update rule
 % use an online algorithm called Z-learning to compute an estimate  \citep{TodorovNIPS2007}. After observing each transition , the update rule of Z-learning is given by
 \begin{equation*}
-  \widehat{z}(s_t) \leftarrow (1-\alpha_t)\widehat{z}(s_t) + \alpha_t e^{\eta r_t}\widehat{z}(s_{t+1}),
+  \widehat{z}(s_t) \gets (1-\alpha_t)\widehat{z}(s_t) + \alpha_t e^{\eta r_t}\widehat{z}(s_{t+1}),
 \end{equation*}
 
 where $\alpha_t$ is a learning rate. 
@@ -419,7 +420,7 @@ A better choice is importance sampling, which uses samples from the estimated po
 %to obtain samples that are corrected using the following update~\citet{TodorovPNAS2009}:
 %to sample In this case,  suggested a corrected update rule based on importance sampling:
 \begin{align}\label{eqn:zlearning-imp}
-\widehat{z}(s_t) \leftarrow (1-\alpha_t)& \widehat{z}(s_t) + \alpha_t e^{\eta r_t}\widehat{z}(s_{t+1})\frac {\kernel(s_{t+1}|s_t)} {\widehat{\pi}(s_{t+1}|s_t)}.
+\widehat{z}(s_t) \gets (1-\alpha_t)& \widehat{z}(s_t) + \alpha_t e^{\eta r_t}\widehat{z}(s_{t+1})\frac {\kernel(s_{t+1}|s_t)} {\widehat{\pi}(s_{t+1}|s_t)}.
 \end{align}
 However, this requires local knowledge of $\kernel(\cdot|s_t)$ to correct for the different sampling distribution.
 %, i.e.~the set of possible next states and their associated uncontrolled probabilities.
@@ -428,7 +429,7 @@ Further, as shown in \citet{Jonsson2016}, the corrected update rule in \eqref{eq
 %leading to simultaneous learning of different tasks.
 %Note that the expression for the policy $\widehat{\pi}$ in \eqref{eq:pi} and the corrected update rule in \eqref{eqn:zlearning-imp} require local knowledge of $\cP(\cdot|s_t)$, i.e.~the set of possible next states and their associated uncontrolled probabilities. Though this seems like a strong assumption, in practice $\cP$ usually has a simple form, e.g.~uniform. \citet{conf/icaps/Jonsson16} showed that the corrected update rule in \eqref{eqn:zlearning-imp} can also be used to perform off-policy updates in case transitions are sampled using a policy different from $\widehat{\pi}$.
 
-\subsubsection{Compositionality}
+\subsection{Compositionality}
 \label{section:compositionality}
 \citet{Todorov2009a} introduces the concept of compositionality for LMDPs. Let us consider a set of LMDPs $\{\cL_1,\ldots,\cL_n\}$, where each LMDP $\cL_i=\langle\cS,\cT,\kernel,\cR,\cJ_i\rangle$ has the same components $\cS,\cT,\kernel,\cR$ and only differ in the reward $\cJ_i(\tau)$ of each terminal state $\tau\in\cT$, as well as its exponentiated value $z_i(\tau)=e^{\eta \cJ_i(\tau)}$.
 
@@ -526,43 +527,76 @@ where $\mu(x, \w)$ is the stationary distribution induced by $\pi$, and $\wideti
 
 For the second type of methods one could use \textit{approximate} value iteration or \textit{approximate} policy iteration to iteratively improve the weight vector $\w$, even though this results in a biased estimator. An even more direct approach is to use Gauss-Newton method to fit the weight vector $\w$ by directly optimizing~\eqref{eq:boe_for_pg}.
 
-Despite the correctness of the theoretical results, which guarantee that function approximation can be used along with LMDPs, they are of little practical use. Even in the linear function approximation (LFA) case, obtaining a correct parameterization for $\widetilde v(s,\mathbf{r})$ requires an intricate process \todo{describe better} in the policy gradient approach. Additionally, the representation of the policy still depends on the size of the whole state space. This makes the approach intractable for real-world problems as it does not scale with large state spaces.
+Despite the correctness of the theoretical results, which guarantee that function approximation can be used along with LMDPs, they are of little practical use. Even in the linear function approximation (LFA) case, the policy gradient approach is intricate and unusual. \guillermo{To find the parameterization $\widetilde v(s,\mathbf{r})$, a previous step of finding a projection $\widetilde v(s,\mathbf{s})$ of $v^*$ using a different set of policy-dependent features is required. The process is not as direct as in traditional MDPs and, additionally, the representation of the policy still depends on the size of the whole state space. This makes the approach intractable for real-world problems as it does not scale with large state spaces.}
 
 
 \section{Hierarchical reinforcement learning}
-Hierarchical reinforcement learning (HRL) embodies the idea of divide-and-conquer in sequential decision problems. This algorithmic paradigm hypothesizes that breaking down a  problem into smaller (sub)problems should facilitate its solution, by solving the small problems in isolation and then combining them to give an overall solution.
+Hierarchical reinforcement learning (HRL) embodies the idea of divide-and-conquer paradigm in sequential decision problems. This algorithmic paradigm hypothesizes that breaking down a problem into smaller (sub)problems should facilitate its solution, by solving the small problems in isolation and then combining them to give an overall solution. But the philosophical motivations go beyond this as human thinking process happens at different timescales while at the same time we can use the same piece of knowledge to solve different, but similar tasks. Think, for example, about cooking a recipe. This human activity involves different steps than can be solved in isolation such as shopping the ingredients, cutting and chopping vegetables, using the stove or placing the final outcome in plates. A specific sequence of these steps with certain ingredients leads to a unique result, though many of these steps can transfer from recipe to recipe.
+
+We review how the modelling of these (sub)problems are commonly addressed in the context of RL and the issues that they usually entail regarding the optimality of the final solution.
 
 \subsection{The options framework}
-\label{section:options}
-A common way to model (sub)problems in RL is by using the options framework. An option represents a temporally-extended action and is a tuple $o=\langle\cI, \mu, f\rangle$ where:
-\begin{itemize}
-  \item $\cI\subseteq\cS$ is the initiation set, i.e.~all the states in which the action $o$ can be called.
-  \item $\mu:\cS\rightarrow\cA$ is the option's policy.
-  \item $f:\cS\rightarrow[0, 1]$ a termination action.
-\end{itemize}
-An option can be seen as a closed-loop policy that takes control over a period of time. Now, the agent can select an option that is run until termination. During that period, the primitive actions are selected according to the option's policy $\mu$.
 
-The combination of an MDP $\cS$ with a fixed set of options $\Omega$ results in a semi-MDP $\tilde\cM=\langle\cS,\Omega, \cR, \kernel, \kernel_0\rangle$. The only difference with respect to a regular MDP is that the agent now learns a policy over the space of options $\pi:\cS\rightarrow\Delta(\Omega)$
+\begin{figure}
+  \centering
+  \includegraphics{figures/background/RL loop with Option.png}
+  \caption{The interaction loop in a semi MDP where the underlying MDP is extended with options.}
+  \label{fig:options}
+\end{figure}
+
+\label{section:options}
+A common way to model (sub)problems\footnote{I use the nomenclature (sub)problem with the prefix sub in parentheses to highlight that, even though these problems are part of a bigger one, they are well-defined problems that can be solved in isolation.} in RL is by using the options framework. A Markovian option represents a temporally-extended action and is a tuple $\omega=\langle\cI, \mu, f\rangle$ where:
+\begin{itemize}
+  \item $\cI\subseteq\cS$ is the initiation set, i.e.~all the states in which the option $\omega$ can be called.
+  \item $\mu:\cS\rightarrow\cA$ is the option's policy.
+  \item $f:\cS\rightarrow\Delta(\{0, 1\})$ is a termination function.
+\end{itemize}
+The combination of an MDP $\cS$ with a fixed set of options $\Omega$ results in a semi-MDP $\widetilde\cM=\langle\cS,\Omega, \cR, \kernel, \kernel_0\rangle$, and now, unlike the regular MDP formulation, the agent learns a policy over the space of options $\pi:\cS\rightarrow\Delta(\Omega)$. The interaction is now slightly modified (see Figure~\ref{fig:options}). At timestep $s_t$, the agent selects an option according to policy $\pi$ conditioned on that option being available at that state(i.e.~$s_t\in\cI_\omega$). Such an option that takes control for period of time and that is run until termination. After $T$ timesteps, where $T$ is a random variable representing duration of the option, the control is returned to the agent which then can choose a new option. Note that primitive actions can be considered a special case of options that terminate after one timestep.
+
+We have only described Markovian options. There are cases in which we might want to include a timeout so that the options terminate surely after a certain number of steps. In that case, the options' policies should not only consider the current state, but the history since the option was initialized. We do not go in detail as they these type of options are out of the scope of this dissertation.
+
+
+In order to write the Bellman equations for the semi MDP formulation, we need to make use of the reward and transition multi-time model~\citep{Sutton1999} induced by the option. These are defined as
+\begin{align}
+  \cR(s, \omega) &= \mathbb{E}_\mu\bigg[\sum_{i=t}^{t+T}R_i\lvert S_t=s\bigg],\\
+  \kernel(s'\lvert s, \omega) &= \sum_{k=0} \gamma^k \text{Pr}(s_k = s'\lvert s,\omega),
+\end{align}
+where $\text{Pr}(s_k = s'\lvert s,\omega)$ represents the probability that option $\omega$ terminates in state $s'\in\cS$ in exactly $k$ timesteps according to the underlying MDP transition function. Using this extended model, we can write the counterparts of Bellman equations for the value function
+\begin{equation}
+  v^\pi(s) = \sum_{\omega\in\Omega}\pi(\omega\lvert s)\bigg(\cR(s,\omega) + \sum_{s'}\kernel(s'\lvert s, \omega)v^\pi(s')\bigg),\\
+\end{equation}
+and the Bellman equations for the action-value function
+\begin{equation}
+  q^\pi(s, \omega) = \cR(s,\omega) + \sum_{s'}\kernel(s'\lvert s, \omega)v^\pi(s').\\
+\end{equation}
+By defining the proper Bellman operators, with little modification we can use the dynamic-programming algorithms discussed in section~\ref{sec:dp}.
+
+Similarly, we can learn the optimal policy by letting the agent interact directly with the environment. In this case, the update rule for the Q-learning counterpart with options is
+\begin{align}
+  \delta_t &= r^o_t + \gamma^k \max_{\omega} q(s_{t+k}, \omega) - q(s_t, \omega_t),\\
+  \widehat q(s_t, \omega_t) &\gets \widehat q(s_t, \omega_t) + \alpha_t \delta_t.
+\end{align}
+Here, $r^o_t = \sum_{i=t}^{t+k}\gamma^{i-t}R_i$ is the cumulative discounted reward achieved by the option, and $k$ is the number of timesteps the option takes to terminate.
+
+\subsubsection{Intra-task learning}
+Up to this point, the options have been assumed to be learned before computing the optimal value functions. We can also learn the options' models on the fly while interacting online with the environment. In addition, any sample $(s_t, a_t, r_{t+1}, s_{t+1})$ obtained by executing one option can be used to update the policies of other options consistent with that transition.
 
 \subsection{Optimality of HRL algorithms}
-
+ 
 \begin{figure}
   \centering
   \input{figures/background/recursive_optimality}
   \hspace{25pt}
   \input{figures/background/hierarchical_optimality}
-  \caption{Example}
+  \caption{Example of a recursively optimal policy (left) and a hierarchically optimal one (right) in a . The area in green highlights the states in which policies disagree.}
   \label{fig:hrl_optimality}
 \end{figure}
 
 
-\citet{Dietterich2000} identifies two types of optimality for hierarchical methods in reinforcement learning, namely \textit{recursive optimality} and \textit{hierarchical optimality}. Recursive optimality refers to hierarchical algorithms that attain locally optimal solution for each subtask according to the high-level. Though the solution to each independent subproblem is indeed optimal, the overall solution is not.
+Most hierarchical algorithms~\citep{Dietterich2000,Parr1997} are known to suffer from suboptimality when providing an overall solution by combining the solution for the (sub)problems. \citet{Dietterich2000} distinguishes two types of optimality for hierarchical methods in reinforcement learning, namely \textit{recursive optimality} and \textit{hierarchical optimality}. Recursive optimality refers to hierarchical algorithms that attain locally optimal solution for each subtask according to the high-level. Though the solution to each independent (sub)problem is indeed optimal, the overall solution is not. Hierarchical optimality, on the other hand, is a stronger concept that implies optimality with regard a constrained space of policies, given by the hierarchy structure.
 
-
-Hierarchical optimality implies optimality with regard a constrained space of policies, given by the hierarchy structure. hierarchies of abstract machines (HAMs)~\citet{Parr1997} and the options framework~\citep{Sutton1999} lie in this category.
-
-To exemplify this we recover the example in~\citep{Dietterich2000}. Figure the gridworld environment depicted in~\ref{fig:hrl_optimality}. Besides the primitive actions $\cA\equiv\{\text{\texttt{left,up,right,down}}\}$, the agent has two . The first is \texttt{EXIT ROOM} when the agent is placed somewhere in the left room. The agent can execute a second option \texttt{GO TO G} when it finds itself in the room on the right. 
-
+\begin{example}[Example 2] We recover the example in~\citep{Dietterich2000}. Figure the gridworld environment depicted in Figure~\ref{fig:hrl_optimality}. There are two rooms (left and right) separated by a wall with two doors. The primitive actions $\cA\equiv\{\text{\texttt{left,up,right,down}}\}$, though the agent has only access to two options. The first is \texttt{EXIT ROOM} when the agent is placed somewhere in the left room. The agent can execute a second option \texttt{GO TO G} when it finds itself in the room on the right.  
+\end{example}
 
 
 \section{Non-Markovian task specification}

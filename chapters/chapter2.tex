@@ -144,13 +144,13 @@ Again, let $K=\max_{i=1} ^L\lvert\cS_i\rvert$,  $N=\max_{i=1} ^L\lvert\cT_i\rver
   % {\bf Example}: Consider the $4$-room example depicted in Figure~\ref{fig:halmdps_example}. Here there is a single equivalence class that generalizes all the rooms. Therefore, a single subclass is represented with $5\times 5$ states. This subtask induces $5$ base-LMDPs with terminal states in $G,L,R,T,B$. Besides, there is a total of 
 
   %{\bf Example 1:} 
-  \paragraph{Example 1}: Figure~\ref{fig:halmdps_example} shows an 4-room LMDP adapted to the average-reward seeing. When reaching the state marked $G$, separate from the room but reachable in one step from the highlighted location, the agent receives a reward of $0$ and, in contrast to the first-exit case, the system transitions to a restart state (top left corner). In all other states the reward is $-1$. To behave optimally, thus, the agent should visit the state marked as $G$ as often as possible. The other aspects of the decomposition, remain equal to the first-exit setting. % as those of the subtasks.
+  \begin{example}[Example 1]Figure~\ref{fig:halmdps_example} shows an 4-room LMDP adapted to the average-reward seeing. When reaching the state marked $G$, separate from the room but reachable in one step from the highlighted location, the agent receives a reward of $0$ and, in contrast to the first-exit case, the system transitions to a restart state (top left corner). In all other states the reward is $-1$. To behave optimally, thus, the agent should visit the state marked as $G$ as often as possible. The other aspects of the decomposition, remain equal to the first-exit setting. % as those of the subtasks.
   %Hence the number of equivalent subtasks is $C=1$, the number of non-terminal and terminal states of subtasks is $K=25$ and $N=5$, respectively, and the number of exit states is $E=9$.
     %In the 4-room example, t
     % There are five base LMDPs with value functions $z^G$, $z^L$, $z^R$, $z^T$ and $z^B$, respectively. Given an initial value estimate $\widehat{z}_\cE$ for each exit state in $\cE$, a value estimate of any state in the top left room is given by $\widehat{z}(s)=\widehat{z}_\cE(1^B) z^B(s) + \widehat{z}_\cE(1^R) z^R(s)$, where $\widehat{z}_\cE(G)=\widehat{z}_\cE(L)=\widehat{z}_\cE(T)=0$ is used to indicate that the terminal states $G$, $L$ and $T$ are not reachable in the top left room. 
     In this case, the total number of values needed to store the optimal value function is $E+CKN=9+125=134$, and the base LMDPs are faster to learn since they have smaller state space.
     %We need $CKN = 125$ values to store the value functions of the 5 base LMDPs, and $E=9$ values to store the value estimates of all exit states. Although this is more than the 100 states of the original LMDP, if we increase the number of rooms to $X\times Y$, the term $CKN$ is a constant as long as all rooms have equivalent dynamics, and the number of exit states is $E=(2X-1)(2Y-1)$, which is much smaller than the $25XY$ total states. For $10\times 10$ rooms, the value function decomposition requires $486$ values to represent the values of $2{,}500$ states.
-
+  \end{example}
 
 \section{Algorithms}
 In this section we describe two novel algorithms for solving hierarchical ALMDPs. The first is a two-stage eigenvector approach that relies on first solving the subtasks. The second is an online algorithm in which an agent simultaneously learns the subtasks, the gain and the exit values from samples $(s_t, r_t, s_{t+1})$.
@@ -298,8 +298,9 @@ Here, $\alpha_\ell$ is the learning rate. Each of the learned components (i.e., 
 
 \section{Experiments}
 
-We now present the experimental results for the two benchmark control problems introduced in the previous chapter and explain how we adapt them to the continuing case. \footnote{Code available at \url{https://github.com/guillermoim/halmdps}}.
-% Vicenc: We report some results for Algorithm~\ref{alg:halmdps_eigenvector}. These are  simple experiments meant to show that the hierarchical eigenvector method indeed converges to the optimal (exponentiated) gain up to an arbitrary precision, and, consequently, to the optimal value function.
+We now present the experimental results for the two benchmark control problems introduced in the previous chapter and explain how we adapt them to the continuing case. \footnote{Code available at \url{https://github.com/guillermoim/halmdps}.}
+
+We report some results for Algorithm~\ref{alg:halmdps_eigenvector}. These are  simple experiments meant to show that the hierarchical eigenvector method indeed converges to the optimal (exponentiated) gain up to an arbitrary precision, and, consequently, to the optimal value function.
 
 Then, we compare Algorithm~\ref{alg:halmdps_online} against differential soft TD-learning in the flat representation of the ALMDP. Similarly to the first-exit case, the metric used for the experiments Mean Absolute Error (MAE) between the estimated value function $\widehat z$ and the true optimal value function $z$, taken exclusively at the exit states. For each algorithm, the results are averaged over five seeds. Along with the average, the standard deviation is also reported. Here, the learning rates decay every $n$ samples, and are given by the expression $\alpha_\ell \leftarrow k \alpha_\ell$, where $k$ is the decay factor. The hyperparameters $n$ and $k$ are optimized per instance. \todo{Why no $V_2$ and $V_3$.}
 

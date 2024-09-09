@@ -603,6 +603,20 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/wasy/wasyb10.tfm
+INPUT ./figures/background/RL loop with Option.png
+INPUT ./figures/background/RL loop with Option.png
+INPUT ./figures/background/RL loop with Option.png
+INPUT ./figures/background/RL loop with Option.png
+INPUT ./figures/background/RL loop with Option.png
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Regular-osf-t1.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Regular-osf-t1.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/ebgaramond/EBGaramond-Regular-osf-t1.vf
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Regular-osf-t1--base.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/ebgaramond/EBGaramond-Regular-osf-t1.vf
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Regular-osf-t1--base.tfm
 INPUT ./figures/background/recursive_optimality.tex
 INPUT ./figures/background/recursive_optimality.tex
 INPUT ./figures/background/recursive_optimality.tex
@@ -613,7 +627,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm
@@ -636,7 +649,6 @@ INPUT chapters/chapter1.tex
 INPUT ./figures/chapter1/tikz/nrooms.tex
 INPUT ./figures/chapter1/tikz/nrooms.tex
 INPUT figures/chapter1/tikz/nrooms.tex
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT ./figures/chapter1/tikz/nroom_subtask.tex
 INPUT ./figures/chapter1/tikz/nroom_subtask.tex
 INPUT figures/chapter1/tikz/nroom_subtask.tex
@@ -672,14 +684,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/fontawesome/FontAwesom
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/fontawesome/FontAwesome--fontawesomeone.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/fontawesome/FontAwesome--fontawesomeone.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Regular-osf-t1.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/ebgaramond/EBGaramond-Regular-osf-t1.vf
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Regular-osf-t1--base.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Regular-osf-t1.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/ebgaramond/EBGaramond-Regular-osf-t1.vf
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/ebgaramond/EBGaramond-Regular-osf-t1--base.tfm
 INPUT ./figures/chapter1/learning/nrooms_3_3.png
 INPUT ./figures/chapter1/learning/nrooms_3_3.png
 INPUT ./figures/chapter1/learning/nrooms_3_3.png
