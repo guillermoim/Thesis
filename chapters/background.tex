@@ -1,4 +1,4 @@
-In this chapter we introduce and clarify the technical concepts to necessary understand the subsequent chapters. We also introduce the following notation that is used throughout the dissertation:
+In this Chapter we introduce and clarify the technical concepts to necessary understand the subsequent Chapters. We also introduce the following notation that is used throughout the dissertation:
 \begin{itemize}
   \item Given a finite set $\cX$, let $\Delta(\cX)=\{p\in\real^\cX:\sum_x p(x)=1, p(x)\geq 0\;(\forall x)\}$ we denote the probability simplex on $\cX$. 
   \item Given a probability distribution $p\in\Delta(\cX)$, we let $\cB(p)=\{x\in\cX:p(x) > 0\}\subseteq\cX$ denote the support of $p$.
@@ -497,7 +497,7 @@ An ALMDP can be solved using {\em relative value iteration} by selecting a refer
 \end{equation*}
 The reference state $s^*$ satisfies $z(s^*)=1$, which makes the optimal value $z$ unique (else any constant shift preserves optimality). After convergence, the exponentiated gain equals $\Gamma=\widehat z_{k+\frac 1 2}(s^*)$. Under Assumption~\ref{ass:communicating}, relative value iteration converges to the unique optimal value $z$~\citep{Todorov2009}.
 
-Analogously to first-exit LMDPs, when $\kernel$ and $\cR$ are not known, the agent can learn estimates $\widehat z$ and $\widehat\Gamma$ of the optimal value function and the exponentiated gain in an online manner, using samples $(s_t, r_t, s_{t+1})$ generated when following the estimated policy $\widehat\pi$. The update rules for the so-called \textit{differential Z-learning} algorithm are given by \todo{Move it to the chapter?}
+Analogously to first-exit LMDPs, when $\kernel$ and $\cR$ are not known, the agent can learn estimates $\widehat z$ and $\widehat\Gamma$ of the optimal value function and the exponentiated gain in an online manner, using samples $(s_t, r_t, s_{t+1})$ generated when following the estimated policy $\widehat\pi$. The update rules for the so-called \textit{differential Z-learning} algorithm are given by \todo{Move it to the Chapter?}
 \begin{align}
   \widehat{z}(s_t)  \gets \widehat{z}(s_{t}) & + \alpha_t \Bigg(\frac{e^{\eta r_t}}{\widehat\Gamma_t}\dfrac{\kernel(s_{t+1}\lvert s_t)}{\widehat\pi_t(s_{t+1}\lvert s_t)}  - \widehat z(s_t)\Bigg),\label{eq:diff_update_z}  \\   %\delta^z_t \\
   \widehat\Gamma_{t+1}    \gets \widehat\Gamma_t       & + \beta_t \Bigg(\frac{e^{\eta r_t}}{\widehat z_t(s_t)}\dfrac{\kernel(s_{t+1}\lvert s_t)}{\widehat\pi_t(s_{t+1}\lvert s_t)}  - \widehat \Gamma_t\Bigg).\label{eq:diff_update_gamma}
@@ -573,7 +573,7 @@ By defining the proper Bellman operators, with little modification we can use th
 
 Similarly, we can learn the optimal policy by letting the agent interact directly with the environment. In this case, the update rule for the Q-learning counterpart with options is
 \begin{align}
-  \delta_t &= r^o_t + \gamma^k \max_{\omega} q(s_{t+k}, \omega) - q(s_t, \omega_t),\\
+  \delta_t &= r^o_t + \gamma^k \max_{\omega} \widehat q(s_{t+k}, \omega) - \widehat q(s_t, \omega_t),\\
   \widehat q(s_t, \omega_t) &\gets \widehat q(s_t, \omega_t) + \alpha_t \delta_t.
 \end{align}
 Here, $r^o_t = \sum_{i=t}^{t+k}\gamma^{i-t}R_i$ is the cumulative discounted reward achieved by the option, and $k$ is the number of timesteps the option takes to terminate.
@@ -595,22 +595,31 @@ Up to this point, the options have been assumed to be learned before computing t
 
 Most hierarchical algorithms~\citep{Dietterich2000,Parr1997} are known to suffer from suboptimality when providing an overall solution by combining the solution for the (sub)problems. \citet{Dietterich2000} distinguishes two types of optimality for hierarchical methods in reinforcement learning, namely \textit{recursive optimality} and \textit{hierarchical optimality}. Recursive optimality refers to hierarchical algorithms that attain locally optimal solution for each subtask according to the high-level. Though the solution to each independent (sub)problem is indeed optimal, the overall solution is not. Hierarchical optimality, on the other hand, is a stronger concept that implies optimality with regard a constrained space of policies, given by the hierarchy structure.
 
-\begin{example}[Example 2] We recover the example in~\citep{Dietterich2000}. Figure the gridworld environment depicted in Figure~\ref{fig:hrl_optimality}. There are two rooms (left and right) separated by a wall with two doors. The primitive actions $\cA\equiv\{\text{\texttt{left,up,right,down}}\}$, though the agent has only access to two options. The first is \texttt{EXIT ROOM} when the agent is placed somewhere in the left room. The agent can execute a second option \texttt{GO TO G} when it finds itself in the room on the right.  
+\begin{example}[Example 2] We recover the example in~\citep{Dietterich2000}. Think about the gridworld environment depicted in Figure~\ref{fig:hrl_optimality}. There are two rooms (left and right) separated by a wall with two doors. The primitive actions $\cA\equiv\{\text{\texttt{left,up,right,down}}\}$, though the agent has only access to two options. The first is \texttt{EXIT ROOM} when the agent is placed somewhere in the left room. The agent can execute a second option \texttt{GO TO G} when it finds itself in the room on the right. The policy depicted on the left of the figure is recursive optimal, as it is observed it locally optimizes exiting the room as it directs the agent to the nearest door. On the contrary, the hierarchically optimal policy (right) gives a better solution which is optimal given the two options. The gridcell states in which both policies disagree are shaded in green.
 \end{example}
-
-
 \section{Non-Markovian task specification}
 \label{section:non_markovian}
- {\color{blue}
- 
- \begin{itemize}
- \item Difficulty about expressing some tasks in Markovian terms 
- \item Finite State automata and Reward Machines 
- \item Reward Machines and their relationship with logics
- \item Comment on algorithms given in the 
-  
+
+There are scenarios in which the information given exclusively by the state is not enough to express the reward function in Markovian terms. Consider, for example, a gridworld environment in which there are three special states, labeled as \texttt{A}, \texttt{B} and \texttt{C}, and where the state representation is the Cartesian coordinates of the location of agent. Coming up with a reward function that effectively instructs the agent to sequentially visit these states (\texttt{A}$\rightarrow$\texttt{B}$\rightarrow$\texttt{C}) seems like a cumbersome task.
+
+In the light of this challenge, there have been numerous works using logics~\citep{Camacho2019,DeGiacomo2019,Hasanbeig2018,Icarte2018b} or finite state automata (FSA)~\citep{Icarte2022,Furelos2023} theory to allow specification of temporal. In this section we focus on describing reward machines (RM) which are a type of FSA used for reward specification, including some non-Markovian task specifications. RMs assume the existence of a set of propositional symbols triggered by high-level events, and that the agent can observe. 
+
+Given a set of propositional symbols and an MDP, we define a reward machine as a tuple $\cF=\langle\cU, u_0, \cT, \delta_u, \delta_r\rangle$ whose elements are as follows:
+\begin{itemize}
+  \item $\cU$ is a finite set of RM states.
+  \item $u_0\in\cU$ is an initial RM state.
+  \item $\cT$ is a finite set of RM terminal states.
+  \item $\delta_r:\cU\times2^cP\rightarrow \real$ is the RM state-reward function that associates RM states to high-level rewards.
+  \item $\delta_u\times2^\cP$ is the state-transition function.
 \end{itemize}
+To specify a reward function via RMs, we further require a labelling function $L:\cS\times\cA\times\cS:2^\cP$ which assigns evaluations $2^\cP$ over the propositional symbols to transitions $(s, a, s')\in\cS\times\cA\times\cS$.
+
+The combination of an MDP $\cM$ and an RM $\cF$ results in a cross-product MDP $\cM'=\cF\times\cM$, which is a well-defined MDP, and where the state space is augmented to be $\cU\times\cS$. Therefore, we can use extensions of standard RL algorithms to be applied over the cross-product MDP. The agent now keeps an estimate $q^\pi:\cU\times\cS\times\cA\rightarrow\real$ of the optimal action-value functions over the extended state space, and follows a policy $\pi:\cU\times\cS\rightarrow\Delta(\cA)$. The update rule for the simplest Q-learning extension are
+\begin{align}
+  \delta_t &= r_{t+1} + \gamma \max_a \widehat q(u_{t+1}, s_{t+1}, a) - \widehat q(u_t, s_t, a_t),\\ 
+  \widehat q(u_t,s_t,a_t) &\gets \widehat q(u_t,s_t,a_t) + \alpha_t \delta_t.
+  \label{eq:qlearning_rm}
+\end{align}
  
- }
 
 

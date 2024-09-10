@@ -11,45 +11,45 @@ Warning--empty booktitle in Hunt2019
 Warning--empty booktitle in Infante2022
 Warning--can't use both volume and number fields in Infante2022
 Warning--empty booktitle in Vaezipoor2021
-You've used 62 entries,
+You've used 65 entries,
             2773 wiz_defined-function locations,
-            1106 strings with 21330 characters,
-and the built_in function-call counts, 36981 in all, are:
-= -- 3542
-> -- 1955
-< -- 73
-+ -- 659
-- -- 594
-* -- 3026
-:= -- 5393
-add.period$ -- 284
-call.type$ -- 62
-change.case$ -- 369
-chr.to.int$ -- 59
-cite$ -- 132
-duplicate$ -- 1704
-empty$ -- 2933
-format.name$ -- 672
-if$ -- 8068
+            1125 strings with 21998 characters,
+and the built_in function-call counts, 38889 in all, are:
+= -- 3717
+> -- 2072
+< -- 76
++ -- 698
+- -- 630
+* -- 3178
+:= -- 5663
+add.period$ -- 294
+call.type$ -- 65
+change.case$ -- 390
+chr.to.int$ -- 62
+cite$ -- 138
+duplicate$ -- 1794
+empty$ -- 3078
+format.name$ -- 711
+if$ -- 8488
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 64
-newline$ -- 391
-num.names$ -- 268
-pop$ -- 715
+missing$ -- 67
+newline$ -- 406
+num.names$ -- 280
+pop$ -- 762
 preamble$ -- 1
-purify$ -- 309
+purify$ -- 327
 quote$ -- 0
-skip$ -- 1379
+skip$ -- 1458
 stack$ -- 0
-substring$ -- 1816
-swap$ -- 461
-text.length$ -- 49
+substring$ -- 1902
+swap$ -- 489
+text.length$ -- 52
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 672
+type$ -- 705
 warning$ -- 8
-while$ -- 324
+while$ -- 339
 width$ -- 0
-write$ -- 994
+write$ -- 1034
 (There were 8 warnings)

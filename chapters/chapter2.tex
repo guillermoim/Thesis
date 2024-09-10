@@ -8,7 +8,7 @@ have important restrictions that severely reduce their applicability, e.g.~a sin
 in order to learn the low-level and high-level tasks simultaneously.
 
 
-In this chapter we describe a novel framework for hierarchical RL in the average-reward setting that simultaneously solves low-level and high-level tasks. Concretely, considering the class of Linearly-solvable Markov Decision Processes (LMDPs)~\citep{Todorov2006}. The method here developed is an extension of the episodic case, described in the previous chapter, to the average-reward setting. Even though the compositionality property for LMDPs or methods of similar flavor have been proposed in RL~\cite{Hunt2019,Niekerk2019,NangueTasse2020} and in combination with hierarchical RL in the finite-horizon setting~\cite{Jonsson2016,Saxe2017,Infante2022}, adapting this idea to the average-reward setting requires careful analysis and poses a new challenge.
+In this Chapter we describe a novel framework for hierarchical RL in the average-reward setting that simultaneously solves low-level and high-level tasks. Concretely, considering the class of Linearly-solvable Markov Decision Processes (LMDPs)~\citep{Todorov2006}. The method here developed is an extension of the episodic case, described in the previous Chapter, to the average-reward setting. Even though the compositionality property for LMDPs or methods of similar flavor have been proposed in RL~\cite{Hunt2019,Niekerk2019,NangueTasse2020} and in combination with hierarchical RL in the finite-horizon setting~\cite{Jonsson2016,Saxe2017,Infante2022}, adapting this idea to the average-reward setting requires careful analysis and poses a new challenge.
 
 
 %% VICEN
@@ -24,7 +24,7 @@ Similarly to the first-exit case and unlike most frameworks for hierarchical RL,
 This avoids introducing non-stationarity at the higher level when updating the low-level policies.
 
 \section{Contributions}
-In this chapter we make the following contributions:
+In this Chapter we make the following contributions:
 \begin{itemize}
   \item To develop a hierarchical framework that learns the low-level and  the high-level tasks simultaneously in the average-reward setting, without imposing additional restrictions on the low-level tasks.
     \item To propose two novel algorithms for solving hierarchical RL in the average reward setting: the first one is based on the eigenvector approach used for solving LMDPs. The second is an online variant in which an agent learns simultaneously the low-level and high-level tasks.
@@ -45,7 +45,7 @@ However, the above works assumes that the option policies are given prior to lea
 \citet{Ghavamzadeh2007} propose a framework for hierarchical average-reward RL based on the MAXQ decomposition, in which low-level tasks are also modeled as average-reward decision processes.
 However, since the distribution over initial states can change as the high-level policy changes, the authors restrict low-level tasks to have a single initial state.
 
-In the previous chapter combine the compositionality of LMDPs with the equivalence of low-level tasks to develop a framework for hierarchical RL in the finite-horizon setting.
+In the previous Chapter combine the compositionality of LMDPs with the equivalence of low-level tasks to develop a framework for hierarchical RL in the finite-horizon setting.
 
 In contrast, our hierarchical framework based on LMDPs can represent the globally optimal policy.
 
@@ -98,7 +98,7 @@ In this section we present our approach for hierarchical average-reward LMDPs. T
 
 %\subsubsection{Hierarchical Decomposition}
 \subsection{Hierarchical Decomposition}
-Consider an ALMDP $\langle\cS,\kernel,\cR\rangle$. Similarly to the previous chapter, we assume the state space $\cS$ is partitioned into subsets $\left\{\cS_i\right\}^L_{i=1}$, with each partition $\cS_i$ inducing
+Consider an ALMDP $\langle\cS,\kernel,\cR\rangle$. Similarly to the previous Chapter, we assume the state space $\cS$ is partitioned into subsets $\left\{\cS_i\right\}^L_{i=1}$, with each partition $\cS_i$ inducing
 a first-exit LMDP $\cL_i = \langle\cS_i, \cT_i, \kernel_i, \cR_i,\cJ_i\rangle$.
 The components of each such subtask $\cL_i$ are defined as follows:
 \begin{itemize}
@@ -298,7 +298,7 @@ Here, $\alpha_\ell$ is the learning rate. Each of the learned components (i.e., 
 
 \section{Experiments}
 
-We now present the experimental results for the two benchmark control problems introduced in the previous chapter and explain how we adapt them to the continuing case. \footnote{Code available at \url{https://github.com/guillermoim/halmdps}.}
+We now present the experimental results for the two benchmark control problems introduced in the previous Chapter and explain how we adapt them to the continuing case. \footnote{Code available at \url{https://github.com/guillermoim/halmdps}.}
 
 We report some results for Algorithm~\ref{alg:halmdps_eigenvector}. These are  simple experiments meant to show that the hierarchical eigenvector method indeed converges to the optimal (exponentiated) gain up to an arbitrary precision, and, consequently, to the optimal value function.
 
@@ -391,6 +391,6 @@ Besides the learning error for the higher level, the learning error for the subt
 
 \section{Conclusion}
 
-In this chapter we present a novel framework for hierarchical average-reward reinforcement learning which makes it possible to learn the low-level and high-level tasks simultaneously. 
+In this Chapter we present a novel framework for hierarchical average-reward reinforcement learning which makes it possible to learn the low-level and high-level tasks simultaneously. 
 We propose an eigenvector approach and an online algorithm for solving problems in our hierarchical framework, and show that the former converges to the optimal value function. We provide experimental results of the hierarchical updates both in the logarithmic and exponential domains that show that the logarithmic domain behaves more stably. The experimental results also show that either of the hierarchical versions outperforms a flat learner by several orders of magnitude.
 As a by-product of our analysis, we also provide a convergence theorem in the non-hierarchical case for average-reward LMDPs, which to the extent of our knowledge, was not previously done. In the future we would like to prove convergence also for the proposed online algorithm.

@@ -3,7 +3,7 @@
 We introduce the notation:
 \begin{itemize}
     \item $\mathds{1}$ denotes an all-ones vector of length $\lvert\cS\rvert$.
-    \item $\indicator{p}$ is the indicator function that takes $1$ when predicate $p$ is true and $0$ otherwise.
+    \item $\indicator{p}$ is the indicator function that equals $1$ when predicate $p$ is true and $0$ otherwise.
 \end{itemize}
 
 We assumme an underlying continuing LMDP $\cL=\langle\cS,\cP,\cR\rangle$ where $\cS$ represents the state space, $\cP$ the passive dynamics and $\cR$ the reward function. Similarly to [Section B.1] in~\cite{Wan2021}, we also assume there exists a set-valued process $\{X_t\}$ where $X_t$ is a non-empty subset defined as ${X_t = \{ (s) : s\;\text{component of $v$ was updated at timestep $t$} \}}$.
@@ -135,7 +135,7 @@ We adapt Theorem B.2 in~\cite{Wan2021}.
     \label{theo:our_theorem}
 \end{theorem}
 
-We observe that~\eqref{eq:td_update_theo} is in the same form of equationB.24 in~\cite{Wan2021} and equation7.1 in~\cite{Borkar2009}. Thus the results in Section 7.4 in~\cite{Borkar2009} and Theorem 3.2~\cite{Borkar1998} apply to show convergence of~\eqref{eq:td_update_theo}. Due to Assumptions~\ref{ass:stepsize2} and ~\ref{ass:stepsize3}, to show convergence of \eqref{eq:td_asynchronous_full} suffices to show convergence of the following synchronous update
+We observe that~\eqref{eq:td_update_theo} is in the same form of Equation 24 in~\cite{Wan2021} and Equation 1 in~\cite{Borkar2009}. Thus the results in Section 7.4 in~\cite{Borkar2009} and Theorem 3.2~\cite{Borkar1998} apply to show convergence of~\eqref{eq:td_update_theo}. Due to Assumptions~\ref{ass:stepsize2} and ~\ref{ass:stepsize3}, to show convergence of \eqref{eq:td_asynchronous_full} it suffices to show convergence of the following synchronous update
 \begin{equation}
     \widehat{v}_{t+1} \gets \widehat{v}_t + \alpha_t \pa{ T(\widehat{v}_t) - f(\widehat{v}_t) \mathds{1} - \widehat{v}_t + M_{t+1}}.
     \label{eq:synchronous}

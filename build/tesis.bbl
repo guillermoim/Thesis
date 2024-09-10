@@ -1,4 +1,4 @@
-\begin{thebibliography}{62}
+\begin{thebibliography}{65}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -98,6 +98,11 @@ Peter Dayan and Geoffrey~E Hinton.
 \newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~5. Morgan-Kaufmann, 1992.
 \newblock URL \url{https://proceedings.neurips.cc/paper/1992/hash/d14220ee66aeec73c49038385428ec4c-Abstract.html}.
 
+\bibitem[De~Giacomo et~al.(2019)De~Giacomo, Iocchi, Favorito, and Patrizi]{DeGiacomo2019}
+Giuseppe De~Giacomo, Luca Iocchi, Marco Favorito, and Fabio Patrizi.
+\newblock Foundations for restraining bolts: Reinforcement learning with ltlf/ldlf restraining specifications.
+\newblock In \emph{Proceedings of the international conference on automated planning and scheduling}, volume~29, pages 128--136, 2019.
+
 \bibitem[Dietterich(2000)]{Dietterich2000}
 T.~G. Dietterich.
 \newblock Hierarchical {Reinforcement} {Learning} with the {MAXQ} {Value} {Function} {Decomposition}.
@@ -118,6 +123,11 @@ Ronan Fruit, Matteo Pirotta, Alessandro Lazaric, and Emma Brunskill.
 \newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~30. Curran Associates, Inc., 2017.
 \newblock URL \url{https://papers.nips.cc/paper_files/paper/2017/hash/90599c8fdd2f6e7a03ad173e2f535751-Abstract.html}.
 
+\bibitem[Furelos-Blanco et~al.(2023)Furelos-Blanco, Law, Jonsson, Broda, and Russo]{Furelos2023}
+Daniel Furelos-Blanco, Mark Law, Anders Jonsson, Krysia Broda, and Alessandra Russo.
+\newblock Hierarchies of reward machines.
+\newblock In \emph{International Conference on Machine Learning}, pages 10494--10541. PMLR, 2023.
+
 \bibitem[Ghavamzadeh and Mahadevan(2007)]{Ghavamzadeh2007}
 Mohammad Ghavamzadeh and Sridhar Mahadevan.
 \newblock Hierarchical average reward reinforcement learning.
@@ -137,6 +147,11 @@ Tuomas Haarnoja, Aurick Zhou, Pieter Abbeel, and Sergey Levine.
 \newblock Soft {Actor}-{Critic}: {Off}-{Policy} {Maximum} {Entropy} {Deep} {Reinforcement} {Learning} with a {Stochastic} {Actor}.
 \newblock pages 1861--1870. PMLR, July 2018{\natexlab{b}}.
 \newblock URL \url{https://proceedings.mlr.press/v80/haarnoja18b.html}.
+
+\bibitem[Hasanbeig et~al.(2018)Hasanbeig, Abate, and Kroening]{Hasanbeig2018}
+Mohammadhosein Hasanbeig, Alessandro Abate, and Daniel Kroening.
+\newblock Logically-constrained reinforcement learning.
+\newblock \emph{arXiv preprint arXiv:1801.08099}, 2018.
 
 \bibitem[Howard(1960)]{Howard1960}
 Ronald~A Howard.
